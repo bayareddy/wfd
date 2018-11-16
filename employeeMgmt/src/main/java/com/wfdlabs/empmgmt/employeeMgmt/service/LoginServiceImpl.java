@@ -59,13 +59,8 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public Employee validatePassword(String employeePancard, Date employeeDob, Integer empId) {
-
-		// Employee employee = new Employee();
+		
 		return employeeRepository.findByEmployeeIdAndPancard(empId,employeePancard);
-		/*
-		 * String returnType="failure"; if(employee!=null) { returnType="success"; }
-		 * return returnType;
-		 */
-
+		
 	}
 }
