@@ -1,0 +1,27 @@
+.example-card {
+    max-width: 500px;
+    left: 442px;
+    top: 102px;
+    background-color: #264061;
+    border-radius: 40px !important;
+    color: #fff;
+    padding: 30px 45px;
+  }
+  .loginHeader {
+    margin: 33px;
+  }
+  .loginForm {
+    background-color: #5dbcd2;
+  }
+  .loginButton {
+    background-color: #f38971;
+    margin: 0 20px !important;
+  }
+  .loginAction {
+    margin-left: 188px;
+  }
+  .login_label {
+    font-size: 20px;
+    color: #fff;
+  }
+  

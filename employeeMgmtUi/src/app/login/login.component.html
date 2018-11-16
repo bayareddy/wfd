@@ -1,0 +1,28 @@
+
+ 
+      <form class="formContent" [formGroup]="loginForm">
+        <div class="form-align">
+          <div class="form-group row" [ngClass]="displayFieldCss('insurer')">
+            <label for="insurer" class="col-sm-4 col-form-label col-form-label-sm login_label">Insurer ID</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control form-control-sm loginForm" formControlName="insurer" name="insurer">
+              <app-field-error-display [displayError]="isFieldValid('insurer')" errorMsg="Please enter Insurer ID ">
+              </app-field-error-display>
+            </div>
+          </div>
+          <div class="form-group row" [ngClass]="displayFieldCss('passCode')">
+            <label for="passCode" class="col-sm-4 col-form-label col-form-label-sm login_label">Pass code</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control form-control-sm loginForm" formControlName="passCode">
+              <app-field-error-display [displayError]="isFieldValid('passCode')" errorMsg="Please enter Pass code ">
+              </app-field-error-display>
+            </div>
+          </div>
+        </div>
+      </form>
+    
+    <div class="loginAction">
+      <button mat-button class="loginButton" (click)="onSubmit();">Signin</button>
+      <button mat-button class="loginButton" routerLink="/registration">Signup</button>
+    </div>
+ 

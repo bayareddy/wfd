@@ -64,6 +64,14 @@ public void setPassword(String password) {
  private Date createDate;
  @Column
  private Date updateDate;
+ @Column
+ private String pancard;
+public String getPancard() {
+	return pancard;
+}
+public void setPancard(String pancard) {
+	this.pancard = pancard;
+}
 public Integer getEmployeeId() {
 	return employeeId;
 }
@@ -161,7 +169,8 @@ public String toString() {
 			+ departmentId + ", dateofBirth=" + dateofBirth + ", gender=" + gender + ", primaryMailId=" + primaryMailId
 			+ ", secondaryMailId=" + secondaryMailId + ", mobileNumber=" + mobileNumber + ", joinDate=" + joinDate
 			+ ", bankDetails=" + bankDetails + ", peramanentAddress=" + peramanentAddress + ", currentAddress="
-			+ currentAddress + ", createDate=" + createDate + ", updateDate=" + updateDate + "]";
+			+ currentAddress + ", createDate=" + createDate + ", updateDate=" + updateDate + ", pancard=" + pancard
+			+ "]";
 }
 public Date getCreateDate() {
 	return createDate;
