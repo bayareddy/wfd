@@ -9,6 +9,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
 	Employee findByEmployeeIdAndPassword(Integer empId, String empPassword);
 
-	Employee findByEmployeeIdAndPancard(Integer empId,String employeePancard);
+	Employee findByEmployeeIdAndPancard(Integer empId, String employeePancard);
 	
 }

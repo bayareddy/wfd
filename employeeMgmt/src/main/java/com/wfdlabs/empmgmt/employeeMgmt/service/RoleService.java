@@ -1,4 +1,5 @@
 package com.wfdlabs.empmgmt.employeeMgmt.service;
+
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Role;
 import java.util.List;
 
@@ -32,6 +33,12 @@ public interface RoleService {
 	 * @param rollId
 	 */
 	public String deleteRole(Integer rollId);
+
+	/**
+	 * This method is used to update role record based on role id.
+	 * 
+	 * @param rollId
+	 */
 	public Role updateRole(Role role);
 
 }

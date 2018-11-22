@@ -3,6 +3,7 @@ package com.wfdlabs.empmgmt.employeeMgmt.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,20 +22,21 @@ import java.util.Date;
  *
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/employee")
 public class LoginController {
 	@Autowired
 	LoginService loginService;
 
 	/**
-	 * this methos is used to login employeepage based on employeeId and
+	 * this method is used to login employeepage based on employeeId and
 	 * employeepassword
 	 * 
 	 * @param empId
 	 * @param empPassword
 	 * @return
 	 */
-
+	@CrossOrigin
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public Employee login(@RequestParam("employeeId") Integer empId, @RequestParam("password") String empPassword) {
 		return loginService.login(empId, empPassword);
