@@ -1,4 +1,5 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,9 +16,9 @@ import java.util.List;
 public class AdminController {
 	@Autowired
 	private RoleService roleService;
-	
+
 	/**
-	 * This class is used to create role and save role details
+	 * This method is used to create role and save role details
 	 * 
 	 * @param role
 	 * @return
@@ -43,23 +44,32 @@ public class AdminController {
 	}
 
 	/**
-	 * This method is used to get all role details 
+	 * This method is used to get all role details
+	 * 
 	 * @return all role details
 	 */
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public List<Role> getRoles() {
 		return roleService.getAllRoles();
 	}
+
+	/**
+	 * This method is used to update particular client details
+	 * 
+	 * @param role
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.PUT)
-	public Role updateRole(@RequestBody Role role){
+	public Role updateRole(@RequestBody Role role) {
 		System.out.println("Role:" + role);
 		System.out.println("Service scope:" + roleService);
 		return roleService.updateRole(role);
-		
+
 	}
 
 	/**
 	 * This method is used to delete particular record based on rollid
+	 * 
 	 * @param rollId
 	 */
 	@RequestMapping(method = RequestMethod.DELETE)

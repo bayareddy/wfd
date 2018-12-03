@@ -1,4 +1,5 @@
 package com.wfdlabs.empmgmt.employeeMgmt.service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,23 +39,31 @@ public class RoleServiceImpl implements RoleService {
 	public Role getRole(Integer rollId) {
 		return roleRepository.findById(rollId).get();
 	}
-    /**
-     * This method is used to get all role records 
-     */
+
+	/**
+	 * This method is used to get all role records
+	 */
 	@Override
 	public List<Role> getAllRoles() {
 		return roleRepository.findAll();
 	}
-    /**
-     * this method is used to delete particular record based on rollId
-     */
+
+	/**
+	 * this method is used to delete particular record based on rollId
+	 */
 	@Override
 	public String deleteRole(Integer rollId) {
-		 roleRepository.deleteById(rollId);
-		 return "record1 deleted successfully";
-		
+		roleRepository.deleteById(rollId);
+		return "record1 deleted successfully";
+
 	}
-    @Override
+
+	/**
+	 * This method is used to update role record based on role id.
+	 * 
+	 * @param rollId
+	 */
+	@Override
 	public Role updateRole(Role role) {
 		return roleRepository.save(role);
 	}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {CommonService} from '../service/common.service';
+import { RouterModule, Router, ActivatedRoute, Params, UrlSerializer } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +9,7 @@ import {CommonService} from '../service/common.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(  private formBuilder: FormBuilder, public commonService: CommonService) { }
+  constructor(  private router: Router, private formBuilder: FormBuilder, public commonService: CommonService) { }
 
   loginForm: any;
   loginData: any;
@@ -51,6 +52,8 @@ export class LoginComponent implements OnInit {
       this.commonService.sendLoginData(this.logindata).subscribe(
         value => {
           this.loginData = value;
+          this.router.navigate(['home']);
+          console.log('emp detials',this.logindata);
         },
         error => console.log('Error :: ' + error)
       );

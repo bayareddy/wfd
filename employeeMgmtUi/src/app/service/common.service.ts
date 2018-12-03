@@ -14,27 +14,23 @@ import { HttpHeaders } from '@angular/common/http';
 export class CommonService {
   postOptions = {
     headers: new HttpHeaders({
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     })
   };
   loginData: any;
+  private addNewOrderUrl;
   constructor(private http: HttpClient) { }
 
-  private addNewOrderUrl =
-    'http://localhost:4000/channels/mychannel/chaincodes/mycc';
-  // private telematicsDataUrl = 'https://jsonplaceholder.typicode.com/users';
-  addNewOrderService(data): Observable<any> {
-    const body = JSON.stringify(data);
-    console.log('data coming' + data);
-    return this.http.post<any>(this.addNewOrderUrl, body);
-  }
   public sendLoginData(data): Observable<any> {
+    console.log('logindata service',data);
+    //  this.addNewOrderUrl ='http://localhost:8080/employee/login?employeeId='+data+'&password='+'';
+     this.addNewOrderUrl ='http://localhost:8080/employee/login?employeeId=' +data[0] +'&password='+ data[1];
+
     this.loginData = data;
-    return this.http.post(
+    return this.http.get(
       this.addNewOrderUrl,
-      this.loginData,
-      this.postOptions
+       this.postOptions
     );
   }
 }
