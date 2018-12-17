@@ -24,4 +24,13 @@
     font-size: 20px;
     color: #fff;
   }
-  
+  .main_div{
+    text-align: center;
+    border: 1px solid black;
+    width: 30%;
+    position: fixed;
+    /* display: inline; */
+    top: 30%;
+    left: 30%;
+    padding: 100px;
+  }   

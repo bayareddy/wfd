@@ -25,7 +25,7 @@ export class CommonService {
   public sendLoginData(data): Observable<any> {
     console.log('logindata service',data);
     //  this.addNewOrderUrl ='http://localhost:8080/employee/login?employeeId='+data+'&password='+'';
-     this.addNewOrderUrl ='http://localhost:8080/employee/login?employeeId=' +data[0] +'&password='+ data[1];
+     this.addNewOrderUrl ='http://localhost:8080/employee/login?employeeId='+data[0] +'&password='+ data[1];
 
     this.loginData = data;
     return this.http.get(
