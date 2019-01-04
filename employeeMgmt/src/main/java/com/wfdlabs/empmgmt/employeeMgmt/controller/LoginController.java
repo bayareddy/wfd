@@ -3,6 +3,8 @@ package com.wfdlabs.empmgmt.employeeMgmt.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +40,12 @@ public class LoginController {
 	 */
 	@CrossOrigin
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public Employee login(@RequestParam("employeeId") Integer empId, @RequestParam("password") String empPassword) {
-		return loginService.login(empId, empPassword);
+	public  ResponseEntity<Employee> login(@RequestParam("employeeId") Integer empId, @RequestParam("password") String empPassword) {
+		Employee employee= loginService.login(empId, empPassword);
+		if(employee==null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+		return new ResponseEntity<Employee>(employee,HttpStatus.OK);
 	}
 
 	/**
@@ -53,11 +59,15 @@ public class LoginController {
 	 */
 
 	@RequestMapping(value = "/forget", method = RequestMethod.GET)
-	public Employee validatePassword(@RequestParam("pancard") String employeePancard,
+	public  ResponseEntity<Employee> validatePassword(@RequestParam("pancard") String employeePancard,
 			@RequestParam("dateofBirth") String employeeDob, @RequestParam("employeeId") Integer empId)
 			throws ParseException {
-		return loginService.validatePassword(employeePancard, new SimpleDateFormat("dd/MM/yyyy").parse(employeeDob),empId);
-
+		Employee employee= loginService.validatePassword(employeePancard, new SimpleDateFormat("dd/MM/yyyy").parse(employeeDob),empId);
+        if(employee==null) {
+        	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        	
+        }
+        return new ResponseEntity<>(employee,HttpStatus.OK);
 	}
 
 	/**
@@ -68,10 +78,11 @@ public class LoginController {
 	 */
 
 	@RequestMapping(method = RequestMethod.POST)
-	public List<Employee> createEmployee(@RequestBody Employee employee) {
+	public  ResponseEntity<List> createEmployee(@RequestBody Employee employee) {
 		System.out.println("employee:" + employee);
 		System.out.println("service scope:" + loginService);
-		return loginService.createEmployee(employee);
+		List<Employee> employeeList= loginService.createEmployee(employee);
+		return new ResponseEntity<>(employeeList,HttpStatus.CREATED);
 	}
 
 }
