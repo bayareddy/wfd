@@ -1,8 +1,11 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,9 +33,10 @@ public class LeaveController {
 	 */
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Leave createLeave(@RequestBody Leave leave) {
+	public ResponseEntity<Leave> createLeave(@RequestBody Leave leave) {
 		leave.setUpdateDate(null);
-		return leaveService.createLeave(leave);
+		leave = leaveService.createLeave(leave);
+		return new ResponseEntity<>(leave, HttpStatus.CREATED);
 	}
 
 	/**
@@ -44,8 +48,19 @@ public class LeaveController {
 	 */
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Leave getById(@RequestParam Integer id) {
-		return leaveService.getById(id);
+	public ResponseEntity<Leave> getById(@RequestParam Integer id) {
+		Leave leave=null;
+		boolean noElementFlag=false;
+		try {
+		leave= leaveService.getById(id);
+		}
+		catch (NoSuchElementException nsee) {
+			noElementFlag=true;	
+		}
+		if(noElementFlag||leave==null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(leave,HttpStatus.OK);
 	}
 
 	/**
@@ -56,11 +71,12 @@ public class LeaveController {
 	 */
 
 	@RequestMapping(value = "/leavetype", method = RequestMethod.POST)
-	public LeaveType createLeaveType(@RequestBody LeaveType leaveType) {
+	public ResponseEntity<LeaveType> createLeaveType(@RequestBody LeaveType leaveType) {
 		System.out.println("LeaveType:" + leaveType);
 		System.out.println("service scope:" + leaveService);
 		leaveType.setUpdateDate(null);
-		return leaveService.createLeaveType(leaveType);
+		leaveType = leaveService.createLeaveType(leaveType);
+		return new ResponseEntity<>(leaveType, HttpStatus.CREATED);
 	}
 
 	/**
@@ -69,8 +85,12 @@ public class LeaveController {
 	 * @return
 	 */
 	@RequestMapping(value = "/leavetype/getall", method = RequestMethod.GET)
-	public List<LeaveType> getAllLeaveType() {
-		return leaveService.getAllLeaveType();
+	public ResponseEntity<List> getAllLeaveType() {
+		List<LeaveType> leaveTypeList = leaveService.getAllLeaveType();
+		if (leaveTypeList == null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(leaveTypeList, HttpStatus.OK);
 	}
 
 	/**
@@ -81,11 +101,11 @@ public class LeaveController {
 	 */
 
 	@RequestMapping(value = "/leavetype/delete", method = RequestMethod.DELETE)
-	public String deleteLeaveType(@RequestParam Integer leaveId) {
+	public ResponseEntity deleteLeaveType(@RequestParam Integer leaveId) {
 		System.out.println("leaveTypeId:" + leaveId);
 		System.out.println("service scope:" + leaveService);
 		leaveService.deleteLeaveType(leaveId);
-		return "delete record sucessfully";
+		return new ResponseEntity<>(HttpStatus.OK);
 
 	}
 
@@ -97,8 +117,20 @@ public class LeaveController {
 	 */
 
 	@RequestMapping(value = "/leavetype/getId", method = RequestMethod.GET)
-	public LeaveType getLeaveType(@RequestParam Integer leaveId) {
-		return leaveService.getLeaveType(leaveId);
+	public ResponseEntity<LeaveType> getLeaveType(@RequestParam Integer leaveId) {
+		LeaveType leaveType=null;
+		boolean noElementFlag=false;
+		try {
+			leaveType=leaveService.getLeaveType(leaveId);
+		}
+		catch (NoSuchElementException nsee) {
+			noElementFlag =true;
+		}
+		if(noElementFlag||leaveType==null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		
+		return new ResponseEntity<>(leaveType,HttpStatus.OK);
 	}
 
 	/**
@@ -109,11 +141,12 @@ public class LeaveController {
 	 */
 
 	@RequestMapping(value = "/leavetype/update", method = RequestMethod.PUT)
-	public LeaveType updateLeaveType(@RequestBody LeaveType leaveType) {
+	public ResponseEntity<LeaveType> updateLeaveType(@RequestBody LeaveType leaveType) {
 		System.out.println("LeaveType:" + leaveType);
 		System.out.println("service scope:" + leaveService);
 		leaveType.setUpdateDate(new Date());
-		return leaveService.updateLeaveType(leaveType);
+	     leaveType= leaveService.updateLeaveType(leaveType);
+		return new ResponseEntity<>(leaveType,HttpStatus.OK);
 
 	}
 
@@ -124,10 +157,11 @@ public class LeaveController {
 	 * @return
 	 */
 	@RequestMapping(value = "/leavestatus", method = RequestMethod.POST)
-	public LeaveStatus createLeaveStatus(@RequestBody LeaveStatus leaveStatus) {
+	public ResponseEntity<LeaveStatus> createLeaveStatus(@RequestBody LeaveStatus leaveStatus) {
 		System.out.println("LeaveStatus:" + leaveStatus);
 		leaveStatus.setUpdateDate(null);
-		return leaveService.createLeaveStatus(leaveStatus);
+		leaveStatus = leaveService.createLeaveStatus(leaveStatus);
+		return new ResponseEntity<>(leaveStatus, HttpStatus.CREATED);
 	}
 
 	/**
@@ -137,9 +171,20 @@ public class LeaveController {
 	 * @return
 	 */
 	@RequestMapping(value = "/leavestatus/getid", method = RequestMethod.GET)
-	public LeaveStatus getLeaveStatus(@RequestParam Integer leaveId) {
+	public ResponseEntity<LeaveStatus> getLeaveStatus(@RequestParam Integer leaveId) {
 		System.out.println("LeaveStatus:" + leaveId);
-		return leaveService.getLeaveStatus(leaveId);
+		LeaveStatus leaveStatus=null;
+		boolean noElementFlag=false;
+		try {
+		 leaveStatus = leaveService.getLeaveStatus(leaveId);
+		}
+		catch(NoSuchElementException nsee) {
+			noElementFlag=true;
+		}
+		if (noElementFlag||leaveStatus == null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<LeaveStatus>(leaveStatus, HttpStatus.OK);
 	}
 
 	/**
@@ -148,21 +193,22 @@ public class LeaveController {
 	 * @return
 	 */
 	@RequestMapping(value = "/leavestatus/getall", method = RequestMethod.GET)
-	public List<LeaveStatus> getAllLeavetype() {
-		return leaveService.getAllLeaveStatus();
+	public  ResponseEntity<List> getAllLeaveStatus() {
+		List<LeaveStatus> leavestatusList= leaveService.getAllLeaveStatus();
+		return new ResponseEntity<>(leavestatusList,HttpStatus.OK);
 	}
 
 	/**
 	 * This method is used to delete record based on leaveId
 	 * 
-	 * @param leaveId
+	 * @param leaveId	
 	 * @return
 	 */
 	@RequestMapping(value = "/leavestatus/delete", method = RequestMethod.DELETE)
-	public String deleteLeaveStatus(@RequestParam Integer leaveId) {
+	public ResponseEntity deleteLeaveStatus(@RequestParam Integer leaveId) {
 		System.out.println("leaveTypeId:" + leaveId);
 		leaveService.deleteLeaveStatus(leaveId);
-		return "delete record successfully";
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	/**
@@ -173,10 +219,11 @@ public class LeaveController {
 	 */
 
 	@RequestMapping(value = "/leavestatus/update", method = RequestMethod.PUT)
-	public LeaveStatus updateLeaveStatus(@RequestBody LeaveStatus leaveStatus) {
+	public ResponseEntity<LeaveStatus> updateLeaveStatus(@RequestBody LeaveStatus leaveStatus) {
 		System.out.println("LeaveStatus:" + leaveStatus);
 		leaveStatus.setUpdateDate(new Date());
-		return leaveService.updateLeaveStatus(leaveStatus);
+		leaveStatus= leaveService.updateLeaveStatus(leaveStatus);
+		return new ResponseEntity<>(leaveStatus,HttpStatus.OK);
 	}
 
 }

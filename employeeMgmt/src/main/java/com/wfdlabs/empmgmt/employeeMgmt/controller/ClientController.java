@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Client;
 import com.wfdlabs.empmgmt.employeeMgmt.service.ClientService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/Client")
@@ -25,10 +29,11 @@ public class ClientController {
 	 */
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Client createClient(@RequestBody Client client) {
+	public ResponseEntity<Client> createClient(@RequestBody Client client) {
 		System.out.println("Client:" + client);
 		client.setUpdateDate(null);
-		return clientService.createClient(client);
+		client= clientService.createClient(client);
+		return new ResponseEntity<>(client,HttpStatus.CREATED);
 	}
 
 	/**
@@ -38,9 +43,20 @@ public class ClientController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public Client getClient(@RequestParam Integer ClientTypeId) {
+	public ResponseEntity<Client> getClient(@RequestParam Integer ClientTypeId) {
 		System.out.println("Client:" + ClientTypeId);
-		return clientService.getClient(ClientTypeId);
+		Client client=null;
+		boolean noElementFlag=false;
+		try {
+			client=clientService.getClient(ClientTypeId);
+		}
+		catch(NoSuchElementException nsee) {
+			noElementFlag=true;
+		}
+		if(noElementFlag||client==null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	return new ResponseEntity<>(client,HttpStatus.OK);	
 	}
 
 	/**
@@ -51,8 +67,9 @@ public class ClientController {
 	 */
 
 	@RequestMapping(value = "/getall", method = RequestMethod.GET)
-	public List<Client> getAllClient() {
-		return clientService.getAllClient();
+	public  ResponseEntity<List> getAllClient() {
+		List<Client> clientList= clientService.getAllClient();
+		return new ResponseEntity<>(clientList,HttpStatus.OK);
 	}
 
 	/**
@@ -62,10 +79,10 @@ public class ClientController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.DELETE)
-	public String deleteClient(@RequestParam Integer ClientTypeId) {
+	public ResponseEntity deleteClient(@RequestParam Integer ClientTypeId) {
 		System.out.println("clientTypeId:" + ClientTypeId);
 		clientService.deleteClient(ClientTypeId);
-		return "delete record successfully";
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	/**
@@ -75,9 +92,10 @@ public class ClientController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.PUT)
-	public Client updateClient(@RequestBody Client client) {
+	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
 		System.out.println("Client:" + client);
-		return clientService.updateClient(client);
+		client= clientService.updateClient(client);
+		return new ResponseEntity<>(client,HttpStatus.OK);
 
 	}
 
