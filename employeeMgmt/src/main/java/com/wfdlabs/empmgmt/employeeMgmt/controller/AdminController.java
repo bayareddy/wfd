@@ -1,4 +1,4 @@
-package com.wfdlabs.empmgmt.employeeMgmt.controller;
+ package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,10 +6,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Role;
 import com.wfdlabs.empmgmt.employeeMgmt.service.RoleService;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/Role")
@@ -24,10 +27,11 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public Role createRole(@RequestBody Role role) {
+	public ResponseEntity<Role> createRole(@RequestBody Role role) {
 		System.out.println("Role:" + role);
 		System.out.println("service scope:" + roleService);
-		return roleService.createRole(role);
+		role= roleService.createRole(role);
+		return new ResponseEntity<>(role,HttpStatus.CREATED);
 	}
 
 	/**
@@ -37,10 +41,21 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public Role createRoles(@RequestParam Integer rollId) {
+	public ResponseEntity<Role> createRoles(@RequestParam Integer rollId) {
 		System.out.println("Role:" + rollId);
 		System.out.println("service scope:" + roleService);
-		return roleService.getRole(rollId);
+		Role role=null;
+		boolean noElementFlag=false;
+		try {
+		 role= roleService.getRole(rollId);
+	}
+		catch(NoSuchElementException nsee) {
+			noElementFlag=true;
+		}
+		if(noElementFlag||role==null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<Role>(role,HttpStatus.OK);
 	}
 
 	/**
@@ -49,8 +64,9 @@ public class AdminController {
 	 * @return all role details
 	 */
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public List<Role> getRoles() {
-		return roleService.getAllRoles();
+	public ResponseEntity<List<Role>> getRoles() {
+		List<Role> roleList= roleService.getAllRoles();
+		return new ResponseEntity<>(roleList,HttpStatus.OK);
 	}
 
 	/**
@@ -60,10 +76,11 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.PUT)
-	public Role updateRole(@RequestBody Role role) {
+	public ResponseEntity<Role> updateRole(@RequestBody Role role) {
 		System.out.println("Role:" + role);
 		System.out.println("Service scope:" + roleService);
-		return roleService.updateRole(role);
+		role= roleService.updateRole(role);
+		return new ResponseEntity<>(role,HttpStatus.OK);
 
 	}
 
@@ -73,10 +90,10 @@ public class AdminController {
 	 * @param rollId
 	 */
 	@RequestMapping(method = RequestMethod.DELETE)
-	public String deleteRoles(@RequestParam Integer rollId) {
+	public ResponseEntity deleteRoles(@RequestParam Integer rollId) {
 		System.out.println("Role:" + rollId);
 		System.out.println("service scope:" + roleService);
 		roleService.deleteRole(rollId);
-		return "record deleted sucessfully";
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

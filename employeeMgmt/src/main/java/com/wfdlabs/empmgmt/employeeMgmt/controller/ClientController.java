@@ -67,7 +67,7 @@ public class ClientController {
 	 */
 
 	@RequestMapping(value = "/getall", method = RequestMethod.GET)
-	public  ResponseEntity<List> getAllClient() {
+	public  ResponseEntity<List<Client>> getAllClient() {
 		List<Client> clientList= clientService.getAllClient();
 		return new ResponseEntity<>(clientList,HttpStatus.OK);
 	}
