@@ -1,6 +1,8 @@
 package com.wfdlabs.empmgmt.employeeMgmt.service;
+
 import java.util.List;
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Module;
+
 public interface ModuleService {
 	public Module createModule(Module module);
 

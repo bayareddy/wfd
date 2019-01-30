@@ -1,4 +1,5 @@
 package com.wfdlabs.empmgmt.employeeMgmt.entity;
+
 import java.util.Date;
 import javax.persistence.*;
 

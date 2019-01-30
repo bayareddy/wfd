@@ -1,7 +1,9 @@
 package com.wfdlabs.empmgmt.employeeMgmt.service;
+
 import java.util.List;
 
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Permision;
+
 public interface PermisionService {
 	public Permision createPermision(Permision permision);
 
