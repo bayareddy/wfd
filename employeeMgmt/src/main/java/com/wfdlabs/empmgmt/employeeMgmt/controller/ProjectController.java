@@ -5,7 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Project;
 import com.wfdlabs.empmgmt.employeeMgmt.service.ProjectService;
 
@@ -22,10 +28,11 @@ public class ProjectController {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public Project createProject(@RequestBody Project project) {
+	public ResponseEntity<Project> createProject(@RequestBody Project project) {
 		System.out.println("Project:" + project);
 		project.setUpdateDate(null);
-		return projectService.createProject(project);
+		project= projectService.createProject(project);
+		return new ResponseEntity<>(project,HttpStatus.OK);
 	}
 
 	/**
@@ -36,9 +43,22 @@ public class ProjectController {
 	 */
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Project getproject(@RequestParam Integer projectTypeId) {
+	public ResponseEntity<Project> getproject(@RequestParam Integer projectTypeId) {
 		System.out.println("project:" + projectTypeId);
-		return projectService.getproject(projectTypeId);
+		Project project=null;
+		boolean noElementFlag=false;
+		try {
+		  project= projectService.getproject(projectTypeId);
 	}
+		catch(NoSuchElementException nsee) {
+			noElementFlag=true;
+		}
+		if(noElementFlag||project==null) {
+			
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(project,HttpStatus.OK);
+		}
+			
+		}
 
-}
