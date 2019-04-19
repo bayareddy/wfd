@@ -8,6 +8,7 @@ public class SchoolMgmtApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SchoolMgmtApplication.class, args);
-	}
+	} 
+	
 
 }
