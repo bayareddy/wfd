@@ -46,6 +46,7 @@ public class AddressController {
 	 * @param pAddress
 	 * @return
 	 */
+	
 	@RequestMapping(value = "/{addressId}", method = RequestMethod.GET)
 	public ResponseEntity<Address> getAddress(@PathVariable Integer addressId) {
 		Address address=null;
