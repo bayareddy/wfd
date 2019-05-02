@@ -1,1 +1,37 @@
 2019-04-21 13:03:16.528  WARN 4180 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14h49m55s780ms191µs755ns).
+2019-05-02 20:08:44.816  INFO 13092 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : Starting SchoolMgmtApplication on Nithin-PC with PID 13092 (started by Nithin in D:\wfd labs\GitSorceCode\wfd\schoolMgmt)
+2019-05-02 20:08:44.826  INFO 13092 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : No active profile set, falling back to default profiles: default
+2019-05-02 20:08:47.684  INFO 13092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-02 20:08:47.990  INFO 13092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 286ms. Found 6 repository interfaces.
+2019-05-02 20:08:49.210  INFO 13092 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7c35f8d1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-02 20:08:49.309  INFO 13092 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$fbb64603] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-02 20:08:50.165  INFO 13092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-02 20:08:50.240  INFO 13092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-02 20:08:50.241  INFO 13092 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-02 20:08:50.636  INFO 13092 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-02 20:08:50.636  INFO 13092 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5675 ms
+2019-05-02 20:08:51.112  INFO 13092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-02 20:08:51.210  INFO 13092 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (org.h2.jdbc.JdbcConnection.getNetworkTimeout()I)
+2019-05-02 20:08:51.233  INFO 13092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-02 20:08:58.200  INFO 13092 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-02 20:08:58.579  INFO 13092 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-02 20:08:58.584  INFO 13092 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-02 20:08:58.849  INFO 13092 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-02 20:08:59.141  INFO 13092 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-02 20:08:59.297  INFO 13092 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2019-05-02 20:09:01.134  INFO 13092 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@78d92eef'
+2019-05-02 20:09:01.139  INFO 13092 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-02 20:09:02.854  WARN 13092 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-02 20:09:03.691  INFO 13092 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-02 20:09:04.235  INFO 13092 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-05-02 20:09:04.271  INFO 13092 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-05-02 20:09:04.295  INFO 13092 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-05-02 20:09:05.200  INFO 13092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-02 20:09:05.206  INFO 13092 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : Started SchoolMgmtApplication in 21.445 seconds (JVM running for 23.23)
+2019-05-02 20:09:26.321  INFO 13092 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-02 20:09:26.322  INFO 13092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-02 20:09:26.355  INFO 13092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 33 ms
+2019-05-02 23:12:51.560  WARN 13092 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m57s951ms58µs962ns).
+2019-05-02 23:25:54.530  WARN 13092 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m59s332ms624µs241ns).
