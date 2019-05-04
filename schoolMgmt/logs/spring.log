@@ -35,3 +35,159 @@
 2019-05-02 20:09:26.355  INFO 13092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 33 ms
 2019-05-02 23:12:51.560  WARN 13092 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m57s951ms58µs962ns).
 2019-05-02 23:25:54.530  WARN 13092 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m59s332ms624µs241ns).
+2019-05-04 14:18:35.372  INFO 4692 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : Starting SchoolMgmtApplication on DESKTOP-15TDDA6 with PID 4692 (started by DELL in C:\spring\wfdlabs\Git Code\wfd\schoolMgmt)
+2019-05-04 14:18:35.377  INFO 4692 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : No active profile set, falling back to default profiles: default
+2019-05-04 14:18:36.676  INFO 4692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-04 14:18:36.796  INFO 4692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107ms. Found 5 repository interfaces.
+2019-05-04 14:18:37.187  INFO 4692 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$19776d64] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-04 14:18:37.219  INFO 4692 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$98f7ba96] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-04 14:18:37.620  INFO 4692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-04 14:18:37.652  INFO 4692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-04 14:18:37.657  INFO 4692 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-04 14:18:37.863  INFO 4692 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-04 14:18:37.868  INFO 4692 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2424 ms
+2019-05-04 14:18:38.060  INFO 4692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-04 14:18:38.108  INFO 4692 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (org.h2.jdbc.JdbcConnection.getNetworkTimeout()I)
+2019-05-04 14:18:38.119  INFO 4692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-04 14:18:38.189  INFO 4692 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-04 14:18:38.386  INFO 4692 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-04 14:18:38.393  INFO 4692 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-04 14:18:38.533  INFO 4692 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-04 14:18:38.780  INFO 4692 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-04 14:18:38.828  INFO 4692 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2019-05-04 14:18:39.548  INFO 4692 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@2aea717c'
+2019-05-04 14:18:39.550  INFO 4692 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-04 14:18:40.182  WARN 4692 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-04 14:18:40.502  INFO 4692 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-04 14:18:40.721  INFO 4692 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-05-04 14:18:40.740  INFO 4692 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-05-04 14:18:40.754  INFO 4692 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-05-04 14:18:41.083  INFO 4692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-04 14:18:41.099  INFO 4692 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : Started SchoolMgmtApplication in 6.284 seconds (JVM running for 7.353)
+2019-05-04 14:19:05.385  INFO 4692 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-04 14:19:05.392  INFO 4692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-04 14:19:05.408  INFO 4692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2019-05-04 14:34:21.115  INFO 10584 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : Starting SchoolMgmtApplication on DESKTOP-15TDDA6 with PID 10584 (started by DELL in C:\spring\wfdlabs\Git Code\wfd\schoolMgmt)
+2019-05-04 14:34:21.120  INFO 10584 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : No active profile set, falling back to default profiles: default
+2019-05-04 14:34:22.195  INFO 10584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-04 14:34:22.325  INFO 10584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118ms. Found 8 repository interfaces.
+2019-05-04 14:34:22.707  INFO 10584 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$42629fa6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-04 14:34:22.737  INFO 10584 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$c1e2ecd8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-04 14:34:23.091  INFO 10584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-04 14:34:23.118  INFO 10584 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-04 14:34:23.123  INFO 10584 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-04 14:34:23.298  INFO 10584 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-04 14:34:23.299  INFO 10584 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2117 ms
+2019-05-04 14:34:23.502  INFO 10584 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-04 14:34:23.548  INFO 10584 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (org.h2.jdbc.JdbcConnection.getNetworkTimeout()I)
+2019-05-04 14:34:23.559  INFO 10584 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-04 14:34:23.628  INFO 10584 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-04 14:34:24.075  INFO 10584 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-04 14:34:24.105  INFO 10584 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-04 14:34:24.758  INFO 10584 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-04 14:34:25.174  INFO 10584 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-04 14:34:25.245  INFO 10584 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2019-05-04 14:34:26.927  INFO 10584 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@489110c2'
+2019-05-04 14:34:26.935  INFO 10584 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-04 14:34:27.839  WARN 10584 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-04 14:34:28.215  INFO 10584 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-04 14:34:28.428  INFO 10584 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-05-04 14:34:28.449  INFO 10584 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-05-04 14:34:28.463  INFO 10584 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-05-04 14:34:28.924 ERROR 10584 --- [main] org.apache.catalina.util.LifecycleBase   : Failed to start component [Connector[HTTP/1.1-8080]]
+
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) [spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at com.wfd.schoolmgt.schoolMgmt.SchoolMgmtApplication.main(SchoolMgmtApplication.java:30) [classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_192]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_192]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_192]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_192]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_192]
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:236) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1103) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1189) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	... 14 common frames omitted
+
+2019-05-04 14:34:28.939  INFO 10584 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-05-04 14:34:28.967  INFO 10584 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-05-04 14:34:28.977 ERROR 10584 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2019-05-04 14:34:28.993  INFO 10584 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-04 14:34:29.004  INFO 10584 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-04 14:34:29.007  INFO 10584 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-05-04 14:34:29.009  INFO 10584 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-05-04 14:35:35.312  INFO 4692 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-05-04 14:35:35.320  INFO 4692 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-04 14:35:35.330  INFO 4692 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-04 14:35:35.335  INFO 4692 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-05-04 14:35:35.344  INFO 4692 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-05-04 14:35:39.076  INFO 8860 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : Starting SchoolMgmtApplication on DESKTOP-15TDDA6 with PID 8860 (started by DELL in C:\spring\wfdlabs\Git Code\wfd\schoolMgmt)
+2019-05-04 14:35:39.081  INFO 8860 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : No active profile set, falling back to default profiles: default
+2019-05-04 14:35:40.179  INFO 8860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-04 14:35:40.306  INFO 8860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 114ms. Found 8 repository interfaces.
+2019-05-04 14:35:40.689  INFO 8860 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$28cfbdfe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-04 14:35:40.720  INFO 8860 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$a8500b30] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-04 14:35:41.028  INFO 8860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-04 14:35:41.054  INFO 8860 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-04 14:35:41.059  INFO 8860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-04 14:35:41.249  INFO 8860 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-04 14:35:41.250  INFO 8860 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2110 ms
+2019-05-04 14:35:41.438  INFO 8860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-04 14:35:41.484  INFO 8860 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (org.h2.jdbc.JdbcConnection.getNetworkTimeout()I)
+2019-05-04 14:35:41.493  INFO 8860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-04 14:35:41.565  INFO 8860 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-04 14:35:41.733  INFO 8860 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-04 14:35:41.739  INFO 8860 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-04 14:35:41.864  INFO 8860 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-04 14:35:42.012  INFO 8860 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-05-04 14:35:42.054  INFO 8860 --- [main] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2019-05-04 14:35:42.739  INFO 8860 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@2abc55c4'
+2019-05-04 14:35:42.742  INFO 8860 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-04 14:35:43.384  WARN 8860 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-04 14:35:43.691  INFO 8860 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-04 14:35:43.898  INFO 8860 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-05-04 14:35:43.915  INFO 8860 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-05-04 14:35:43.929  INFO 8860 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-05-04 14:35:44.314  INFO 8860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-04 14:35:44.321  INFO 8860 --- [main] c.w.s.schoolMgmt.SchoolMgmtApplication   : Started SchoolMgmtApplication in 5.675 seconds (JVM running for 6.622)
+2019-05-04 14:35:56.048  INFO 8860 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-04 14:35:56.054  INFO 8860 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-04 14:35:56.069  INFO 8860 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms

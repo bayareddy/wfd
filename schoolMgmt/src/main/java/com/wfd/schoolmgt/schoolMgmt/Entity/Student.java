@@ -46,8 +46,8 @@ public class Student {
 	public String parentOccupstion;
 	
 	
-	@ManyToOne
-	Attendence attendence;
+//	@ManyToOne
+	//Attendence attendence;
 	
 	public Integer getStudentId() {
 		return studentId;
