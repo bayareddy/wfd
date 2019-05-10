@@ -5,11 +5,13 @@ package com.wfd.schoolmgt.schoolMgmt.Entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,10 +24,8 @@ public class Marks {
 	public int student_id;
 	@Column
 	public int subject_id;
-	@Column
-	public int examtype_id;
-	@Column
-	public int marks;
+	@ManyToOne(cascade = CascadeType.ALL)
+	public ExamType examType;
 	public int getMarks_id() {
 		return marks_id;
 	}
@@ -43,6 +43,12 @@ public class Marks {
 	}
 	public void setSubject_id(int subject_id) {
 		this.subject_id = subject_id;
+	}
+	public ExamType getExamType() {
+		return examType;
+	}
+	public void setExamType(ExamType examType) {
+		this.examType = examType;
 	}
 	public int getExamtype_id() {
 		return examtype_id;
@@ -62,6 +68,10 @@ public class Marks {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	@Column
+	public int examtype_id;
+	@Column
+	public int marks;
 	@Column
 	public Date date;
 
