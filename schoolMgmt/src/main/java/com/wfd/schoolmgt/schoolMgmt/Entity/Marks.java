@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +27,8 @@ public class Marks {
 	public int subject_id;
 	@ManyToOne(cascade = CascadeType.ALL)
 	public ExamType examType;
+	@OneToOne(cascade = CascadeType.ALL)
+	public Student student;
 	public int getMarks_id() {
 		return marks_id;
 	}

@@ -12,4 +12,6 @@ public interface TimeTableService  {
 
 	String deleteTimeTable(Integer timeTableId);
 
+	
+
 }

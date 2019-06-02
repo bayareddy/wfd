@@ -32,7 +32,7 @@ public class TimeTableServiceImpl implements TimeTableService {
 	@Override
 	public String deleteTimeTable(@RequestBody Integer timeTableId) {
 		timeTableRepository.deleteById(timeTableId);
-		return timeTableId+ "Delete Successfully";
+		return timeTableId+" Delete Successfully ";
 	}
 
 }

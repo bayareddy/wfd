@@ -20,7 +20,7 @@ import com.wfd.schoolmgt.schoolMgmt.Service.ExamTypeService;
 
 @RequestMapping("/examtype")
 @RestController
-public class ExamTypeConroller {
+public class ExamTypeController {
 	@Autowired
 	ExamTypeService examTypeService;
 	

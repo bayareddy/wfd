@@ -14,29 +14,28 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wfd.schoolmgt.schoolMgmt.Entity.TimeTable;
 import com.wfd.schoolmgt.schoolMgmt.Service.TimeTableService;
 
-@RequestMapping("/timetable")
+@RequestMapping("/timeTable")
 @RestController
 public class TimeTableController {
 	@Autowired
 	TimeTableService timeTableService;
 	@RequestMapping(method = RequestMethod.POST)
-	public TimeTable createTimeTable(@RequestBody TimeTable pTimeTable) {
-		return timeTableService.createTimeTable(pTimeTable);
+	public TimeTable createTimeTable(@RequestBody TimeTable pTimeTable ) {
+		return timeTableService.createTimeTable(pTimeTable) ;
 		
 	}
 	@RequestMapping(value = "/{timeTableId}", method = RequestMethod.GET)
 	public ResponseEntity<TimeTable> getTimeTable(@PathVariable Integer timeTableId){
 		TimeTable timeTable = null;
-		Boolean noSuchElement  = false;
-		try {
-			timeTable=timeTableService.getTimeTable(timeTableId);
-		} catch (NoSuchElementException nsee) {
-			noSuchElement = true;
-		}
-		if(noSuchElement || timeTable == null) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-			
+		 Boolean noSuchElement=false;
+		 try {
+			 timeTable = timeTableService.getTimeTable(timeTableId);
+		 }catch (NoSuchElementException nsee) {
+				noSuchElement=true;
+			}
+		 if(noSuchElement || timeTable==null) {
+			 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		 }
 		return new ResponseEntity<>(timeTable,HttpStatus.OK);
 		
 	}
@@ -45,8 +44,8 @@ public class TimeTableController {
 		return timeTableService.updateTimeTable(pTimeTable);
 		
 	}
-	@RequestMapping(value = "/{timeTableId}",method = RequestMethod.DELETE)
-	public String deltetTimeTable(@PathVariable Integer timeTableId) {
+	@RequestMapping(value = "/{timeTableId}", method = RequestMethod.DELETE)
+	public String deleteTimeTable(@PathVariable Integer timeTableId) {
 		return timeTableService.deleteTimeTable(timeTableId);
 		
 	}
