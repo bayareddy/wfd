@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.wfd.schoolmgt.schoolMgmt.Controller;
 
 import java.util.NoSuchElementException;
@@ -19,11 +22,25 @@ import com.wfd.schoolmgt.schoolMgmt.Service.TimeTableService;
 public class TimeTableController {
 	@Autowired
 	TimeTableService timeTableService;
+	
+	/**
+	 * This method is used to create TimeTableDetails
+	 * 
+	 * @param pTimeTable
+	 * @return
+	 */
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public TimeTable createTimeTable(@RequestBody TimeTable pTimeTable ) {
 		return timeTableService.createTimeTable(pTimeTable) ;
 		
 	}
+	/**
+	 * This method is used to create TimeTableDetails
+	 * 
+	 * @param pTimeTable
+	 * @return
+	 */
 	@RequestMapping(value = "/{timeTableId}", method = RequestMethod.GET)
 	public ResponseEntity<TimeTable> getTimeTable(@PathVariable Integer timeTableId){
 		TimeTable timeTable = null;
@@ -39,11 +56,24 @@ public class TimeTableController {
 		return new ResponseEntity<>(timeTable,HttpStatus.OK);
 		
 	}
+	/**
+	 * This method is used to create TimeTableDetails
+	 * 
+	 * @param pTimeTable
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.PUT)
 	public TimeTable updateTimeTable(@RequestBody TimeTable pTimeTable) {
 		return timeTableService.updateTimeTable(pTimeTable);
 		
 	}
+	/**
+	 * This method is used to create TimeTableDetails
+	 * 
+	 * @param pTimeTable
+	 * @return
+	 */
+	
 	@RequestMapping(value = "/{timeTableId}", method = RequestMethod.DELETE)
 	
 	

@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 package com.wfd.schoolmgt.schoolMgmt.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
