@@ -49,5 +49,6 @@ public class TimeTableController {
 		return timeTableService.deleteTimeTable(timeTableId);
 		
 	}
+	
 
 }
