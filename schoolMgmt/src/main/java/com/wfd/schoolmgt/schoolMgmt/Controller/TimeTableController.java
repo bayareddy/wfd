@@ -45,6 +45,8 @@ public class TimeTableController {
 		
 	}
 	@RequestMapping(value = "/{timeTableId}", method = RequestMethod.DELETE)
+	
+	
 	public String deleteTimeTable(@PathVariable Integer timeTableId) {
 		return timeTableService.deleteTimeTable(timeTableId);
 		
