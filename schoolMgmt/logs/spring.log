@@ -1,3 +1,9 @@
-2019-06-04 07:27:39.277  WARN 9240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19h50m32s250ms604µs403ns).
-2019-06-04 11:32:42.437  WARN 9240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h31s363ms990µs461ns).
-2019-06-04 14:19:39.631  WARN 9240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h47m9s887ms435µs38ns).
+2019-06-06 07:42:30.286  WARN 9240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h11m19s855ms314µs821ns).
+2019-06-06 11:24:31.980  WARN 9240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h30s836ms951µs27ns).
+2019-06-06 12:17:59.102  WARN 9240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53m41s297ms545µs387ns).
+2019-06-06 12:48:30.448  WARN 9240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m31s354ms511µs431ns).
+2019-06-06 12:52:36.214  INFO 9240 --- [RMI TCP Connection(187)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-06-06 12:52:41.606  INFO 9240 --- [RMI TCP Connection(187)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-06 12:52:42.063  INFO 9240 --- [RMI TCP Connection(187)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-06 12:52:45.125  INFO 9240 --- [RMI TCP Connection(187)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-06 12:52:45.682  INFO 9240 --- [RMI TCP Connection(187)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
