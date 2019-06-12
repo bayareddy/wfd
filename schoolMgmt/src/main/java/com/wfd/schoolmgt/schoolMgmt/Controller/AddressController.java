@@ -22,6 +22,7 @@ import com.wfd.schoolmgt.schoolMgmt.Service.AddressService;
  *
  */
 @RestController
+
 @RequestMapping("/address")
 public class AddressController {
 
