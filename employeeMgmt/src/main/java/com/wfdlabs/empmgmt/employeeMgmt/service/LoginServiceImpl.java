@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Employee;
 import com.wfdlabs.empmgmt.employeeMgmt.repository.EmployeeRepository;
@@ -16,6 +17,7 @@ import com.wfdlabs.empmgmt.employeeMgmt.repository.EmployeeRepository;
  *
  */
 @Service
+@Transactional
 public class LoginServiceImpl implements LoginService {
 	@Autowired
 	EmployeeRepository employeeRepository;
