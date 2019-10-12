@@ -1,64 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {CommonService} from '../service/common.service';
-import { RouterModule, Router, ActivatedRoute, Params, UrlSerializer } from '@angular/router';
+import { FormGroup, FormControl ,Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../login/login.service';
+
 @Component({
-  selector: 'app-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  constructor(  private router: Router, private formBuilder: FormBuilder, public commonService: CommonService) { }
+  loginForm = new FormGroup({
+    employeeId: new FormControl('',[
+      Validators.required]),
+    password: new FormControl('',[
+      Validators.required]),
+  });
+  errMsg='';
+  get employeeId() { return this.loginForm.get('employeeId'); }
+  constructor(private loginService:LoginService, private router:Router) { }
 
-  loginForm: any;
-  loginData: any;
-  logindata: any;
-  formSubmitAttempt: Boolean = false;
   ngOnInit() {
-    this.createForm2();
   }
-  createForm2() {
-    this.loginForm = this.formBuilder.group({
-      insurer: [null, Validators.required],
-      passCode: [null, Validators.required]
-    });
-  }
-  isFieldValid(field: string) {
-    return (
-      (!this.loginForm.get(field).valid && this.loginForm.get(field).touched) ||
-      (this.loginForm.get(field).untouched && this.formSubmitAttempt)
+ 
+  onSubmit(event) {
+    console.log("@submit",event);
+    console.log(this.loginForm.value);
+    this.loginService.onSubmit(this.loginForm.value).subscribe(
+      (data)=>{
+        if(data) {
+          this.loginService.currentUser=data;
+          this.router.navigate(['/home']);
+        } else {
+          this.errMsg = 'Please enter valid details';  
+        }
+      },
+      (err)=>{
+        console.log(err);
+        if(err.status === 400) {
+          this.errMsg = 'Please enter valid details';  
+        } else {
+          this.errMsg = 'Something is wrong please try again';  
+        } 
+      }
     );
   }
-  displayFieldCss(field: string) {
-    return {
-      'has-error': this.isFieldValid(field),
-      'has-feedback': this.isFieldValid(field)
-    };
-  }
-  resetLoginForm() {
-    this.formSubmitAttempt = false;
-    // this.loginForm.controls['insurer'].value = ' ';
-    // this.loginForm.controls['passCode'].value = ' ';
-  }
-  onSubmit() {
-    this.formSubmitAttempt = true;
-    console.log(this.loginForm.valid);
-    if (this.loginForm.valid) {
-      this.logindata = [
-        this.loginForm.controls['insurer'].value,
-        this.loginForm.controls['passCode'].value
-      ];
-      this.commonService.sendLoginData(this.logindata).subscribe(
-        value => {
-          this.loginData = value;
-          this.router.navigate(['home']);
-          console.log('emp detials',this.logindata);
-        },
-        error => console.log('Error :: ' + error)
-      );
 
-      this.resetLoginForm();
-    }
+  forgetPassword() {
+    console.log("@forgetPassword");
   }
 }
