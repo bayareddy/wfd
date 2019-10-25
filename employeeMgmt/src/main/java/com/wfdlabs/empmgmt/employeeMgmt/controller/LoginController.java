@@ -77,12 +77,13 @@ public class LoginController {
 	 * @return employee details
 	 */
 
-	@RequestMapping(method = RequestMethod.POST)
-	public  ResponseEntity<List> createEmployee(@RequestBody Employee employee) {
-		System.out.println("employee:" + employee);
-		System.out.println("service scope:" + loginService);
-		List<Employee> employeeList= loginService.createEmployee(employee);
-		return new ResponseEntity<>(employeeList,HttpStatus.CREATED);
-	}
+	/*
+	 * @RequestMapping(method = RequestMethod.POST) public ResponseEntity<List>
+	 * createEmployee(@RequestBody Employee employee) {
+	 * System.out.println("employee:" + employee);
+	 * System.out.println("service scope:" + loginService); List<Employee>
+	 * employeeList= loginService.createEmployee(employee); return new
+	 * ResponseEntity<>(employeeList,HttpStatus.CREATED); }
+	 */
 
 }
