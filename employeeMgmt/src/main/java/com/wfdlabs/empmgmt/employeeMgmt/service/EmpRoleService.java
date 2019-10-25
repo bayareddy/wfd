@@ -3,6 +3,8 @@
  */
 package com.wfdlabs.empmgmt.employeeMgmt.service;
 
+import java.util.List;
+
 import com.wfdlabs.empmgmt.employeeMgmt.entity.EmpRole;
 
 public interface EmpRoleService {
@@ -34,5 +36,8 @@ public interface EmpRoleService {
 	 */
 
 	String deleteEmpRole(Integer empRoleId);
+	List<EmpRole> getAllEmpRole();
+
+	
 
 }

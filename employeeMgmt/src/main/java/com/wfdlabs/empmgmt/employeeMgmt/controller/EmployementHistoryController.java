@@ -61,14 +61,23 @@ public class EmployementHistoryController {
 		employementHistoryService.deleteEmployementHistory(employeeId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	@CrossOrigin(origins="*")
+	/*
+	 * @CrossOrigin(origins="*")
+	 * 
+	 * @RequestMapping(method = RequestMethod.PUT) public
+	 * ResponseEntity<EmployementHistory> updateEmployementHistory(
+	 * 
+	 * @RequestBody EmployementHistory employementHistory) {
+	 * System.out.println("LeaveStatus:" + employementHistory); employementHistory =
+	 * employementHistoryService.updateEmployementHistory(employementHistory);
+	 * return new ResponseEntity<EmployementHistory>(HttpStatus.OK);
+	 * 
+	 * }
+	 */
 	@RequestMapping(method = RequestMethod.PUT)
-	public ResponseEntity<EmployementHistory> updateEmployementHistory(
-			@RequestBody EmployementHistory employementHistory) {
-		System.out.println("LeaveStatus:" + employementHistory);
-		employementHistory = employementHistoryService.updateEmployementHistory(employementHistory);
-		return new ResponseEntity<EmployementHistory>(HttpStatus.OK);
-
+	public EmployementHistory updateEmployementHistory(@RequestBody EmployementHistory pEmployementHistory) {
+		return employementHistoryService.updateEmployementHistory(pEmployementHistory);
+		
 	}
 
 }

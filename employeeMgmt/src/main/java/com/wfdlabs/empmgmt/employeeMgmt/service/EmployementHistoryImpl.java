@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.wfdlabs.empmgmt.employeeMgmt.entity.EmployementHistory;
 import com.wfdlabs.empmgmt.employeeMgmt.repository.EmployementHistoryRepository;
@@ -45,9 +46,9 @@ public class EmployementHistoryImpl implements EmployementHistoryService {
 	}
 
 	@Override
-	public EmployementHistory getById(Integer employeeId) {
+	public EmployementHistory getById(@PathVariable Integer employeeId) {
 		// TODO Auto-generated method stub
-		return null;
+		return employementHistoryRepository.findById(employeeId).get();
 	}
 
 }

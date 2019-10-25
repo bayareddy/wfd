@@ -22,22 +22,22 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	
 	@Override
-	public Employee createEmployee(@RequestBody Employee pEmployee) {
+	public Employee createEmployee( Employee pEmployee) {
 		return employeerepositiory.save(pEmployee);
 	}
 
 	@Override
-	public Employee getEmployee(@PathVariable Integer employeeId) {
+	public Employee getEmployee(Integer employeeId) {
 		return employeerepositiory.findById(employeeId).get();
 	}
 
 	@Override
-	public Employee updateEmployee(@RequestBody Employee pEmployee) {
+	public Employee updateEmployee( Employee pEmployee) {
 		return employeerepositiory.save(pEmployee);
 	}
 
 	@Override
-	public String deleteEmployee(@PathVariable Integer employeeId) {
+	public String deleteEmployee( Integer employeeId) {
 		employeerepositiory.deleteById(employeeId);
 		return employeeId + " Delete Successfully";
 	}

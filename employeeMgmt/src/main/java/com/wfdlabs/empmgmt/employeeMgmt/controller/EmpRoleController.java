@@ -3,6 +3,8 @@
  */
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +59,15 @@ public class EmpRoleController {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<>(empRole, HttpStatus.OK);
+	}
+	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
+	public ResponseEntity<List<EmpRole>> getAllEmpRole(){
+		List<EmpRole> empRoleList = empRoleService.getAllEmpRole();
+		if(empRoleList == null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(empRoleList,HttpStatus.OK);
+		
 	}
 	
 	/**

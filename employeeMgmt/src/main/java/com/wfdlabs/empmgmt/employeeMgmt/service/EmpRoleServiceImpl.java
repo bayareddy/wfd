@@ -3,6 +3,8 @@
  */
 package com.wfdlabs.empmgmt.employeeMgmt.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.wfdlabs.empmgmt.employeeMgmt.entity.EmpRole;
 import com.wfdlabs.empmgmt.employeeMgmt.repository.EmpRoleRepository;
+import com.wfdlabs.empmgmt.employeeMgmt.repository.EmployementHistoryRepository;
 @Service
 public class EmpRoleServiceImpl implements EmpRoleService {
 	@Autowired
@@ -56,5 +59,16 @@ public class EmpRoleServiceImpl implements EmpRoleService {
 		empRoleRepository.deleteById(empRoleId);
 		return empRoleId + " Delete Successfully";
 	}
+	@Override
+	public List<EmpRole> getAllEmpRole() {
+	
+		return empRoleRepository.findAll();
+	} 
+	
+	
+	
 
+	
 }
+
+
