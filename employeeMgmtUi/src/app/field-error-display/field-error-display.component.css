@@ -1,0 +1,10 @@
+.error-msg {
+    color:red;
+    font-size: 11px;
+    display: block;
+    text-align: left;
+  }
+  .fix-error-icon {
+    top: 27px;
+  }
+  
