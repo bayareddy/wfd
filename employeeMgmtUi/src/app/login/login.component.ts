@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
   get employeeId() { 
     return this.loginForm.get('employeeId'); 
   }
+  get password() { 
+    return this.loginForm.get('password'); 
+  }
   constructor(private loginService:LoginService, private router:Router) { }
 
   ngOnInit() {
@@ -45,7 +48,7 @@ export class LoginComponent implements OnInit {
         if(err.status === 400) {
           this.errMsg = 'Please enter valid details';  
         } else {
-          this.errMsg = 'Something is wrong please try again';  
+          this.errMsg = 'Something Went Wrong Please try again';  
         } 
       }
     );

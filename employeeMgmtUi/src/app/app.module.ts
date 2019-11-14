@@ -17,6 +17,9 @@ import { SidenavComponent } from './home/sidenav/sidenav.component';
 import { FooternavComponent } from './home/footernav/footernav.component';
 import { ExpandMenu } from './home/sidenav/ExpandMenu';
 
+import { MainContentComponent } from './home/main-content/main-content.component';
+import { RoleComponent } from './home/sidenav/role/role.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,11 @@ import { ExpandMenu } from './home/sidenav/ExpandMenu';
     HeadernavComponent,
     SidenavComponent,
     FooternavComponent,
-    ExpandMenu
+    ExpandMenu,
+  
+    MainContentComponent,
+  
+    RoleComponent
    
   ],
   imports: [

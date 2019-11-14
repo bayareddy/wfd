@@ -6,20 +6,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeadernavComponent } from './home/headernav/headernav.component';
 import { FooternavComponent } from './home/footernav/footernav.component';
 import { SidenavComponent } from './home/sidenav/sidenav.component';
+import { RoleComponent } from './home/sidenav/role/role.component';
+
 
 
 const appRoutes: Routes = [
   {path: '',
       children: [
-        { path: 'home', component: HomeComponent, },
-       
-      
+        { path: 'home', component: HomeComponent },
+        { path: 'home/:sideNavRole', component: RoleComponent},
         { path: 'empDetails', component: HomeComponent },
         {path:"",component:LoginComponent}
        
        ],
       component: DashboardComponent
-    },
+  },
   { path: 'login', component: LoginComponent },
  { path: '**', redirectTo: '/login' },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }

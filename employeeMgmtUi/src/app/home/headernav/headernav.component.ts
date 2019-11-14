@@ -17,7 +17,7 @@ export class HeadernavComponent implements OnInit {
   openNav(){
     document.getElementById("mySidenav").style.width = "230px";
     document.getElementById("main").style.marginLeft = "230px";
-    document.getElementById("footer").style.marginLeft="230px";
+    document.getElementById("footer").style.marginLeft="230px";  
     
     
   }

@@ -1,45 +1,39 @@
+<div class="outerLine">
 
-  <div class="login">
-    <h2>Login Form</h2>
-  
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
-    <div *ngIf="errMsg">{{errMsg}}</div>
-      <div class="container1">
-        <label for="uname"><b>Employee Id</b></label><br>
-        <input type="text" placeholder="Enter Employee Id" 
-        class="form-control" formControlName="employeeId" autocomplete='off'name="employeeId" required>
-        <div *ngIf="employeeId.invalid && (employeeId.dirty || employeeId.touched)" class="alert alert-danger">
-  
-          <div *ngIf="employeeId.errors.required">
-            employeeId is required.
-          </div>
-  
-        </div><br>
-        <label for="psw"><b>Password</b></label><br>
-        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password" name="password" required>
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-  
-          <div *ngIf="password.errors.required">
-            password is required.
-          </div>
-  
-        </div><br>
-        <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
-      </div>
-  
-      <div class="container" style="background-color:#f1f1f1">
-        <span class="psw">Forgot <a href="#">password?</a></span>
-      </div>
-    </form>
-  </div>
+<div class="login">
+  <h2>WFD Labs</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
+    <div *ngIf="errMsg" style="color: red;">{{errMsg}}</div>
+    <div class="container1">
 
+       <span class="glyphicon glyphicon-user"></span>
+      <input type="text" placeholder="Employee Id"  formControlName="employeeId"
+        autocomplete='off' name="employeeId" required>
+      <div *ngIf="employeeId.invalid && (employeeId.dirty || employeeId.touched)" class="alert alert-danger">
+                                                                                         
+        <div *ngIf="employeeId.errors.required">
+          EmployeeId is Required.
+        </div>
 
+      </div><br>
+      <span class="glyphicon glyphicon-lock"></span>
+      <input type="password"  placeholder="Password" formControlName="password"
+        name="password" required>
 
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
 
+        <div *ngIf="password.errors.required">
+          Password is Required.
+        </div>
 
+      </div><br>
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+    </div>
 
+    <div class="container" style="background-color:white">
+      <span class="psw">Forgot <a>Password?</a></span>
+    </div>
+  </form>
+</div>
 
-
-
-
-
+</div>

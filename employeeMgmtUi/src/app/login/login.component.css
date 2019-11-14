@@ -1,18 +1,22 @@
 
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    
   }
   
   button {
-    background-color: #4CAF50;
+    background-color: rgb(76, 94, 175);
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px 8px;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -28,8 +32,9 @@ input[type=text], input[type=password] {
     background-color: #f44336;
   }
   .container {
-    padding: 16px;
+    padding: 10px;
     width: 100%;
+    height: 100%;
   }
   
   span.psw {
@@ -37,8 +42,25 @@ input[type=text], input[type=password] {
    
   }
   .login {
-    margin: 12% 30%;
-    border: #ccc 1px solid;
-    padding: 10px;
-    background-color: #f3eeee;
+    margin: 7% 35%;
+    height: 10%;
+    float: left;
+    border:1px solid black;
+    box-shadow:1px 1px 3px 1px;
+    border-radius: 2%;
+    padding: 50px;
+    background-color: rgb(255, 255, 255);
+    
   }
+.btn{
+  max-width: 100px;
+  padding: 7px;
+}
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+.outerLine{
+  background-color: rgb(255, 255, 255);
+
+}
