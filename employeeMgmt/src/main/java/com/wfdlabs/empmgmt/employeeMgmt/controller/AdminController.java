@@ -1,5 +1,6 @@
  package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,7 @@ public class AdminController {
 	 * @param role
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Role> createRole(@RequestBody Role role) {
 		System.out.println("Role:" + role);
@@ -40,6 +42,7 @@ public class AdminController {
 	 * @param rollId
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Role> createRoles(@RequestParam Integer rollId) {
 		System.out.println("Role:" + rollId);
@@ -63,6 +66,7 @@ public class AdminController {
 	 * 
 	 * @return all role details
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<Role>> getRoles() {
 		List<Role> roleList= roleService.getAllRoles();
@@ -75,6 +79,7 @@ public class AdminController {
 	 * @param role
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<Role> updateRole(@RequestBody Role role) {
 		System.out.println("Role:" + role);
@@ -89,6 +94,7 @@ public class AdminController {
 	 * 
 	 * @param rollId
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public ResponseEntity deleteRoles(@RequestParam Integer rollId) {
 		System.out.println("Role:" + rollId);
