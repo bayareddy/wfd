@@ -5,6 +5,7 @@ import javax.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,7 @@ public class EmployeeController {
 	 * @param employee
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public Employee createEmployee(@RequestBody Employee pEmployee) {
 		return employeeService.createEmployee(pEmployee);
@@ -44,6 +46,7 @@ public class EmployeeController {
 	 * @param employeeId
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/{employeeId}",method = RequestMethod.GET)
 	public ResponseEntity<Employee> getEmployee(@PathVariable Integer employeeId){
 		Employee employee = null;
@@ -63,7 +66,7 @@ public class EmployeeController {
 	 * @param pEmployee
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public Employee updateEmployee(@RequestBody Employee pEmployee) {
 		return employeeService.updateEmployee(pEmployee);
@@ -74,11 +77,13 @@ public class EmployeeController {
 	 * @param employeeId
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/{employeeId}",method = RequestMethod.DELETE)
 	public String deleteUser(@PathVariable Integer employeeId) {
 		return employeeService.deleteEmployee(employeeId);
 		
 	}
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/{employeeId}/{Id}",method = RequestMethod.GET)
 	public Employee generatePdf(@PathVariable Integer employeeId) throws JRException {
 

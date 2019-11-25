@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,7 +32,7 @@ public class LeaveController {
 	 * @param leave
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Leave> createLeave(@RequestBody Leave leave) {
 		leave.setUpdateDate(null);
@@ -46,7 +47,7 @@ public class LeaveController {
 	 * @param id leaveId
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Leave> getById(@RequestParam Integer id) {
 		Leave leave=null;
@@ -69,7 +70,7 @@ public class LeaveController {
 	 * @param leaveType
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavetype", method = RequestMethod.POST)
 	public ResponseEntity<LeaveType> createLeaveType(@RequestBody LeaveType leaveType) {
 		System.out.println("LeaveType:" + leaveType);
@@ -84,6 +85,7 @@ public class LeaveController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavetype/getall", method = RequestMethod.GET)
 	public ResponseEntity<List> getAllLeaveType() {
 		List<LeaveType> leaveTypeList = leaveService.getAllLeaveType();
@@ -99,7 +101,7 @@ public class LeaveController {
 	 * @param leaveId
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavetype/delete", method = RequestMethod.DELETE)
 	public ResponseEntity deleteLeaveType(@RequestParam Integer leaveId) {
 		System.out.println("leaveTypeId:" + leaveId);
@@ -115,7 +117,7 @@ public class LeaveController {
 	 * @param leaveId
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavetype/getId", method = RequestMethod.GET)
 	public ResponseEntity<LeaveType> getLeaveType(@RequestParam Integer leaveId) {
 		LeaveType leaveType=null;
@@ -139,7 +141,7 @@ public class LeaveController {
 	 * @param leaveType
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavetype/update", method = RequestMethod.PUT)
 	public ResponseEntity<LeaveType> updateLeaveType(@RequestBody LeaveType leaveType) {
 		System.out.println("LeaveType:" + leaveType);
@@ -156,6 +158,7 @@ public class LeaveController {
 	 * @param leavestatus
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavestatus", method = RequestMethod.POST)
 	public ResponseEntity<LeaveStatus> createLeaveStatus(@RequestBody LeaveStatus leaveStatus) {
 		System.out.println("LeaveStatus:" + leaveStatus);
@@ -170,6 +173,7 @@ public class LeaveController {
 	 * @param leaveId
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavestatus/getid", method = RequestMethod.GET)
 	public ResponseEntity<LeaveStatus> getLeaveStatus(@RequestParam Integer leaveId) {
 		System.out.println("LeaveStatus:" + leaveId);
@@ -192,6 +196,7 @@ public class LeaveController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavestatus/getall", method = RequestMethod.GET)
 	public  ResponseEntity<List> getAllLeaveStatus() {
 		List<LeaveStatus> leavestatusList= leaveService.getAllLeaveStatus();
@@ -204,6 +209,7 @@ public class LeaveController {
 	 * @param leaveId	
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavestatus/delete", method = RequestMethod.DELETE)
 	public ResponseEntity deleteLeaveStatus(@RequestParam Integer leaveId) {
 		System.out.println("leaveTypeId:" + leaveId);
@@ -217,7 +223,7 @@ public class LeaveController {
 	 * @param leaveType
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/leavestatus/update", method = RequestMethod.PUT)
 	public ResponseEntity<LeaveStatus> updateLeaveStatus(@RequestBody LeaveStatus leaveStatus) {
 		System.out.println("LeaveStatus:" + leaveStatus);
