@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class UserController {
 	 * @param pUser
 	 * @return
 	 */
-	
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public User createUser(@RequestBody User pUser) {
 		return userService.createUser(pUser);
@@ -38,7 +39,7 @@ public class UserController {
 	 * @param userId
 	 * @return
 	 */
-	
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable Integer userId){
 		User user = null;
@@ -58,6 +59,7 @@ public class UserController {
 	 * @param pUser
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public User updateUser(@RequestBody User pUser) {
 		return userService.updateUser(pUser);
@@ -68,6 +70,7 @@ public class UserController {
 	 * @param userId
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value ="/{userId}", method = RequestMethod.DELETE)
 	public String deleteUser(@PathVariable Integer userId) {
 		return userService.deleteUser(userId);

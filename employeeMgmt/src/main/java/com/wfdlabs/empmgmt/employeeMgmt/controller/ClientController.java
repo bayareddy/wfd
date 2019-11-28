@@ -1,5 +1,6 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +28,7 @@ public class ClientController {
 	 * @param client
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Client> createClient(@RequestBody Client client) {
 		System.out.println("Client:" + client);
@@ -42,6 +43,7 @@ public class ClientController {
 	 * @param ClientTypeId
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Client> getClient(@RequestParam Integer ClientTypeId) {
 		System.out.println("Client:" + ClientTypeId);
@@ -65,7 +67,7 @@ public class ClientController {
 	 * @param
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/getall", method = RequestMethod.GET)
 	public  ResponseEntity<List<Client>> getAllClient() {
 		List<Client> clientList= clientService.getAllClient();
@@ -78,6 +80,7 @@ public class ClientController {
 	 * @param ClientTypeId
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public ResponseEntity deleteClient(@RequestParam Integer ClientTypeId) {
 		System.out.println("clientTypeId:" + ClientTypeId);
@@ -91,6 +94,7 @@ public class ClientController {
 	 * @param client
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
 		System.out.println("Client:" + client);

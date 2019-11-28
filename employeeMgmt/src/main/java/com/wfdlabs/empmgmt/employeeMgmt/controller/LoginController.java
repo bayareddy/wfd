@@ -38,7 +38,7 @@ public class LoginController {
 	 * @param empPassword
 	 * @return
 	 */
-	@CrossOrigin
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public  ResponseEntity<Employee> login(@RequestParam("employeeId") Integer empId, @RequestParam("password") String empPassword) {
 		Employee employee= loginService.login(empId, empPassword);
@@ -57,7 +57,7 @@ public class LoginController {
 	 * @param employeeDob
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/forget", method = RequestMethod.GET)
 	public  ResponseEntity<Employee> validatePassword(@RequestParam("pancard") String employeePancard,
 			@RequestParam("dateofBirth") String employeeDob, @RequestParam("employeeId") Integer empId)

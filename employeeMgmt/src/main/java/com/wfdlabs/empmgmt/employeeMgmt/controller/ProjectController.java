@@ -1,5 +1,6 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +28,7 @@ public class ProjectController {
 	 * @param project
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Project> createProject(@RequestBody Project project) {
 		System.out.println("Project:" + project);
@@ -41,7 +43,7 @@ public class ProjectController {
 	 * @param projectTypeId
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Project> getproject(@RequestParam Integer projectTypeId) {
 		System.out.println("project:" + projectTypeId);

@@ -10,6 +10,7 @@ import javax.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class EmpRoleController {
 	 * @param EmpRole
 	 * @return
 	 */
-	
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public EmpRole createEmpRole(@RequestBody EmpRole pEmpRole) {
 		return empRoleService.createEmpRole(pEmpRole);
@@ -45,7 +46,7 @@ public class EmpRoleController {
 	 * @param Id
 	 * @return
 	 */
-	
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/{empRoleId}", method = RequestMethod.GET)
 	public ResponseEntity<EmpRole> getEmpRole(@PathVariable Integer empRoleId){
 		EmpRole empRole = null;
@@ -60,6 +61,7 @@ public class EmpRoleController {
 		}
 		return new ResponseEntity<>(empRole, HttpStatus.OK);
 	}
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
 	public ResponseEntity<List<EmpRole>> getAllEmpRole(){
 		List<EmpRole> empRoleList = empRoleService.getAllEmpRole();
@@ -76,7 +78,7 @@ public class EmpRoleController {
 	 * @param EmpRole
 	 * @return
 	 */
-	
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public  EmpRole updateEmpRole(@RequestBody EmpRole pEmpRole) {
 		return empRoleService.updateEmpRole(pEmpRole);
@@ -89,6 +91,7 @@ public class EmpRoleController {
 	 * @param Id
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	
 	@RequestMapping(value = "/{empRoleId}", method = RequestMethod.DELETE)
 	public String deleteEmpRole(@PathVariable Integer empRoleId) {

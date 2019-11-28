@@ -1,5 +1,6 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,7 @@ public class AcademicBackGroundController {
 	 * @param academicBackGround
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<AcademicBackGround> createAcademicBackGround(
 			@RequestBody AcademicBackGround academicBackGround) {
@@ -39,6 +41,7 @@ public class AcademicBackGroundController {
 	 * @param Id
 	 * @return
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<AcademicBackGround> getAcademicBackGroundId(@RequestParam Integer Id) {
 		AcademicBackGround academicBackGround = null;
@@ -58,6 +61,7 @@ public class AcademicBackGroundController {
 	 * This method is used to get the all AcademicBackGround Details
 	 * 
 	 */
+	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/getall", method = RequestMethod.GET)
 	public ResponseEntity<List<AcademicBackGround>> getAllAcademicBackGround() {
 		List<AcademicBackGround> academicBackGroundList = academicBackGroundService.getAllAcademicBackGround();
@@ -71,7 +75,7 @@ public class AcademicBackGroundController {
 	 * @param Id
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.DELETE)
 	public ResponseEntity deleteAcademicBackGround(@RequestParam Integer Id) {
 		academicBackGroundService.deleteAcademicBackGround(Id);
@@ -84,7 +88,7 @@ public class AcademicBackGroundController {
 	 * @param academicBackGround
 	 * @return
 	 */
-
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<AcademicBackGround> updateAcademicBackGround(
 			@RequestBody AcademicBackGround academicBackGround) {
