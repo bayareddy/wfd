@@ -9,7 +9,7 @@ export class ApiService {
     this.host = 'http://ec2-13-234-116-123.ap-south-1.compute.amazonaws.com:8081';
 
   }
-
+ 
   get(url) {
     url = this.host+url;
     return this.http.get(url);

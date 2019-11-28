@@ -11,6 +11,8 @@ export class LoginService {
   private creatUrl = '';
   onSubmit(data){
    let loginUrl = this.loginUrl+"?employeeId="+data.employeeId+"&password="+data.password;
+  
+   console.log('this is pardha===>>>'+loginUrl);
    return this.api.get(loginUrl);
   }
 } 

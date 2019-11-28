@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
       },
       (err)=>{
         console.log(err);
-        if(err.status === 400) {
-          this.errMsg = 'Please enter valid details';  
+        if(err.status === 400 || err.status===401) {
+          this.errMsg = 'Please enter valid EmployeeId and Password !';  
         } else {
           this.errMsg = 'Something Went Wrong Please try again';  
         } 
