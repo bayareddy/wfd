@@ -82,22 +82,7 @@ public class EmployeeController {
 	public String deleteUser(@PathVariable Integer employeeId) {
 		return employeeService.deleteEmployee(employeeId);
 		
-	}
-	@CrossOrigin(origins="*")
-	@RequestMapping(value = "/{employeeId}/{Id}",method = RequestMethod.GET)
-	public Employee generatePdf(@PathVariable Integer employeeId) throws JRException {
-
-		JasperReport jasperReport = JasperCompileManager.compileReport("C:\\Users\\syam prasad\\JaspersoftWorkspace\\MyReports\\PaySlip.jrxml");
-		
-		JRDataSource jrDataSource= new JREmptyDataSource();
-		
-		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, jrDataSource);
-		
-		JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\syam prasad\\JaspersoftWorkspace\\MyReports\\PaySlip.pdf");
 	
-
-		return employeeService.generatePdf(employeeId) ;
-		
 	}
 }
 		
