@@ -19,6 +19,8 @@ import { ExpandMenu } from './home/sidenav/ExpandMenu';
 
 import { MainContentComponent } from './home/main-content/main-content.component';
 import { RoleComponent } from './home/sidenav/role/role.component';
+import { LeaveStatusComponent } from './home/sidenav/leave-status/leave-status.component';
+import { DefaultComponent } from './home/default/default.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,11 @@ import { RoleComponent } from './home/sidenav/role/role.component';
   
     MainContentComponent,
   
-    RoleComponent
+    RoleComponent,
+  
+    LeaveStatusComponent,
+  
+    DefaultComponent
    
   ],
   imports: [
