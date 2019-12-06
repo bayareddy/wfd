@@ -6,6 +6,7 @@ export class LoginService {
 
   constructor(private api:ApiService) { }
   public currentUser = {};
+  public nam;
   private loginUrl = '/employee/login';
   private forGetUrl = '';
   private creatUrl = '';
