@@ -19,7 +19,7 @@ export class LeaveStatusComponent implements OnInit {
   })
 
 
-  public BASE_URL:string = 'http://ec2-13-234-116-123.ap-south-1.compute.amazonaws.com:8081';
+  public BASE_URL:string = 'http://ec2-3-6-45-30.ap-south-1.compute.amazonaws.com:8081';
 
   constructor(private service:LeaveService,private http:HttpClient) { }
 

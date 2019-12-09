@@ -9,6 +9,7 @@ import { SidenavComponent } from './home/sidenav/sidenav.component';
 import { RoleComponent } from './home/sidenav/role/role.component';
 import { LeaveStatusComponent } from './home/sidenav/leave-status/leave-status.component';
 import { MainContentComponent } from './home/main-content/main-content.component';
+import {AcademicsComponent} from'./home/sidenav/academics/academics.component';
 
 
 
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
         children: [
           { path: 'sideNavRole', component: RoleComponent },
           { path: 'sideNavLeaveStatus', component: LeaveStatusComponent },
+          {path:'sideNavAcademics', component:AcademicsComponent},
           { path: '', component: MainContentComponent },
         ]
       },

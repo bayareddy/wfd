@@ -1,0 +1,79 @@
+<div class="tablediv">
+    <h1>Academics</h1> 
+    <table>
+       <tr> 
+         <th>academicBackGroundId</th>
+        <th>affilicatedUniversity</th>
+        <th>contactDetails</th>
+        <th>courseStartDate</th>
+        <th>courseEndDate</th>
+        <th>courseStatus</th>
+        <th>institute</th>
+        <th>marksObtained</th>
+        <th>qualification</th>
+        <th>registrationNumber</th>
+        <th>specialization</th>
+        <th>Edit/Delete</th>
+    
+       </tr>
+       <tr  *ngFor="let item of regData">   
+       <td>{{item.academicBackGroundId}}</td>
+       <td>{{item.affilicatedUniversity}}</td>
+       <td>{{item.contactDetails}}</td>
+       <td>{{item.courseStartDate|date}}</td>
+       <td>{{item.courseEndDate|date}}</td>
+       <td>{{item.courseStatus}}</td>
+       <td>{{item.institute}}</td>
+       <td>{{item.marksObtained}}</td>  
+       <td>{{item.qualification}}</td>
+       <td>{{item.registrationNumber}}</td>
+       <td>{{item.specialization}}</td>
+       <td><button (click)="ReflectData(item)" style="font-size:20px;color:grey"><i class="fa fa-edit"></i> </button>
+        <button  (click)="DeleteData(item)"style="font-size:20px"><i class="fa fa-trash-o"></i></button></td>     
+    </tr>
+    </table>
+  
+    </div>
+    <div class="formdiv">
+      
+      <br><br>
+      academicBackGroundId:
+      <input type="text"  [(ngModel)]="myData.academicBackGroundId">
+      <br><br>
+      affilicatedUniversity:
+      <input type="text"  [(ngModel)]="myData.affilicatedUniversity" >
+      <br><br>
+      contactDetails:
+      <input type="text" [(ngModel)]="myData.contactDetails" >
+      <br><br>
+      courseStartDate:
+      <input type="date"  [(ngModel)]="myData.courseStartDate">
+      <br><br>
+      courseEndDate:
+      <input type="date" [(ngModel)]="myData.courseEndDate">
+      <br><br>
+      courseStatus:
+      <input type="text" [(ngModel)]="myData.courseStatus" >
+      <br><br>
+      institute:
+      <input type="text" [(ngModel)]="myData.institute" >
+      <br><br>
+      marksObtained:
+      <input type="percentage" [(ngModel)]="myData.marksObtained" >
+      <br><br>
+      qualification:
+      <input type="text" [(ngModel)]="myData.qualification" >
+      <br><br>
+      registrationNumber:
+      <input type="text" [(ngModel)]="myData.registrationNumber" >
+      <br><br>
+      specialization:
+      <input type="text" [(ngModel)]="myData.specialization" >
+      <br><br>
+     
+     <button class="btn btn-primary a" type="submit" (click)="addData(myData)">submit</button>
+     
+    
+    </div>
+    
+    

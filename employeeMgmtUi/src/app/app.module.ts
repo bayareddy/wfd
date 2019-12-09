@@ -16,9 +16,10 @@ import { HeadernavComponent } from './home/headernav/headernav.component';
 import { SidenavComponent } from './home/sidenav/sidenav.component';
 import { FooternavComponent } from './home/footernav/footernav.component';
 import { ExpandMenu } from './home/sidenav/ExpandMenu';
-
+import { AcademicsComponent } from './home/sidenav/academics/academics.component';
 import { MainContentComponent } from './home/main-content/main-content.component';
 import { RoleComponent } from './home/sidenav/role/role.component';
+
 import { LeaveStatusComponent } from './home/sidenav/leave-status/leave-status.component';
 import { DefaultComponent } from './home/default/default.component';
 
@@ -33,11 +34,11 @@ import { DefaultComponent } from './home/default/default.component';
     SidenavComponent,
     FooternavComponent,
     ExpandMenu,
-  
+    
     MainContentComponent,
   
     RoleComponent,
-  
+    AcademicsComponent,
     LeaveStatusComponent,
   
     DefaultComponent
