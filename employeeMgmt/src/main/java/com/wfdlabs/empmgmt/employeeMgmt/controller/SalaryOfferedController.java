@@ -324,6 +324,7 @@ public class SalaryOfferedController {
 	 */
 	public void signatureTable(Document document, Font catfont) throws DocumentException {
 
+		
 		// Adding Empty Paragraph to maintain gap between table
 		Paragraph para = new Paragraph("  ");// Signature Block
 		para.setAlignment(Element.ALIGN_LEFT);
