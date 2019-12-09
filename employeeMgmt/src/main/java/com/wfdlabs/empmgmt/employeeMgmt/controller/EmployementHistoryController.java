@@ -74,6 +74,8 @@ public class EmployementHistoryController {
 	 * 
 	 * }
 	 */
+
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public EmployementHistory updateEmployementHistory(@RequestBody EmployementHistory pEmployementHistory) {
 		return employementHistoryService.updateEmployementHistory(pEmployementHistory);

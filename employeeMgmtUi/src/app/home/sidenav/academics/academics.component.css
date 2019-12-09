@@ -1,6 +1,6 @@
 table, th, td 
 {
-   
+   color: white;
     border: solid 1px #333;
     border-collapse: collapse;
 }
@@ -9,12 +9,10 @@ th
     font-weight:bold;
     background-color:lightblue;
 }
-td 
-{
-  
-}
+
 .tablediv
 {
+  
 	display: block;
 	width:500px;
 	
