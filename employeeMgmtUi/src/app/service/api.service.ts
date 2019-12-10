@@ -7,7 +7,6 @@ export class ApiService {
   private host:string;
   constructor(private http:HttpClient) { 
     this.host = 'http://ec2-3-6-45-30.ap-south-1.compute.amazonaws.com:8081';
-
   }
  
   get(url) {
@@ -18,5 +17,10 @@ export class ApiService {
   post(url,data) {
     url = this.host+url;
     return this.http.post(url,data);
+  }
+
+  delete(url) {
+    url = this.host+url;
+    return this.http.delete(url);
   }
 }

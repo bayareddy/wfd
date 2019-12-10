@@ -22,6 +22,7 @@ import { RoleComponent } from './home/sidenav/role/role.component';
 
 import { LeaveStatusComponent } from './home/sidenav/leave-status/leave-status.component';
 import { DefaultComponent } from './home/default/default.component';
+import { LeaveTypeComponent } from './home/sidenav/leave-type/leave-type.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { DefaultComponent } from './home/default/default.component';
     AcademicsComponent,
     LeaveStatusComponent,
   
-    DefaultComponent
+    DefaultComponent,
+  
+    LeaveTypeComponent
    
   ],
   imports: [
