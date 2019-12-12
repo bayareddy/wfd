@@ -57,29 +57,26 @@ public class Employee {
 	private Integer mobileNumber;
 	@Column
 	private Date joinDate;
-    @Column
-    private String pancard;
-    @Column
-    private Integer pf_No ;
-    @Column
-    private Integer eSI_no; 
-    @Column
-    private Integer Pension_no;
-    @Column
-    private String bank_name;
-    @Column
-    private Integer bank_Ac_no;
-    
+	@Column
+	private String pancard;
+	@Column
+	private Integer pf_No;
+	@Column
+	private Integer eSI_no;
+	@Column
+	private Integer Pension_no;
+	@Column
+	private String bank_name;
+	@Column
+	private Integer bank_Ac_no;
 
 	public Integer getPf_No() {
 		return pf_No;
 	}
 
-
 	public void setPf_No(Integer pf_No) {
 		this.pf_No = pf_No;
 	}
-
 
 	public Integer geteSI_no() {
 		return eSI_no;
@@ -89,17 +86,14 @@ public class Employee {
 		this.eSI_no = eSI_no;
 	}
 
-	
 	public Integer getPension_no() {
 		return Pension_no;
 	}
-
 
 	public void setPension_no(Integer pension_no) {
 		Pension_no = pension_no;
 	}
 
-	
 	public String getBank_name() {
 		return bank_name;
 	}
@@ -112,7 +106,6 @@ public class Employee {
 		return bank_Ac_no;
 	}
 
-	
 	public void setBank_Ac_no(Integer bank_Ac_no) {
 		this.bank_Ac_no = bank_Ac_no;
 	}
@@ -126,8 +119,6 @@ public class Employee {
 	}
 
 	@Column
-	private String bankDetails;
-	@Column
 	private String peramanentAddress;
 	@Column
 	private String currentAddress;
@@ -135,17 +126,16 @@ public class Employee {
 	private Date createDate;
 	@Column
 	private Date updateDate;
-	
-	/*@OneToOne
-	private Address address;
+	@OneToOne
+	private BankDetails bankDetails;
 
-	public Address getAddress() {
-		return address;
+	public BankDetails getBankDetails() {
+		return bankDetails;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}*/
+	public void setBankDetails(BankDetails bankDetails) {
+		this.bankDetails = bankDetails;
+	}
 
 	public Integer getEmployeeId() {
 		return employeeId;
@@ -198,7 +188,6 @@ public class Employee {
 	public Date getDateofBirth() {
 		return dateofBirth;
 	}
-	
 
 	public void setDateofBirth(Date dateofBirth) {
 		this.dateofBirth = dateofBirth;
@@ -244,14 +233,6 @@ public class Employee {
 		this.joinDate = joinDate;
 	}
 
-	public String getBankDetails() {
-		return bankDetails;
-	}
-
-	public void setBankDetails(String bankDetails) {
-		this.bankDetails = bankDetails;
-	}
-
 	public String getPeramanentAddress() {
 		return peramanentAddress;
 	}
@@ -274,9 +255,9 @@ public class Employee {
 				+ ", lastName=" + lastName + ", startDate=" + startDate + ", positionTitle=" + positionTitle
 				+ ", departmentId=" + departmentId + ", dateofBirth=" + dateofBirth + ", gender=" + gender
 				+ ", primaryMailId=" + primaryMailId + ", secondaryMailId=" + secondaryMailId + ", mobileNumber="
-				+ mobileNumber + ", joinDate=" + joinDate + ", pancard=" + pancard + ", bankDetails=" + bankDetails
-				+ ", peramanentAddress=" + peramanentAddress + ", currentAddress=" + currentAddress + ", createDate="
-				+ createDate + ", updateDate=" + updateDate + "]";
+				+ mobileNumber + ", joinDate=" + joinDate + ", pancard=" + pancard + ", peramanentAddress="
+				+ peramanentAddress + ", currentAddress=" + currentAddress + ", createDate=" + createDate
+				+ ", updateDate=" + updateDate + ", bankDetails=" + bankDetails + "]";
 	}
 
 	public Date getCreateDate() {
