@@ -42,7 +42,7 @@ public class AcademicBackGroundController {
 	 * @return
 	 */
 	@CrossOrigin(origins = "*")
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value ="/{Id}",method = RequestMethod.GET)
 	public ResponseEntity<AcademicBackGround> getAcademicBackGroundId(@RequestParam Integer Id) {
 		AcademicBackGround academicBackGround = null;
 		boolean noElementFlag = false;
@@ -76,7 +76,7 @@ public class AcademicBackGroundController {
 	 * @return
 	 */
 	@CrossOrigin(origins = "*")
-	@RequestMapping(method = RequestMethod.DELETE)
+	@RequestMapping(value ="/{Id}/{delete}",method = RequestMethod.DELETE)
 	public ResponseEntity deleteAcademicBackGround(@RequestParam Integer Id) {
 		academicBackGroundService.deleteAcademicBackGround(Id);
 		return new ResponseEntity<>(HttpStatus.OK);

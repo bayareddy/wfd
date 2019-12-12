@@ -3,9 +3,6 @@ package com.wfdlabs.empmgmt.employeeMgmt.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.wfdlabs.empmgmt.employeeMgmt.entity.SalaryOffered;

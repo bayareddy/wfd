@@ -1,24 +1,18 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
-
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Employee;
 import com.wfdlabs.empmgmt.employeeMgmt.entity.SalaryOffered;
-
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -77,8 +71,7 @@ public class SalaryOfferedController {
 
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/generatePaySlipPdf", method = RequestMethod.GET)
-	public ResponseEntity<String> generatePaySlipPdf(@RequestParam String month, @RequestParam Integer year,
-			@RequestParam Integer employeId) throws IOException {
+	public ResponseEntity<String> generatePaySlipPdf(@RequestParam String month, @RequestParam Integer year,@RequestParam Integer salaryOfferedId	,@RequestParam Integer employeId) throws IOException {
 		Document document = new Document();
 		Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
 		Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 10);
@@ -286,13 +279,15 @@ public class SalaryOfferedController {
 	/**
 	 * This method is used to build the Total Payments & Deductions into tables of
 	 * payslip Pdf
-	 * 
+	 *  
 	 * @param document
 	 * @param catfont
 	 * 
 	 * @throws DocumentException
 	 */
-	public void totalTable(Font catfont, Document document) throws DocumentException {
+	public void totalTable(Font catfont, Document document ) throws DocumentException {
+		int addTotalPayments;
+		int addTotalDeductions;
 		PdfPTable table2 = new PdfPTable(4);
 		table2.setHorizontalAlignment(Element.ALIGN_CENTER);
 		table2.setWidthPercentage(100);
@@ -310,7 +305,8 @@ public class SalaryOfferedController {
 		table2.addCell(cell7_d);
 		// Adding table to Document
 		document.add(table2);
-
+		
+	 
 	}
 
 	/**
@@ -324,7 +320,6 @@ public class SalaryOfferedController {
 	 */
 	public void signatureTable(Document document, Font catfont) throws DocumentException {
 
-		
 		// Adding Empty Paragraph to maintain gap between table
 		Paragraph para = new Paragraph("  ");// Signature Block
 		para.setAlignment(Element.ALIGN_LEFT);
@@ -350,5 +345,13 @@ public class SalaryOfferedController {
 		document.add(table3);
 
 	}
+	@RequestMapping(value= "/addMethod",method=RequestMethod.GET)
+	public Integer addPayments(@RequestParam Integer salaryOfferedId) {
+	SalaryOffered salaryOffered =salaryOfferedService.getSalaryOffered(salaryOfferedId);
+		int addTotalPayments=(salaryOffered.getBasic()) + (salaryOffered.getHouseRentAllowance()) + (salaryOffered.getMedicalAllowance()) + (salaryOffered.getSpecialAllowance())+ (salaryOffered.getConveyanceAllowance())+ (salaryOffered.getPayOnMonthOryear());
+		int addTotalDeductions=(salaryOffered.getEmployee_provident_fund())+ (salaryOffered.getEmployee_ESI_Contribution())+ (salaryOffered.getProfessional_Tax());
+	System.out.println("TotalPayments="+ addTotalPayments + "TotalDeductions="+ addTotalDeductions);	
 
+	return addTotalPayments;				
+	}
 }
