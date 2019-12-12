@@ -128,16 +128,16 @@ public class Employee {
 	private Date createDate;
 	@Column
 	private Date updateDate;
-	@OneToOne
-	private BankDetails bankDetails;
-
-	public BankDetails getBankDetails() {
-		return bankDetails;
-	}
-
-	public void setBankDetails(BankDetails bankDetails) {
-		this.bankDetails = bankDetails;
-	}
+//	@OneToOne
+//	private BankDetails bankDetails;
+//
+//	public BankDetails getBankDetails() {
+//		return bankDetails;
+//	}
+//
+//	public void setBankDetails(BankDetails bankDetails) {
+//		this.bankDetails = bankDetails;
+//	}
 
 	public Integer getEmployeeId() {
 		return employeeId;
@@ -259,7 +259,7 @@ public class Employee {
 				+ ", primaryMailId=" + primaryMailId + ", secondaryMailId=" + secondaryMailId + ", mobileNumber="
 				+ mobileNumber + ", joinDate=" + joinDate + ", pancard=" + pancard + ", peramanentAddress="
 				+ peramanentAddress + ", currentAddress=" + currentAddress + ", createDate=" + createDate
-				+ ", updateDate=" + updateDate + ", bankDetails=" + bankDetails + "]";
+				+ ", updateDate=" + updateDate + ", bankDetails=" + "]";
 	}
 
 	public Date getCreateDate() {
