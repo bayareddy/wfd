@@ -19,6 +19,7 @@ import { ExpandMenu } from './home/sidenav/ExpandMenu';
 import { AcademicsComponent } from './home/sidenav/academics/academics.component';
 import { MainContentComponent } from './home/main-content/main-content.component';
 import { RoleComponent } from './home/sidenav/role/role.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { LeaveStatusComponent } from './home/sidenav/leave-status/leave-status.component';
 import { DefaultComponent } from './home/default/default.component';
@@ -55,7 +56,8 @@ import { ForgetPasswordComponent } from './login/forget-password/forget-password
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [CommonService,LoginService,ApiService],
   bootstrap: [AppComponent]

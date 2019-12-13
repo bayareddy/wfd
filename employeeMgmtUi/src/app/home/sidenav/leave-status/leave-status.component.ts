@@ -3,8 +3,7 @@ import { LeaveService } from './leave.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @Component({
   selector: 'app-leave-status',
@@ -13,11 +12,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LeaveStatusComponent implements OnInit {
 
-  form=new FormGroup({
-     $key: new FormControl(null),
-    statusName:new FormControl('',[Validators.required])
-  })
+  myData:any={};
 
+  form=new FormGroup({
+    leaveStatusName:new FormControl('',Validators.required)
+  })
 
   public BASE_URL:string = 'http://ec2-3-6-45-30.ap-south-1.compute.amazonaws.com:8081';
 
@@ -32,13 +31,30 @@ export class LeaveStatusComponent implements OnInit {
   
   }
   sendData(myData){
-let url='${this.BASE_URL}/leave/leavestatus'
+let url=`${this.BASE_URL}/leave/leavestatus`
 this.service.postService(url,myData).subscribe(responce=>{
+  
 this.ngOnInit();
 console.log(responce);
+console.log("data from the input fields are "+myData)
 })
 }
 
+deleteData(item){
+  let url=`${this.BASE_URL}/leave/leavestatus/delete?leaveId=`
+  url=url+item.leaveStatusId
+  console.log("deleting url is"+url);
+  this.service.deleteService(url).subscribe(responce=>{
+    this.leave= responce as string[];
+    this.ngOnInit();
+  })
+
+}
+
+editData(item){
+  this.myData=item;
+  this.ngOnInit()
+}
 
 
 
@@ -62,12 +78,11 @@ alert('Please connect to Internet')
     }
 
 
-    edit(leave){
-      
-this.form.setValue(leave);
-
     
-    }
+
+
+
+
 
 
 }

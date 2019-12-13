@@ -1,67 +1,69 @@
+<div class='bColor'>
 
-<div class="container">
-<div class="row">
-    <div class="col-xs-9">
-            <h3>Leave Status</h3>
-            <table class="table table-dark">
-                <thead class="thead">
-                    <tr>
-                  
-                    <th>StatusName</th>
-                   
-                    
-                    </tr>
-                </thead>
-            
-            <tbody>
-            <tr *ngFor='let leaves of leave'>
-              
-                <td>{{leaves.leaveStatusName |uppercase}}</td>
-               
-                <button class="btn btn-success btn-sm" (click)='edit(leaves)'>Edit</button>
-                <button class="btn btn-danger btn-sm" (click)='delete(leaves)'>Delete</button>
-                </tr>
-            </tbody>
-            
-            
-            
-            
-            </table>
-            
-    </div>
-</div>
-</div>
 
-<form [formGroup]='form'>
-<div class="container">
+
+
+    <div class="container">
     <div class="row">
-        <div class="col-xs-3">
-
-        </div>
-        <div class="col-xs-4">
-                <div class="form-group">
-            <input type="hidden" name='key' formControlName="$key">
-        <label>leaveStatusName</label>
-        <input type="text" #statusName formControlName='statusName'  class="form-control"> 
-
-    </div>
-                        <h1>{{statusName.value}}</h1>
-
-                    <br><br>
-                        <br>
-        
+            <div class="col-xs-4"></div>
+        <div class="col-xs-5">
+                <h3>Leave Status</h3>
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                     
+                        <th>Name :</th>
+                        <th>Edit / Delete</th>
+                       
                         
+                        </tr>
+                    </thead>
                 
-              
+                <tbody>
+                <tr *ngFor='let leaves of leave|paginate:{itemsPerPage: 10, currentPage:p};'>
+       
+                    <td>{{leaves.leaveStatusName }}</td>
+                   
+                    <button style="background-color: white;" class="btn-sm" (click)='editData(leaves)' >
+                        <i class="fa fa-edit" style="color:green;font-size: 20px;"></i></button>
+                    <button style="background-color: white;" class=" btn-sm" (click)='deleteData(leaves)'>
+                        <i class="fa fa-trash" style="color:red;font-size: 20px;"></i></button>
+                    </tr>
+                </tbody>
                 
-          
-
+                
+                <pagination-controls align="center" (pageChange)="p=$event"></pagination-controls>
+                
+                </table>
+                
         </div>
     </div>
-</div>
-</form>
-
-
-
-
-
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+    
+            </div>
+            <div class="col-xs-5">
+                    <div class="form-group">
+                
+            <label>Name</label><br>
+            <input class="form-control" type="text" [(ngModel)]='myData.leaveStatusName'> 
+    
+        </div>
+                  
+          <button type="submit" class="btn btn-primary" (click)=sendData(myData)>Submit</button>
+        
+            </div>
+        </div>
+    </div>
+    
+    
+    </div>
+    
+    
+    
+    
+    
+    

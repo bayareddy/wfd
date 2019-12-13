@@ -1,18 +1,11 @@
-
-  .col-md-6,footer{
-    color: white;
-    text-decoration: none;
-
-    font-size: 16px;
-  }
-
+.footerPardha {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(5, 44, 54);
+  color: white;
+  text-align: center;
+  height: 10%;
   
-  
-  .footer-classic{
-    height: 60px; 
-    position: fixed;
-   bottom:2%;
-   width: 110%;
-   
-   background:rgb(4, 0, 14);
-  }
+}

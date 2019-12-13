@@ -13,13 +13,17 @@ export class LeaveService {
   constructor(private http:HttpClient) { }
 
 postService(url,data){
-  this.http.post(url,data);
   return this.http.post(url,data);
+ 
 }
 
 getService(url){
 this.http.get(url);
 return this.http.get(url);
+}
+
+deleteService(url){
+return this.http.delete(url);
 }
 
 
