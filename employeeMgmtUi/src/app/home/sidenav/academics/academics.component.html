@@ -2,7 +2,6 @@
     <h1>Academics</h1> 
     <table>
        <tr> 
-         <th>Academic BackGroundId</th>
         <th>Affilicated University</th>
         <th>Contact Details</th>
         <th>Course StartDate</th>
@@ -17,7 +16,6 @@
     
        </tr>
        <tr  *ngFor="let item of regData">   
-       <td>{{item.academicBackGroundId}}</td>
        <td>{{item.affilicatedUniversity}}</td>
        <td>{{item.contactDetails}}</td>
        <td>{{item.courseStartDate|date}}</td>

@@ -11,12 +11,13 @@ import { LeaveStatusComponent } from './home/sidenav/leave-status/leave-status.c
 import { MainContentComponent } from './home/main-content/main-content.component';
 import {AcademicsComponent} from'./home/sidenav/academics/academics.component';
 import { LeaveTypeComponent } from './home/sidenav/leave-type/leave-type.component';
-
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
 
 const appRoutes: Routes = [
   {
     path: '',
+    
     children: [
       {
         path: 'home', component: HomeComponent,
@@ -35,7 +36,9 @@ const appRoutes: Routes = [
     ],
     component: DashboardComponent
   },
+  
   { path: 'login', component: LoginComponent },
+  {path:'forgetpassword', component:ForgetPasswordComponent},
   { path: '**', redirectTo: '/login' },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
