@@ -8,7 +8,8 @@
     <tr *ngFor="let leaveType of leaveTypeList">
         <td>{{leaveType.leaveTypeId}}</td>
         <td>{{leaveType.leaveTypeName}}</td>
-        <td> <button type="delete" (click)="onDelete(leaveType.leaveTypeId)" >delete</button></td>
+        <td> <button type="delete" (click)="onDelete(leaveType.leaveTypeId)" >delete</button>
+        <button type="edit" (click)="onedit(leaveType)">Edit</button></td>
     </tr>
 </table>
 <br>
@@ -16,9 +17,10 @@
 <div>
 <div>
     Leave Type name:
-    <input type="text" placeholder="Enter Leave Type" [(ngModel)]="leaveType">
+    <input type="text" placeholder="Enter Leave Type" [(ngModel)]="leaveTypeName">
 
 </div>
 <br>
 <br>
 <button type="submit" (click)="onSubmit()">submit</button>
+<button type="submit" (click)="onUpdate()">update</button>

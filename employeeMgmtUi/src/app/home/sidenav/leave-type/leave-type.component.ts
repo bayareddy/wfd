@@ -17,10 +17,10 @@ export class LeaveTypeComponent implements OnInit {
   //   leavetype: new FormControl('',[
   //     Validators.required])
   // });
-  private leaveType;
+  private leaveTypeName;
   onSubmit() {
-    console.log(this.leaveType);
-    let leaveTypeName = this.leaveType
+    console.log(this.leaveTypeName);
+    let leaveTypeName = this.leaveTypeName
     this.api.post('/leave/leavetype',{leaveTypeName}).subscribe(
       (data)=>{
         console.log(data);
@@ -33,7 +33,6 @@ export class LeaveTypeComponent implements OnInit {
 
   }
   onDelete(leaveTypeId) {
-    debugger;
     this.api.delete('/leave/leavetype/delete?leaveId='+leaveTypeId).subscribe(
       (data)=>{
         console.log(data);
@@ -44,9 +43,29 @@ export class LeaveTypeComponent implements OnInit {
       }
     );
   }
-  
+  onedit(leaveType){
+    this.leaveTypeName = leaveType.leaveTypeName;
+    this.leaveType = leaveType;
+    //this.api.edit('/leave/leavetype/update')
+  }
+  onUpdate() {
+    console.log(this.leaveType.leaveTypeId);
+    console.log(this.leaveTypeName);
+    let data = {
+      leaveTypeId:this.leaveType.leaveTypeId,
+      leaveTypeName:this.leaveTypeName
+    }
+    this.api.edit('/leave/leavetype/update',data).subscribe(
+      (data)=>{
+        this.getLeaveTypeData();
+        alert("Succesfull edit");
+      },
+      (err)=>{
+        alert(err);
+      }
+    )
+  }
   ngOnInit() {
-    debugger;
     this.getLeaveTypeData() ;
   }
 

@@ -22,5 +22,11 @@ export class ApiService {
   delete(url) {
     url = this.host+url;
     return this.http.delete(url);
+
+  
+  }
+  edit(url,data){
+    url=this.host+url;
+    return this.http.put(url,data);
   }
 }
