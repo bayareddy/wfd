@@ -59,56 +59,6 @@ public class Employee {
 	private Date joinDate;
 	@Column
 	private String pancard;
-	@Column
-	private Integer pf_No;
-	@Column
-	private Integer eSI_no;
-	@Column
-	private Integer Pension_no;
-	@Column
-	private String bank_name;
-	@Column
-	private Integer bank_Ac_no;
-
-	public Integer getPf_No() {
-		return pf_No;
-	}
-
-	public void setPf_No(Integer pf_No) {
-		this.pf_No = pf_No;
-	}
-
-	public Integer geteSI_no() {
-		return eSI_no;
-	}
-
-	public void seteSI_no(Integer eSI_no) {
-		this.eSI_no = eSI_no;
-	}
-
-	public Integer getPension_no() {
-		return Pension_no;
-	}
-
-	public void setPension_no(Integer pension_no) {
-		Pension_no = pension_no;
-	}
-
-	public String getBank_name() {
-		return bank_name;
-	}
-
-	public void setBank_name(String bank_name) {
-		this.bank_name = bank_name;
-	}
-
-	public Integer getBank_Ac_no() {
-		return bank_Ac_no;
-	}
-
-	public void setBank_Ac_no(Integer bank_Ac_no) {
-		this.bank_Ac_no = bank_Ac_no;
-	}
 
 	public String getPancard() {
 		return pancard;
@@ -126,6 +76,36 @@ public class Employee {
 	private Date createDate;
 	@Column
 	private Date updateDate;
+	@Column
+	private String pfNo;
+	public String getEsiNo() {
+		return esiNo;
+	}
+
+	public void setEsiNo(String esiNo) {
+		this.esiNo = esiNo;
+	}
+
+	public String getPensionNo() {
+		return pensionNo;
+	}
+
+	public void setPensionNo(String pensionNo) {
+		this.pensionNo = pensionNo;
+	}
+
+	@Column
+	private String esiNo;
+	@Column
+	private String pensionNo;
+	public String getPfNo() {
+		return pfNo;
+	}
+
+	public void setPfNo(String pfNo) {
+		this.pfNo = pfNo;
+	}
+
 	@OneToOne
 	private BankDetails bankDetails;
 

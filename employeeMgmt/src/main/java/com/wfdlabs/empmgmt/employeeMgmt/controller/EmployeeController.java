@@ -1,9 +1,16 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,62 +36,66 @@ import net.sf.jasperreports.engine.JasperReport;
 public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
+
 	/**
 	 * This class is used to post the employee details
 	 * 
 	 * @param employee
 	 * @return
 	 */
-	@CrossOrigin(origins="*")
+	@CrossOrigin(origins = "*")
 	@RequestMapping(method = RequestMethod.POST)
 	public Employee createEmployee(@RequestBody Employee pEmployee) {
 		return employeeService.createEmployee(pEmployee);
-		
+
 	}
+
 	/**
-	 * This class  is used to post the employee details
+	 * This class is used to post the employee details
+	 * 
 	 * @param employeeId
 	 * @return
 	 */
-	@CrossOrigin(origins="*")
-	@RequestMapping(value = "/{employeeId}",method = RequestMethod.GET)
-	public ResponseEntity<Employee> getEmployee(@PathVariable Integer employeeId){
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
+	public ResponseEntity<Employee> getEmployee(@PathVariable Integer employeeId) {
 		Employee employee = null;
 		Boolean noSuchElement = false;
 		try {
 			employee = employeeService.getEmployee(employeeId);
-		}catch (NoResultException nsee) {
+		} catch (NoResultException nsee) {
 			noSuchElement = true;
 		}
-		if(noSuchElement || employee==null) {
+		if (noSuchElement || employee == null) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<>(employee, HttpStatus.OK);
 	}
+
 	/**
-	 * This class  is used to post the employee details
+	 * This class is used to post the employee details
+	 * 
 	 * @param pEmployee
 	 * @return
 	 */
-	@CrossOrigin(origins="*")
+	@CrossOrigin(origins = "*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public Employee updateEmployee(@RequestBody Employee pEmployee) {
 		return employeeService.updateEmployee(pEmployee);
-		
+
 	}
+
 	/**
-	 * This class  is used to post the employee details
+	 * This class is used to post the employee details
+	 * 
 	 * @param employeeId
 	 * @return
 	 */
-	@CrossOrigin(origins="*")
-	@RequestMapping(value = "/{employeeId}",method = RequestMethod.DELETE)
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "/{employeeId}", method = RequestMethod.DELETE)
 	public String deleteUser(@PathVariable Integer employeeId) {
 		return employeeService.deleteEmployee(employeeId);
-		
-	
+
 	}
+
 }
-		
-
-
