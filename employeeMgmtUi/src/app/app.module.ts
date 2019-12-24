@@ -27,6 +27,7 @@ import { LeaveTypeComponent } from './home/sidenav/leave-type/leave-type.compone
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 
 import { EmployeementHistoryComponent } from './home/sidenav/employeement-history/employeement-history.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -52,7 +53,9 @@ import { EmployeementHistoryComponent } from './home/sidenav/employeement-histor
     LeaveTypeComponent,
 	EmployeementHistoryComponent,
   
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+  
+    ResetPasswordComponent
    
   ],
   imports: [

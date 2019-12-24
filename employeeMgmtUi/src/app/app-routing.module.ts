@@ -13,6 +13,7 @@ import {AcademicsComponent} from'./home/sidenav/academics/academics.component';
 import { LeaveTypeComponent } from './home/sidenav/leave-type/leave-type.component';
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 import { EmployeementHistoryComponent } from './home/sidenav/employeement-history/employeement-history.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 
 
 
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
   },
   
   { path: 'login', component: LoginComponent },
+  {path:'resetpassword', component:ResetPasswordComponent},
   {path:'forgetpassword', component:ForgetPasswordComponent},
   { path: '**', redirectTo: '/login' },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }
