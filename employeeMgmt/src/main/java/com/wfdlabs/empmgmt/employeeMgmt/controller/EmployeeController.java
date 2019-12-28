@@ -90,9 +90,7 @@ public class EmployeeController {
 		return employeeService.deleteEmployee(employeeId);
 
 	}
-	
 
-	//@SuppressWarnings("resource")
 	@RequestMapping(value = "/getPdf", method = RequestMethod.GET, produces = "application/pdf")
 	public ResponseEntity<byte[]> getPdf() {
 		FileInputStream fileStream;
