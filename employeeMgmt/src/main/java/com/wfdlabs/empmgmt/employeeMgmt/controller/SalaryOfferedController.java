@@ -8,6 +8,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.wfdlabs.empmgmt.employeeMgmt.entity.BankDetails;
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Employee;
 import com.wfdlabs.empmgmt.employeeMgmt.entity.SalaryOffered;
 
@@ -94,7 +95,7 @@ public class SalaryOfferedController {
 			headerPart(month, year, smallBold, document);
 
 			// Building Employee Details Table
-			employeeDetailsTable(subFont, document);
+			employeeDetailsTable(subFont, document, employee);
 
 			// Building Salary Details Table
 			salaryDetailsTable(subFont, document);
@@ -160,33 +161,35 @@ public class SalaryOfferedController {
 	 * 
 	 * @param subFont
 	 * @param document
+	 * @param employee
 	 * 
 	 * @param employeeId
 	 * @throws DocumentException
 	 */
-	public void employeeDetailsTable(Font subFont, Document document) throws DocumentException {
+	public void employeeDetailsTable(Font subFont, Document document, Employee employee) throws DocumentException {
 		PdfPTable table = new PdfPTable(2);
 
 		table.setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.setWidthPercentage(100);
 		table.setSpacingAfter(0);
-
+		BankDetails bankDetails = employee.getBankDetails();
 		// Adding EmployeeDetails into a table in 1st Cell
 
 		PdfPCell cell1_1 = new PdfPCell();
-		cell1_1.addElement(new Paragraph(" " + "Employee Id:", subFont));
-		cell1_1.addElement(new Paragraph(" " + "Emp Name:", subFont));
-		cell1_1.addElement(new Paragraph(" " + "Date of Joing:", subFont));
-		cell1_1.addElement(new Paragraph(" " + "PF NO:", subFont));
-		cell1_1.addElement(new Paragraph(" " + "ESI NO:", subFont));
+		// cell1_1.addElement(new Paragraph(" " + "Employee Id:", subFont));
+		cell1_1.addElement(new Paragraph("Emp Id:" + " " + employee.getEmployeeId(), subFont));
+		cell1_1.addElement(new Paragraph("Emp Name:" + " " + employee.getFirstName() + " " + employee.getLastName(), subFont));
+		cell1_1.addElement(new Paragraph("Date of Joing:" + " " + employee.getJoinDate(), subFont));
+		cell1_1.addElement(new Paragraph("PF NO:" + " " + employee.getPfNo(), subFont));
+		cell1_1.addElement(new Paragraph("ESI NO:" + " " + employee.getEsiNo(), subFont));
 		table.addCell(cell1_1);
 
 		// Adding Employee Details into a table in 2nd Cell
 		PdfPCell cell1_2 = new PdfPCell(new Paragraph());
 
-		cell1_2.addElement(new Paragraph(" " + "Pension No:", subFont));
-		cell1_2.addElement(new Paragraph(" " + "Bank Name:", subFont));
-		cell1_2.addElement(new Paragraph(" " + "Bank A/c no:", subFont));
+		cell1_2.addElement(new Paragraph("Pension No:", subFont));
+		cell1_2.addElement(new Paragraph("Bank Name:" + " " + bankDetails.getBankName(), subFont));
+		cell1_2.addElement(new Paragraph("Bank A/c no:" + " " + bankDetails.getAccountNumber(), subFont));
 		table.addCell(cell1_2);
 
 		// Adding tables to Document
@@ -225,10 +228,10 @@ public class SalaryOfferedController {
 		table1.addCell(cell_d);
 
 		// Setting Basic salary & Employee Provident Fund cell
-		PdfPCell cell1_a = new PdfPCell(new Paragraph(" " + "Basic salary", subFont));
+		PdfPCell cell1_a = new PdfPCell(new Paragraph("Basic salary", subFont));
 		PdfPCell cell1_b = new PdfPCell(new Paragraph(" "));
 		cell1_b.setHorizontalAlignment(Element.ALIGN_RIGHT);
-		PdfPCell cell1_c = new PdfPCell(new Paragraph(" " + "Employe Provident Fund", subFont));
+		PdfPCell cell1_c = new PdfPCell(new Paragraph("Employe Provident Fund", subFont));
 		PdfPCell cell1_d = new PdfPCell(new Paragraph(" "));
 		cell1_d.setHorizontalAlignment(Element.ALIGN_RIGHT);
 
@@ -239,7 +242,7 @@ public class SalaryOfferedController {
 		table1.addCell(cell1_d);
 
 		// Setting House Rent Allowance & Employee ESI Contribution Cells
-		PdfPCell cell2_a = new PdfPCell(new Paragraph(" " + "House Rent Allowance", subFont));
+		PdfPCell cell2_a = new PdfPCell(new Paragraph("House Rent Allowance", subFont));
 		PdfPCell cell2_b = new PdfPCell(new Paragraph(" "));
 		cell2_b.setHorizontalAlignment(Element.ALIGN_RIGHT);
 		PdfPCell cell2_c = new PdfPCell(new Paragraph("Employee ESI Contribution", subFont));
@@ -253,10 +256,10 @@ public class SalaryOfferedController {
 		table1.addCell(cell2_d);
 
 		// setting Medical Allowance & Professional_Tax Cells
-		PdfPCell cell3_a = new PdfPCell(new Paragraph(" " + "Medical Allowance", subFont));
+		PdfPCell cell3_a = new PdfPCell(new Paragraph("Medical Allowance", subFont));
 		PdfPCell cell3_b = new PdfPCell(new Paragraph(" "));
 		cell3_b.setHorizontalAlignment(Element.ALIGN_RIGHT);
-		PdfPCell cell3_c = new PdfPCell(new Paragraph(" " + "Professional_Tax", subFont));
+		PdfPCell cell3_c = new PdfPCell(new Paragraph("Professional_Tax", subFont));
 		PdfPCell cell3_d = new PdfPCell(new Paragraph(" "));
 		cell3_d.setHorizontalAlignment(Element.ALIGN_RIGHT);
 
@@ -267,7 +270,7 @@ public class SalaryOfferedController {
 		table1.addCell(cell3_d);
 
 		// Setting SpecialAllowance cell
-		PdfPCell cell4_a = new PdfPCell(new Paragraph(" " + "SpecialAllowance", subFont));
+		PdfPCell cell4_a = new PdfPCell(new Paragraph("SpecialAllowance", subFont));
 		PdfPCell cell4_b = new PdfPCell(new Paragraph(" "));
 		cell4_b.setHorizontalAlignment(Element.ALIGN_RIGHT);
 		PdfPCell cell4_c = new PdfPCell(new Paragraph(" "));
@@ -280,7 +283,7 @@ public class SalaryOfferedController {
 		table1.addCell(cell4_d);
 
 		// Setting Conveyance Allowance cell
-		PdfPCell cell5_a = new PdfPCell(new Paragraph(" " + "Conveyance Allowance", subFont));
+		PdfPCell cell5_a = new PdfPCell(new Paragraph("Conveyance Allowance", subFont));
 		PdfPCell cell5_b = new PdfPCell(new Paragraph(" "));
 		cell5_b.setHorizontalAlignment(Element.ALIGN_RIGHT);
 		PdfPCell cell5_c = new PdfPCell(new Paragraph(""));
@@ -293,7 +296,7 @@ public class SalaryOfferedController {
 		table1.addCell(cell5_d);
 
 		// Setting PayOnMonthOryear Cell
-		PdfPCell cell6_a = new PdfPCell(new Paragraph(" " + "PayOnMonthOryear", subFont));
+		PdfPCell cell6_a = new PdfPCell(new Paragraph("PayOnMonthOryear", subFont));
 		PdfPCell cell6_b = new PdfPCell(new Paragraph(" "));
 		cell6_b.setHorizontalAlignment(Element.ALIGN_RIGHT);
 		PdfPCell cell6_c = new PdfPCell(new Paragraph(""));
@@ -326,12 +329,12 @@ public class SalaryOfferedController {
 		table2.setWidthPercentage(100);
 
 		// Building Total Payments Cell
-		PdfPCell cell7_a = new PdfPCell(new Paragraph("   " + "Total Payments", catfont));
+		PdfPCell cell7_a = new PdfPCell(new Paragraph("Total Payments", catfont));
 		PdfPCell cell7_b = new PdfPCell(new Paragraph(""));
 		cell7_b.setHorizontalAlignment(Element.ALIGN_RIGHT);
 
 		// Building Total Deduction Cell
-		PdfPCell cell7_c = new PdfPCell(new Paragraph("   " + "Total Deductions", catfont));
+		PdfPCell cell7_c = new PdfPCell(new Paragraph("Total Deductions", catfont));
 		PdfPCell cell7_d = new PdfPCell(new Paragraph(""));
 
 		// Adding cells to Table
