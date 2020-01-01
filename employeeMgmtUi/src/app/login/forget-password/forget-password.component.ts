@@ -22,7 +22,9 @@ addData(data){
   let url=`/employee/forget?pancard=${this.pancard}&employeeId=${this.employeeId}`
   console.log('working',url)
 this.apiSer.get(url).subscribe((res)=>{
+
   if(this.employeeId==res['employeeId'] && this.pancard==res['pancard']){
+    this.apiSer.forgetId=this.employeeId;
     this.router.navigate(['/resetpassword']);
 
   }
