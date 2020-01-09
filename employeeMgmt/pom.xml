@@ -111,7 +111,12 @@
     <artifactId>jasperreports</artifactId>
     <version>6.1.0</version>
 </dependency>
-     
+     <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.11-beta3</version>
+</dependency>
 
 	</dependencies>
 
