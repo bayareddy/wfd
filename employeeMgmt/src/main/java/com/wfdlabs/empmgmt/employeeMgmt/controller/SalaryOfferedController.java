@@ -1,4 +1,5 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -13,6 +14,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.io.File;
+
+import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
+import org.apache.poi.xwpf.usermodel.UnderlinePatterns;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -70,8 +78,8 @@ public class SalaryOfferedController {
 	}
 
 	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "/generatePaySlipPdf", method = RequestMethod.GET)
-	public ResponseEntity<String> generatePaySlipPdf(@RequestParam String month, @RequestParam Integer year,@RequestParam Integer salaryOfferedId	,@RequestParam Integer employeId) throws IOException {
+	public ResponseEntity<String> generatePaySlipPdf(@RequestParam String month, @RequestParam Integer year,
+			@RequestParam Integer salaryOfferedId, @RequestParam Integer employeId) throws IOException {
 		Document document = new Document();
 		Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
 		Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 10);
@@ -279,13 +287,13 @@ public class SalaryOfferedController {
 	/**
 	 * This method is used to build the Total Payments & Deductions into tables of
 	 * payslip Pdf
-	 *  
+	 * 
 	 * @param document
 	 * @param catfont
 	 * 
 	 * @throws DocumentException
 	 */
-	public void totalTable(Font catfont, Document document ) throws DocumentException {
+	public void totalTable(Font catfont, Document document) throws DocumentException {
 		int addTotalPayments;
 		int addTotalDeductions;
 		PdfPTable table2 = new PdfPTable(4);
@@ -305,8 +313,7 @@ public class SalaryOfferedController {
 		table2.addCell(cell7_d);
 		// Adding table to Document
 		document.add(table2);
-		
-	 
+
 	}
 
 	/**
@@ -345,13 +352,104 @@ public class SalaryOfferedController {
 		document.add(table3);
 
 	}
-	@RequestMapping(value= "/addMethod",method=RequestMethod.GET)
-	public Integer addPayments(@RequestParam Integer salaryOfferedId) {
-	SalaryOffered salaryOffered =salaryOfferedService.getSalaryOffered(salaryOfferedId);
-		int addTotalPayments=(salaryOffered.getBasic()) + (salaryOffered.getHouseRentAllowance()) + (salaryOffered.getMedicalAllowance()) + (salaryOffered.getSpecialAllowance())+ (salaryOffered.getConveyanceAllowance())+ (salaryOffered.getPayOnMonthOryear());
-		int addTotalDeductions=(salaryOffered.getEmployee_provident_fund())+ (salaryOffered.getEmployee_ESI_Contribution())+ (salaryOffered.getProfessional_Tax());
-	System.out.println("TotalPayments="+ addTotalPayments + "TotalDeductions="+ addTotalDeductions);	
 
-	return addTotalPayments;				
+	/*
+	 * @RequestMapping(value= "/addMethod",method=RequestMethod.GET) public Integer
+	 * addPayments(@RequestParam Integer salaryOfferedId) { SalaryOffered
+	 * salaryOffered =salaryOfferedService.getSalaryOffered(salaryOfferedId); int
+	 * addTotalPayments=(salaryOffered.getBasic()) +
+	 * (salaryOffered.getHouseRentAllowance()) +
+	 * (salaryOffered.getMedicalAllowance()) +
+	 * (salaryOffered.getSpecialAllowance())+
+	 * (salaryOffered.getConveyanceAllowance())+
+	 * (salaryOffered.getPayOnMonthOryear()); int
+	 * addTotalDeductions=(salaryOffered.getEmployee_provident_fund())+
+	 * (salaryOffered.getEmployee_ESI_Contribution())+
+	 * (salaryOffered.getProfessional_Tax()); System.out.println("TotalPayments="+
+	 * addTotalPayments + "TotalDeductions="+ addTotalDeductions);
+	 * 
+	 * return addTotalPayments; }
+	 */
+	@RequestMapping(value = { "/offerLetter" }, method = RequestMethod.GET)
+	public void generateOfferLetter() throws IOException {
+
+		XWPFDocument document = new XWPFDocument();
+		XWPFParagraph paragraphMr = document.createParagraph();
+		paragraphMr.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun runMr = paragraphMr.createRun();
+		runMr.setBold(true);
+		runMr.setText("Mr.");
+
+		/*
+		 * XWPFParagraph paragraphDate = document.createParagraph();
+		 * paragraphDate.setAlignment(ParagraphAlignment.RIGHT); XWPFRun runDate =
+		 * paragraphDate.createRun(); runDate.setText("Date \n ");
+		 * 
+		 * XWPFParagraph paragraphPlace = document.createParagraph();
+		 * paragraphPlace.setAlignment(ParagraphAlignment.RIGHT); XWPFRun runPlace =
+		 * paragraphDate.createRun(); runPlace.setText("Banglore \n");
+		 */
+
+		XWPFParagraph paragraph = document.createParagraph();
+		paragraph.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun run = paragraph.createRun();
+		run.setBold(true);
+		run.setText("Subject: OFFER OF EMOPLOYMENT	\n");
+// Role And Date of Joining
+		XWPFParagraph paragraph1 = document.createParagraph();
+		paragraph1.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun run1 = paragraph1.createRun();
+		run1.setText("Dear  Ashok");
+		XWPFParagraph paragraph1a = document.createParagraph();
+		paragraph1a.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun run1a = paragraph1a.createRun();
+		run1a.setText("\r\n"
+				+ "With reference to your application and the subsequent interview that you had with us on 05th September 2018 for employment in our company, we are pleased to appoint you as “Associate Software Engineer” on following terms and conditions.\r\n");
+//Date Of joining Paragraph
+		XWPFParagraph paragraph1b = document.createParagraph();
+		paragraph1b.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun run1b = paragraph1b.createRun();
+		run1b.setBold(true);
+		run1b.setUnderline(UnderlinePatterns.SINGLE);
+		run1b.setText("Date Of Joining" + "\n");
+		XWPFParagraph paragraph1c = document.createParagraph();
+		paragraph1c.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun run1c = paragraph1b.createRun();
+		run1c.setText("\r\n"
+				+ "This appointment letter is valid for your joining on or before 5thSeptember 2018. In case of your not complying this, the appointment would be treated as cancelled.\r\n"
+				+ " \n");
+// Medica Fitness Paragraph
+		XWPFParagraph paragraphMedical = document.createParagraph();
+		paragraphMedical.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun runMedical = paragraph1b.createRun();
+		runMedical.setBold(true);
+		runMedical.setUnderline(UnderlinePatterns.SINGLE);
+		runMedical.setText("Medical Fitness" + "\n");
+		XWPFParagraph paragraphMedical1 = document.createParagraph();
+		paragraphMedical1.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun runMedical1 = paragraph1b.createRun();
+		runMedical1.setText(
+				"The appointment is valid only in case of your being found medically fit to perform your duties by the registered Medical Practitioner authorized by the Company. Further, your fitness for the job is subject to periodical medical examinations by the company.\r\n"
+						+ "\n");
+//Certificate / Testimonals Paragraph	
+		XWPFParagraph paragraphCerificate = document.createParagraph();
+		paragraphCerificate.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun runCertificate = paragraph1b.createRun();
+		runCertificate.setBold(true);
+		runCertificate.setUnderline(UnderlinePatterns.SINGLE);
+		runCertificate.setText("Certificate / Testimonials:" + "\n");
+		XWPFParagraph paragraphCerificate1 = document.createParagraph();
+		paragraphCerificate1.setAlignment(ParagraphAlignment.LEFT);
+		XWPFRun runCertificate1 = paragraph1b.createRun();
+		runCertificate1.setText("The appointment is further subject to your providing documented proofs about details mentioned in the Application form by you and information provided by you during interviews with the management. This includes;\r\n" + 
+				"");
+		
+
+		// Write the Document in file system
+		FileOutputStream out = new FileOutputStream(new File("E:\\Ashok.docx"));
+		document.write(out);
+		out.close();
+		System.out.println("createdocument.docx written successully");
 	}
+
 }

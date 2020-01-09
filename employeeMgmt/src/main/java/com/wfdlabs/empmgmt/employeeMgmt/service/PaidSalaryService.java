@@ -36,4 +36,10 @@ public interface PaidSalaryService {
 	 */
 	String delete(Integer id);
 
+	PaidSalary getByEmpIdYearMonth(Integer employeeId);
+
+
+
+	//PaidSalary getByEmpIdYearMonth(Integer id, Integer year, String month);
+
 }

@@ -1,9 +1,14 @@
 package com.wfdlabs.empmgmt.employeeMgmt.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -11,13 +16,31 @@ import javax.persistence.Table;
 @Entity
 public class PaidSalary extends BaseEntity{
 
+	// Employee -1 paidSalary *
+	// 
+	//@OneToMany(cascade=CascadeType.ALL)
 	
+	@ManyToOne (cascade=CascadeType.ALL)
+	Employee employee;
 	@Column
 	private String month;
 	@Column
 	private Integer basicSalary;
 	@Column
 	private Integer houseRentAllowance;
+	
+	/**
+	 * @return the employee
+	 */
+	/*public Employee getEmployee() {
+		return employee;
+	}
+	*//**
+	 * @param employee the employee to set
+	 *//*
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}*/
 	@Column
 	private Integer adjustmentHouseRentAllowance;
 	@Column

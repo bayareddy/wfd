@@ -4,13 +4,16 @@
 package com.wfdlabs.empmgmt.employeeMgmt.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,8 +24,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Employee")
 public class Employee {
-    @ManyToOne
-	PaidSalary paidSalary;
+	
+    @OneToMany(cascade=CascadeType.ALL)
+	List<PaidSalary> paidSalary;
+    
+	/**
+	 * @return the paidSalary
+	 */
+	public List<PaidSalary> getPaidSalary() {
+		return paidSalary;
+	}
+
+	/**
+	 * @param paidSalary the paidSalary to set
+	 */
+	public void setPaidSalary(List<PaidSalary> paidSalary) {
+		this.paidSalary = paidSalary;
+	}
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	BankDetails bankDetails;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer employeeId;
@@ -59,60 +81,23 @@ public class Employee {
 	private Integer mobileNumber;
 	@Column
 	private Date joinDate;
+	/**
+	 * @return the bankDetails
+	 */
+	public BankDetails getBankDetails() {
+		return bankDetails;
+	}
+
+	/**
+	 * @param bankDetails the bankDetails to set
+	 */
+	public void setBankDetails(BankDetails bankDetails) {
+		this.bankDetails = bankDetails;
+	}
+
 	@Column
 	private String pancard;
-	@Column
-	private Integer pf_No;
-	@Column
-	private Integer eSI_no;
-	@Column
-	private Integer Pension_no;
-	@Column
-	private String bank_name;
-	@Column
-	private Integer bank_Ac_no;
-
-	public Integer getPf_No() {
-		return pf_No;
-	}
-
-	public void setPf_No(Integer pf_No) {
-		this.pf_No = pf_No;
-	}
-
-	public Integer geteSI_no() {
-		return eSI_no;
-	}
-
-	public void seteSI_no(Integer eSI_no) {
-		this.eSI_no = eSI_no;
-	}
-
-	public Integer getPension_no() {
-		return Pension_no;
-	}
-
-	public void setPension_no(Integer pension_no) {
-		Pension_no = pension_no;
-	}
-
-	public String getBank_name() {
-		return bank_name;
-	}
-
-	public void setBank_name(String bank_name) {
-		this.bank_name = bank_name;
-	}
-
-	public Integer getBank_Ac_no() {
-		return bank_Ac_no;
-	}
-
-	public void setBank_Ac_no(Integer bank_Ac_no) {
-		this.bank_Ac_no = bank_Ac_no;
-	}
-
-	public String getPancard() {
+	@Column	public String getPancard() {
 		return pancard;
 	}
 
@@ -128,16 +113,6 @@ public class Employee {
 	private Date createDate;
 	@Column
 	private Date updateDate;
-//	@OneToOne
-//	private BankDetails bankDetails;
-//
-//	public BankDetails getBankDetails() {
-//		return bankDetails;
-//	}
-//
-//	public void setBankDetails(BankDetails bankDetails) {
-//		this.bankDetails = bankDetails;
-//	}
 
 	public Integer getEmployeeId() {
 		return employeeId;

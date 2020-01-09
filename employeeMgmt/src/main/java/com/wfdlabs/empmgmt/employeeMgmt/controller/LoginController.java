@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Employee;
+import com.wfdlabs.empmgmt.employeeMgmt.service.EmployeeService;
 import com.wfdlabs.empmgmt.employeeMgmt.service.LoginService;
 
 import java.text.ParseException;
@@ -29,6 +30,8 @@ import java.util.Date;
 public class LoginController {
 	@Autowired
 	LoginService loginService;
+	@Autowired
+	EmployeeService employeeService;
 
 	/**
 	 * this method is used to login employeepage based on employeeId and
@@ -60,14 +63,23 @@ public class LoginController {
 	@CrossOrigin(origins="*")
 	@RequestMapping(value = "/forget", method = RequestMethod.GET)
 	public  ResponseEntity<Employee> validatePassword(@RequestParam("pancard") String employeePancard,
-			@RequestParam("dateofBirth") String employeeDob, @RequestParam("employeeId") Integer empId)
+			/*@RequestParam("dateofBirth") String employeeDob,*/ @RequestParam("employeeId") Integer empId)
 			throws ParseException {
-		Employee employee= loginService.validatePassword(employeePancard, new SimpleDateFormat("dd/MM/yyyy").parse(employeeDob),empId);
+		Employee employee= loginService.validatePassword(employeePancard,null /*new SimpleDateFormat("dd/MM/yyyy").parse(employeeDob)*/,empId);
         if(employee==null) {
         	return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         	
         }
         return new ResponseEntity<>(employee,HttpStatus.OK);
+	}
+	@CrossOrigin(origins="*")
+	@RequestMapping(value="/updatePassword",method=RequestMethod.GET)
+	public ResponseEntity<String> updateNewPassword(@RequestParam Integer employeeId, @RequestParam String newPassword){
+		Employee employee=employeeService.getEmployee(employeeId);
+		employee.setPassword(newPassword);
+		employeeService.updateEmployee(employee);
+		 return new ResponseEntity<>("Record Updated Successfully",HttpStatus.OK);
+		
 	}
 
 	/**

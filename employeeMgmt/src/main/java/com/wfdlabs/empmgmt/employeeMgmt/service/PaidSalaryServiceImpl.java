@@ -51,4 +51,15 @@ public class PaidSalaryServiceImpl implements PaidSalaryService {
 		return id + "Deleted Record Succesfully";
 	}
 
+	@Override
+	public PaidSalary getByEmpIdYearMonth(Integer employeeId) {
+		
+		return paidSalaryRepositiory.findById(employeeId).get();
+	}
+
+	/*@Override
+	public PaidSalary getByEmpIdYearMonth(Integer id, Integer year, String month) {
+		return paidSalaryRepositiory.findById(id).get();
+	}
+*/
 }
