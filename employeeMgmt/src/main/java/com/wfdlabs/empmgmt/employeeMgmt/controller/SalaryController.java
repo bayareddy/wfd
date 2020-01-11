@@ -92,8 +92,7 @@ public class SalaryController {
 
 	@RequestMapping(value = "/generateWordDoc", method = RequestMethod.GET, produces = "application/Word")
 	public ResponseEntity<byte[]> getWord() throws IOException, XmlException, InvalidFormatException {
-
-		XWPFDocument document = new XWPFDocument();
+		/*XWPFDocument document = new XWPFDocument();
 		CTSectPr sectPr = document.getDocument().getBody().addNewSectPr();
 		XWPFHeaderFooterPolicy policy = new XWPFHeaderFooterPolicy(document, sectPr);
 		
@@ -108,7 +107,7 @@ public class SalaryController {
 
 		String headerText = "This is header";
 		run = headerParagraph.createRun();
-		String imgFile = "E:/wfdlab.jpg";
+		String imgFile = "E:/Capture1.jpg";
 		run.addPicture(new FileInputStream(imgFile), XWPFDocument.PICTURE_TYPE_JPEG, imgFile, Units.toEMU(50), Units.toEMU(50));
 		ctHeader.setStringValue(headerText);
 		
@@ -134,9 +133,56 @@ public class SalaryController {
 		policy.createFooter(XWPFHeaderFooterPolicy.DEFAULT, parsFooter);
 
 		document.write(out);
-		out.close();
+		out.close();*/
+	
+	XWPFDocument doc= new XWPFDocument();
 
-		return null;
+	  // the body content
+	  XWPFParagraph paragraph = doc.createParagraph();
+	  XWPFRun run=paragraph.createRun();  
+	  run.setText("The Body:");
+
+	  paragraph = doc.createParagraph();
+	  run=paragraph.createRun();  
+	  run.setText("Lorem ipsum....");
+
+	  // create header start
+	  CTSectPr sectPr = doc.getDocument().getBody().addNewSectPr();
+	  XWPFHeaderFooterPolicy headerFooterPolicy = new XWPFHeaderFooterPolicy(doc, sectPr);
+
+	  XWPFHeader header = headerFooterPolicy.createHeader(XWPFHeaderFooterPolicy.DEFAULT);
+
+	  paragraph = header.createParagraph();
+	  paragraph.setAlignment(ParagraphAlignment.LEFT);
+
+	  CTTabStop tabStop = paragraph.getCTP().getPPr().addNewTabs().addNewTab();
+	  tabStop.setVal(STTabJc.RIGHT);
+	  int twipsPerInch =  1440;
+	  tabStop.setPos(BigInteger.valueOf(6 * twipsPerInch));
+
+	  run = paragraph.createRun();  
+	  run.setText("The Header:");
+	  run.addTab();
+
+	  run = paragraph.createRun(); 
+	  String imgFile="E://Capture1.jpg";
+	  run.addPicture(new FileInputStream(imgFile), XWPFDocument.PICTURE_TYPE_PNG, imgFile, Units.toEMU(50), Units.toEMU(50));
+
+
+	  // create footer start
+	  XWPFFooter footer = headerFooterPolicy.createFooter(XWPFHeaderFooterPolicy.DEFAULT);
+
+	  paragraph = footer.createParagraph();
+	  paragraph.setAlignment(ParagraphAlignment.CENTER);
+
+	  run = paragraph.createRun();  
+	  run.setText("The Footer:");
+
+
+	  doc.write(new FileOutputStream("E:/prasad.docx"));
+	return null;
+
+		//return null;
 
 	}
 
