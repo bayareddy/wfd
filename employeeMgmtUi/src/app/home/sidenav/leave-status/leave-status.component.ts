@@ -18,7 +18,7 @@ export class LeaveStatusComponent implements OnInit {
     leaveStatusName:new FormControl('',Validators.required)
   })
 
-  public BASE_URL:string = 'http://ec2-3-6-45-30.ap-south-1.compute.amazonaws.com:8081';
+  public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
 
   constructor(private service:LeaveService,private http:HttpClient) { }
 

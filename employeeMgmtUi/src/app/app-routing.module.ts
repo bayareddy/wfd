@@ -10,10 +10,12 @@ import { RoleComponent } from './home/sidenav/role/role.component';
 import { LeaveStatusComponent } from './home/sidenav/leave-status/leave-status.component';
 import { MainContentComponent } from './home/main-content/main-content.component';
 import {AcademicsComponent} from'./home/sidenav/academics/academics.component';
+import {ClientComponent} from'./home/sidenav/client/client.component';
 import { LeaveTypeComponent } from './home/sidenav/leave-type/leave-type.component';
 import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
 import { EmployeementHistoryComponent } from './home/sidenav/employeement-history/employeement-history.component';
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
+import { from } from 'rxjs';
 
 
 
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
 		   { path: 'emphis', component: EmployeementHistoryComponent },
           { path: 'sideNavLeaveStatus', component: LeaveStatusComponent },
           {path:'sideNavAcademics', component:AcademicsComponent},
+          {path: 'sideNavClient', component:ClientComponent},
           { path: 'leaveType', component:LeaveTypeComponent},
           { path: '', component: MainContentComponent },
         ]

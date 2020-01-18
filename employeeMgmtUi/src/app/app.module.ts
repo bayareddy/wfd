@@ -28,6 +28,7 @@ import { ForgetPasswordComponent } from './login/forget-password/forget-password
 
 import { EmployeementHistoryComponent } from './home/sidenav/employeement-history/employeement-history.component';
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
+import { ClientComponent } from './home/sidenav/client/client.component';
 
 
 @NgModule({
@@ -55,7 +56,9 @@ import { ResetPasswordComponent } from './login/reset-password/reset-password.co
   
     ForgetPasswordComponent,
   
-    ResetPasswordComponent
+    ResetPasswordComponent,
+  
+    ClientComponent
    
   ],
   imports: [

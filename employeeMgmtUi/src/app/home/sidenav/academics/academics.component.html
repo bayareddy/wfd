@@ -15,7 +15,7 @@
         <th>Edit/Delete</th>
     
        </tr>
-       <tr  *ngFor="let item of regData">   
+       <tr  *ngFor="let item of regData | paginate:{itemsPerPage: 10, currentPage:p}">   
        <td>{{item.affilicatedUniversity}}</td>
        <td>{{item.contactDetails}}</td>
        <td>{{item.courseStartDate|date}}</td>
@@ -31,6 +31,7 @@
     </tr>
     </table>
   
+<pagination-controls align="center" (pageChange)="p=$event"></pagination-controls>
     </div>
     <div class="formdiv">
       

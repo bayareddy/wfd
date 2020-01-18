@@ -10,7 +10,7 @@ export class RoleComponent implements OnInit  {
   public myData:any = {};
  
   
-  public BASE_URL:string = 'http://ec2-3-6-45-30.ap-south-1.compute.amazonaws.com:8081/';
+  public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
   
   constructor(private service :RestService) { }
 
