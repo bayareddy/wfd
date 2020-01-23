@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/service/api.service';
 import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
-import { RestService } from './rest.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { from } from 'rxjs';
 
@@ -13,8 +13,8 @@ import { from } from 'rxjs';
 export class ClientComponent implements OnInit {
 
   public myData: any= {};
-  public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
-  constructor(private service :RestService, private router: Router) { }
+  // public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
+  constructor(private api:ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
@@ -22,8 +22,8 @@ export class ClientComponent implements OnInit {
     
     addData(data){
       console.log("3333", data); 
-      let url = `${this.BASE_URL}/Client`;
-      this.service.post(url,data).subscribe(backenddata => {
+      let url = `/Client`;
+      this.api.post(url,data).subscribe(backenddata => {
         console.log("1", backenddata);
         this.ngOnInit();
       });
@@ -32,9 +32,9 @@ export class ClientComponent implements OnInit {
     
   
   DeleteData(item){
-    let url = this.BASE_URL+'/Client?ClientTypeId=';
+    let url = '/Client?ClientTypeId=';
   url=url+item.clientId;
-  this.service.delete(url).subscribe(backdata => {
+  this.api.delete(url).subscribe(backdata => {
 
   this.regData = backdata as string[];
   console.log(this.regData);
@@ -53,8 +53,8 @@ export class ClientComponent implements OnInit {
   
   public regData:any = [];
   getData(){
-        let url = `${this.BASE_URL}/Client/getall`;
-        this.service.get(url).subscribe(backdata => {
+        let url = `/Client/getall`;
+        this.api.get(url).subscribe(backdata => {
   
         this.regData = backdata as string[];
         console.log(this.regData);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from './rest.service';
+import { ApiService } from 'src/app/service/api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-role',
@@ -10,9 +11,9 @@ export class RoleComponent implements OnInit  {
   public myData:any = {};
  
   
-  public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
+  // public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
   
-  constructor(private service :RestService) { }
+  constructor(private api :ApiService,private http:HttpClient) { }
 
   ngOnInit() {
     this.getData();
@@ -22,25 +23,19 @@ export class RoleComponent implements OnInit  {
 addData(data){
     console.log("4444444444444444444444", data); 
 
-    let url = `${this.BASE_URL}/empRole`;
+    let url = `/empRole`;
 
     
 
-    this.service.post(url,data).subscribe(backenddata => {
+    this.api.post(url,data).subscribe(backenddata => {
       console.log("11111111111111", backenddata);
 
 
       this.ngOnInit();
-      
-
-      
+            
     });
 
   }
-
-
-
-  
 
 
 
@@ -48,8 +43,8 @@ public regData:any = [];
 
     getData()
     {
-      let url = `${this.BASE_URL}/empRole/getAll`;
-      this.service.get(url).subscribe(backdata => {
+      let url = `/empRole/getAll`;
+      this.api.get(url).subscribe(backdata => {
 
           this.regData = backdata as string[];
 
@@ -59,19 +54,13 @@ public regData:any = [];
     }
 
 
- DeleteData(i)
-
-{
+ DeleteData(item){
   
- 
+  let url = `/empRole/`;
 
-  let url = `${this.BASE_URL}/empRole/`;
+url=url+item.id;
 
-url=url+i.id;
-
-
-
-  this.service.delete(url).subscribe(backdata => {
+  this.api.delete(url).subscribe(backdata => {
 
           this.regData = backdata as string[];
 
@@ -79,11 +68,7 @@ url=url+i.id;
 this.ngOnInit();
       });
 
-
 }
-
-
-
 
 
 ReflectData(item)
@@ -95,17 +80,7 @@ this.myData=item;
 
 console.log(this.myData);
 
-
-
-
-
-
-
-}
-
-  
-  
-
+} 
 }
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LeaveService } from './leave.service';
+import { ApiService } from 'src/app/service/api.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -18,9 +18,9 @@ export class LeaveStatusComponent implements OnInit {
     leaveStatusName:new FormControl('',Validators.required)
   })
 
-  public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
+  // public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
 
-  constructor(private service:LeaveService,private http:HttpClient) { }
+  constructor(private api:ApiService,private http:HttpClient) { }
 
 
 
@@ -31,8 +31,8 @@ export class LeaveStatusComponent implements OnInit {
   
   }
   sendData(myData){
-let url=`${this.BASE_URL}/leave/leavestatus`
-this.service.postService(url,myData).subscribe(responce=>{
+let url=`/leave/leavestatus`
+this.api.post(url,myData).subscribe(responce=>{
   
 this.ngOnInit();
 console.log(responce);
@@ -41,10 +41,10 @@ console.log("data from the input fields are "+myData)
 }
 
 deleteData(item){
-  let url=`${this.BASE_URL}/leave/leavestatus/delete?leaveId=`
+  let url=`/leave/leavestatus/delete?leaveId=`
   url=url+item.leaveStatusId
   console.log("deleting url is"+url);
-  this.service.deleteService(url).subscribe(responce=>{
+  this.api.delete(url).subscribe(responce=>{
     this.leave= responce as string[];
     this.ngOnInit();
   })
@@ -63,8 +63,8 @@ public leave:any[]=[];
 
     getData()
     {
-      let url = `${this.BASE_URL}/leave/leavestatus/getall`;
-      this.service.getService(url).subscribe(backdata => {
+      let url = `/leave/leavestatus/getall`;
+      this.api.get(url).subscribe(backdata => {
 
           this.leave = backdata as string[];
 

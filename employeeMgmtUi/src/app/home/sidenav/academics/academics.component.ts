@@ -1,7 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-
+import { ApiService } from 'src/app/service/api.service';
 import { HttpClient } from '@angular/common/http';
-import { RestService } from './rest.service';
 
 
 @Component({
@@ -14,9 +13,9 @@ export class AcademicsComponent implements OnInit {
   public myData:any = {};
  
   
-  public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
+  // public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
   
-  constructor(private service :RestService) { }
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
   this.getData();
@@ -24,8 +23,8 @@ export class AcademicsComponent implements OnInit {
   
   addData(data){
     console.log("2", data); 
-    let url = `${this.BASE_URL}/academicBackGround`;
-    this.service.post(url,data).subscribe(backenddata => {
+    let url = `/academicBackGround`;
+    this.api.post(url,data).subscribe(backenddata => {
       console.log("1", backenddata);
       this.ngOnInit();
     });
@@ -34,9 +33,9 @@ export class AcademicsComponent implements OnInit {
   
   DeleteData(item){
 
-  let url = this.BASE_URL+'/academicBackGround?Id=';
+  let url = '/academicBackGround/{Id}/{delete}?Id=';
   url=url+item.academicBackGroundId;
-  this.service.delete(url).subscribe(backdata => {
+  this.api.delete(url).subscribe(backdata => {
 
   this.regData = backdata as string[];
   console.log(this.regData);
@@ -55,8 +54,8 @@ this.myData=item;
 
 public regData:any = [];
 getData(){
-      let url = `${this.BASE_URL}/academicBackGround/getall`;
-      this.service.get(url).subscribe(backdata => {
+      let url = `/academicBackGround/getall`;
+      this.api.get(url).subscribe(backdata => {
 
       this.regData = backdata as string[];
       console.log(this.regData);

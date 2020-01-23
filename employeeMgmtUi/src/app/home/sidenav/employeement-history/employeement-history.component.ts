@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { RestService } from './service/rest.service';
+import { ApiService } from 'src/app/service/api.service';
+
 
 @Component({
   selector: 'app-employeement-history',
@@ -11,9 +12,8 @@ export class EmployeementHistoryComponent implements OnInit {
   public myData:any = {};
  
   
-  public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
-  
-  constructor(private service :RestService) { }
+  // public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
+  constructor(private api :ApiService) { }
 
   ngOnInit() {
     this.getData();
@@ -23,39 +23,24 @@ export class EmployeementHistoryComponent implements OnInit {
 addData(data){
     console.log("4444444444444444444444", data); 
 
-    let url = `${this.BASE_URL}/EmployementHistory`;
+    let url = `/EmployementHistory`;
 
     
 
-    this.service.post(url,data).subscribe(backenddata => {
+    this.api.post(url,data).subscribe(backenddata => {
       console.log("11111111111111", backenddata);
-
-
-      this.ngOnInit();
-      
-
-      
+      this.ngOnInit();   
     });
 
   }
-
-
-
-  
-
-
-
 public regData:any = [];
 
     getData()
     {
-      let url = `${this.BASE_URL}/EmployementHistory/getall`;
-      this.service.get(url).subscribe(backdata => {
+      let url = `/EmployementHistory/getall`;
+      this.api.get(url).subscribe(backdata => {
 
           this.regData = backdata as string[];
-
-          
-
       });
     }
 
@@ -66,13 +51,13 @@ public regData:any = [];
   
  
 
-  let url = `${this.BASE_URL}/EmployementHistory?employeeId=`;
+  let url = `/EmployementHistory?employeeId=`;
 
 url=url+i.employementHistoryId;
 
 
 
-  this.service.delete(url).subscribe(backdata => {
+  this.api.delete(url).subscribe(backdata => {
 
           this.regData = backdata as string[];
 
@@ -84,9 +69,6 @@ this.ngOnInit();
 }
 
 
-
-
-
 ReflectData(item)
 {
 
@@ -95,18 +77,7 @@ console.log(item);
 this.myData=item;
 
 console.log(this.myData);
-
-
-
-
-
-
-
 }
-
-  
-  
-
 }
 
 
