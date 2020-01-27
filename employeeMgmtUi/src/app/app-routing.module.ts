@@ -16,6 +16,7 @@ import { ForgetPasswordComponent } from './login/forget-password/forget-password
 import { EmployeementHistoryComponent } from './home/sidenav/employeement-history/employeement-history.component';
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 import { from } from 'rxjs';
+import { MyProfileComponent } from './home/sidenav/my-profile/my-profile.component';
 
 
 
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
           {path:'sideNavAcademics', component:AcademicsComponent},
           {path: 'sideNavClient', component:ClientComponent},
           { path: 'leaveType', component:LeaveTypeComponent},
+          { path: 'my_Profile', component:MyProfileComponent},
           { path: '', component: MainContentComponent },
         ]
       },

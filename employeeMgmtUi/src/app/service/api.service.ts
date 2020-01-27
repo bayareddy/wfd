@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  private host:string;
+  public host:string;
   constructor(private http:HttpClient) { 
     this.host = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
   }
@@ -12,7 +12,7 @@ export class ApiService {
   public forgetId='';
  
   get(url):Observable<any> {
-    url = this.host+url;
+   url = this.host+url;
     return this.http.get(url);
   }
 

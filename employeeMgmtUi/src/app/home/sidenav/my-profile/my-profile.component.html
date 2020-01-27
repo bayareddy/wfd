@@ -1,0 +1,222 @@
+<div class="bs-example">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#baseInfo" class="nav-link active" data-toggle="tab">
+                <h5><b>Basic Information</b></h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#bankDetails" class="nav-link" data-toggle="tab">
+                <h5><b>Bank Details</b></h5>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#bankDetails" class="nav-link" data-toggle="tab">
+                <h5><b>Bank Details</b></h5>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade" id="baseInfo">
+
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-6">
+                        <h3>Profile Of Employee </h3>
+                        <h4 *ngIf='!eid' style="color: red;" class="alert alert-danger">
+                            Please Login to see the Details.
+                        </h4>
+                        <a *ngIf='!eid' routerLink='NoData'>
+                            <h2>Login?</h2>
+                        </a>
+                        <table class="">
+
+
+                            <tbody *ngIf='eid'>
+                                <tr>
+                                    <td> Name </td>
+                                    <td>: {{ currentUser.firstName}} </td>
+                                 
+
+                                </tr>
+
+                                <tr>
+                                    <td> Id </td>
+                                    <td>: {{ currentUser.employeeId}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> lastName :</td>
+                                    <td>: {{ currentUser.lastName}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> startDate :</td>
+                                    <td>: {{ currentUser.startDate}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> positionTitle </td>
+                                    <td>: {{ currentUser.positionTitle}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> departmentId</td>
+                                    <td>: {{ currentUser.departmentId}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> dateofBirth </td>
+                                    <td>: {{ currentUser.dateofBirth}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> gender </td>
+                                    <td>: {{ currentUser.gender}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> primaryMailId </td>
+
+                                    <td>: {{ currentUser.primaryMailId}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> secondaryMailId </td>
+                                    <td>: {{ currentUser.secondaryMailId}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> mobileNumber </td>
+                                    <td>: {{ currentUser.mobileNumber}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> joinDate </td>
+                                    <td>: {{ currentUser.joinDate}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> pancard </td>
+                                    <td>: {{ currentUser.pancard}} </td>
+                                </tr>
+                               
+                                <tr>
+                                    <td> peramanentAddress </td>
+                                    <td>: {{ currentUser.peramanentAddress}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> currentAddress </td>
+                                    <td>: {{ currentUser.currentAddress}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> createDate </td>
+                                    <td>: {{ currentUser.createDate}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> updateDate </td>
+                                    <td>
+                                        :{{ currentUser.updateDate}}
+                                    </td>
+
+                                </tr>
+                                
+
+                                <tr>
+                                    <td> paidSalaryId </td>
+                                    <td>: {{ paidSalary.id}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> paidSalaryMonth </td>
+                                    <td>: {{ paidSalary.month}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> paidSalaryBasicSalary </td>
+                                    <td>: {{ paidSalary.basicSalary}} </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="tab-pane fade" id="bankDetails">
+
+
+
+
+            <br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-6">
+                        <h3>Bank Details Of Employee </h3>
+                        <h4 *ngIf='!eid' style="color: red;" class="alert alert-danger">
+                            Please Login to see the Details.
+                        </h4>
+                        <a *ngIf='!eid' routerLink='NoData'>
+                            <h2>Login?</h2>
+                        </a>
+                        <table class="">
+
+
+                            <tbody *ngIf='eid'>
+                                <tr>
+                                    <td> Name </td>
+                                    <td>: {{ currentUser.firstName}} </td>
+
+                                </tr>
+                                
+                                <tr>
+                                    <td> BankName </td>
+                                    <td>: {{ bankDetails.bankName}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> IFSC code </td>
+                                    <td>: {{ bankDetails.ifscCode}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> accountNumber </td>
+                                    <td>: {{ bankDetails.accountNumber}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> PF NO </td>
+                                    <td>: {{ bankDetails.pfNo}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> ESI </td>
+                                    <td>: {{ bankDetails.esiNo}} </td>
+
+                                </tr>
+                                <tr>
+                                    <td> New </td>
+                                    <td>: {{ bankDetails.new}} </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

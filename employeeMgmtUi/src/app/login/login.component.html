@@ -8,7 +8,7 @@
     <h2 class="container-login">Login </h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
-      <div *ngIf="errMsg">{{errMsg}}</div>
+      <div *ngIf="errMsg" class="alert alert-danger">{{errMsg}}</div>
       <div class="container-login">
         <label for="uname">
           <b>Employee Id</b>

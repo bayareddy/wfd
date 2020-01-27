@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
  
   onSubmit(event) {
     console.log("@submit",event);
-    console.log(this.loginForm.value);
+    console.log("login values are pardha",this.loginForm.value);
     this.loginService.onSubmit(this.loginForm.value).subscribe(
       (data)=>{
         if(data) {
