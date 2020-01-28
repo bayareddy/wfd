@@ -3,6 +3,8 @@
  */
 package com.wfdlabs.empmgmt.employeeMgmt.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -45,26 +47,37 @@ public class BankDetails extends BaseEntity{
 	private Integer ifscCode;
 	@Column
 	private Integer accountNumber;
-
-	public Integer getPfNo() {
-		return pfNo;
-	}
-
-	public void setPfNo(Integer pfNo) {
-		this.pfNo = pfNo;
-	}
-
-	public Integer getEsiNo() {
-		return esiNo;
-	}
-
-	public void setEsiNo(Integer esiNo) {
-		this.esiNo = esiNo;
-	}
-
 	@Column
-	private Integer pfNo;
+	private Date createDate;
 	@Column
-	private Integer esiNo;
+	private Date updateDate;
+	/**
+	 * @return the createDate
+	 */
+	public Date getCreateDate() {
+		return createDate;
+	}
 
+	/**
+	 * @param createDate the createDate to set
+	 */
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	/**
+	 * @return the updateDate
+	 */
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	/**
+	 * @param updateDate the updateDate to set
+	 */
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	
 }

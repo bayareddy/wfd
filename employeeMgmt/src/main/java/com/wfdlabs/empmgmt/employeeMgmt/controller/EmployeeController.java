@@ -1,9 +1,16 @@
 package com.wfdlabs.empmgmt.employeeMgmt.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,18 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Employee;
 import com.wfdlabs.empmgmt.employeeMgmt.service.EmployeeService;
 
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
 
 @RequestMapping("/employee")
 @RestController
@@ -83,6 +81,29 @@ public class EmployeeController {
 		return employeeService.deleteEmployee(employeeId);
 		
 	
+	}
+	@RequestMapping(value = "/getPdf", method = RequestMethod.GET, produces = "application/pdf")
+	public ResponseEntity<byte[]> getPdf() {
+		FileInputStream fileStream;
+		File file = new File("D:\\Syam.pdf");
+
+		try {
+			fileStream = new FileInputStream(file);
+			byte contents[] = new byte[(int) file.length()];
+			fileStream.read(contents);
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.parseMediaType("application/pdf"));
+			String filename = "Syam.pdf";
+			headers.setContentDispositionFormData(filename, filename);
+			ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+			return response;
+		} catch (FileNotFoundException e) {
+			System.err.println(e);
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+		return null;
 	}
 }
 		

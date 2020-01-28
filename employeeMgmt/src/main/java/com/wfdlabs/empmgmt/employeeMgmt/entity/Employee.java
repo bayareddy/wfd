@@ -113,6 +113,39 @@ public class Employee {
 	private Date createDate;
 	@Column
 	private Date updateDate;
+	@Column
+	private Integer pfNo;
+	@Column
+	private Integer esiNo;
+
+
+	/**
+	 * @return the pfNo
+	 */
+	public Integer getPfNo() {
+		return pfNo;
+	}
+
+	/**
+	 * @param pfNo the pfNo to set
+	 */
+	public void setPfNo(Integer pfNo) {
+		this.pfNo = pfNo;
+	}
+
+	/**
+	 * @return the esiNo
+	 */
+	public Integer getEsiNo() {
+		return esiNo;
+	}
+
+	/**
+	 * @param esiNo the esiNo to set
+	 */
+	public void setEsiNo(Integer esiNo) {
+		this.esiNo = esiNo;
+	}
 
 	public Integer getEmployeeId() {
 		return employeeId;

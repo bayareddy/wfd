@@ -188,12 +188,12 @@ public class PaidSalaryController {
 		cell1_1.addElement(new Paragraph(" " + "Employee Id:" + "  " + employee.getEmployeeId(), subFont));
 		cell1_1.addElement(new Paragraph(" " + "Emp Name:" + "  " + employee.getFirstName(), subFont));
 		cell1_1.addElement(new Paragraph(" " + "Date of Joing:" + "  " + employee.getJoinDate(), subFont));
-		cell1_1.addElement(new Paragraph(" " + "PF NO:" + "  " + bankDetails.getPfNo(), subFont));
-		cell1_1.addElement(new Paragraph(" " + "ESI NO:" + "  " + bankDetails.getEsiNo(), subFont));
+		cell1_1.addElement(new Paragraph(" " + "PF NO:" + "  " + employee.getPfNo(), subFont));
+		cell1_1.addElement(new Paragraph(" " + "ESI NO:" + "  " + employee.getEsiNo(), subFont));
 		table.addCell(cell1_1);
 		// Adding Employee Details into a table in 2nd Cell
 		PdfPCell cell1_2 = new PdfPCell(new Paragraph());
-		cell1_2.addElement(new Paragraph(" " + "Pension No:" + "  "+bankDetails.getPfNo() , subFont));
+		cell1_2.addElement(new Paragraph(" " + "Pension No:" + "  "+employee.getPfNo() , subFont));
 		cell1_2.addElement(new Paragraph(" " + "Bank Name:" + "  " +bankDetails.getBankName(), subFont));
 		cell1_2.addElement(new Paragraph(" " + "Bank A/c no:" + "  " +bankDetails.getAccountNumber(), subFont));
 		table.addCell(cell1_2);

@@ -15,6 +15,22 @@ public class Role {
 	private Integer roleId;
 	@Column
 	private String roleName;
+	@Column
+	private String description;
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public Integer getRoleId() {
 		return roleId;

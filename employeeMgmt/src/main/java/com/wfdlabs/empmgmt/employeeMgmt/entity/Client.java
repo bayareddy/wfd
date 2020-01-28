@@ -15,6 +15,22 @@ public class Client {
 	private Integer clientId;
 	@Column
 	private String clientName;
+	@Column
+	private String description;
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	@OneToMany
 	private List<Project> projects;

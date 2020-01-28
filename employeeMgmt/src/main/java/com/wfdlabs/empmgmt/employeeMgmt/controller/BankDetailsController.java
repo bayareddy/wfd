@@ -86,7 +86,7 @@ public class BankDetailsController {
 	 * @return
 	 */
 	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "/{idD}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable Integer id) {
 
 		return bankDetailsService.deleteBankDetails(id);
