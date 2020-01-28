@@ -14,9 +14,7 @@ export class LeaveStatusComponent implements OnInit {
 
   myData:any={};
 
-  form=new FormGroup({
-    leaveStatusName:new FormControl('',Validators.required)
-  })
+  
 
   // public BASE_URL:string = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
 
@@ -32,10 +30,11 @@ export class LeaveStatusComponent implements OnInit {
   }
   sendData(myData){
 let url=`/leave/leavestatus`
+
 this.api.post(url,myData).subscribe(responce=>{
   
 this.ngOnInit();
-console.log(responce);
+console.log('responce is',responce);
 console.log("data from the input fields are "+myData)
 })
 }
@@ -45,7 +44,7 @@ deleteData(item){
   url=url+item.leaveStatusId
   console.log("deleting url is"+url);
   this.api.delete(url).subscribe(responce=>{
-    this.leave= responce as string[];
+   
     this.ngOnInit();
   })
 

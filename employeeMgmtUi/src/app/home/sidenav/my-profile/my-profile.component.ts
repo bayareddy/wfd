@@ -8,7 +8,7 @@ import { LoginService } from 'src/app/login/login.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  baseUrl = "http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080/"
+  baseUrl = "http://employemanagment-env.6dpm2iqwkd.ap-south-1.elasticbeanstalk.com:8080"
   constructor(private profile: MyprofileService,
     private loginService: LoginService
   ) { }
@@ -30,7 +30,8 @@ export class MyProfileComponent implements OnInit {
 
     console.log('paid salary is',this.paidSalary['id'])
     console.log('bank Details are',this.bankDetails['id'])
-    console.log(this.eid)
+    console.log(this.eid);
+    console.log(this.currentUsers['employeeId'])
   }
 
 

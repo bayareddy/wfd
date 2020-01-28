@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
   public host:string;
   constructor(private http:HttpClient) { 
-    this.host = 'http://ashok-env.vdqrmeqras.ap-south-1.elasticbeanstalk.com:8080';
+    this.host = 'http://employemanagment-env.6dpm2iqwkd.ap-south-1.elasticbeanstalk.com:8080';
   }
 
   public forgetId='';

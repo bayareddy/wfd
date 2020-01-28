@@ -10,11 +10,7 @@
                 <h5><b>Bank Details</b></h5>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="#bankDetails" class="nav-link" data-toggle="tab">
-                <h5><b>Bank Details</b></h5>
-            </a>
-        </li>
+        
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade" id="baseInfo">
@@ -38,91 +34,91 @@
                             <tbody *ngIf='eid'>
                                 <tr>
                                     <td> Name </td>
-                                    <td>: {{ currentUser.firstName}} </td>
+                                    <td>: {{ currentUsers.firstName}} </td>
                                  
 
                                 </tr>
 
                                 <tr>
                                     <td> Id </td>
-                                    <td>: {{ currentUser.employeeId}} </td>
+                                    <td>: {{ currentUsers.employeeId}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> lastName :</td>
-                                    <td>: {{ currentUser.lastName}} </td>
+                                    <td>: {{ currentUsers.lastName}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> startDate :</td>
-                                    <td>: {{ currentUser.startDate}} </td>
+                                    <td>: {{ currentUsers.startDate}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> positionTitle </td>
-                                    <td>: {{ currentUser.positionTitle}} </td>
+                                    <td>: {{ currentUsers.positionTitle}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> departmentId</td>
-                                    <td>: {{ currentUser.departmentId}} </td>
+                                    <td>: {{ currentUsers.departmentId}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> dateofBirth </td>
-                                    <td>: {{ currentUser.dateofBirth}} </td>
+                                    <td>: {{ currentUsers.dateofBirth}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> gender </td>
-                                    <td>: {{ currentUser.gender}} </td>
+                                    <td>: {{ currentUsers.gender}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> primaryMailId </td>
 
-                                    <td>: {{ currentUser.primaryMailId}} </td>
+                                    <td>: {{ currentUsers.primaryMailId}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> secondaryMailId </td>
-                                    <td>: {{ currentUser.secondaryMailId}} </td>
+                                    <td>: {{ currentUsers.secondaryMailId}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> mobileNumber </td>
-                                    <td>: {{ currentUser.mobileNumber}} </td>
+                                    <td>: {{ currentUsers.mobileNumber}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> joinDate </td>
-                                    <td>: {{ currentUser.joinDate}} </td>
+                                    <td>: {{ currentUsers.joinDate}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> pancard </td>
-                                    <td>: {{ currentUser.pancard}} </td>
+                                    <td>: {{ currentUsers.pancard}} </td>
                                 </tr>
                                
                                 <tr>
                                     <td> peramanentAddress </td>
-                                    <td>: {{ currentUser.peramanentAddress}} </td>
+                                    <td>: {{ currentUsers.peramanentAddress}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> currentAddress </td>
-                                    <td>: {{ currentUser.currentAddress}} </td>
+                                    <td>: {{ currentUsers.currentAddress}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> createDate </td>
-                                    <td>: {{ currentUser.createDate}} </td>
+                                    <td>: {{ currentUsers.createDate}} </td>
 
                                 </tr>
                                 <tr>
                                     <td> updateDate </td>
                                     <td>
-                                        :{{ currentUser.updateDate}}
+                                        :{{ currentUsers.updateDate}}
                                     </td>
 
                                 </tr>
@@ -178,7 +174,7 @@
                             <tbody *ngIf='eid'>
                                 <tr>
                                     <td> Name </td>
-                                    <td>: {{ currentUser.firstName}} </td>
+                                    <td>: {{ currentUsers.firstName}} </td>
 
                                 </tr>
                                 
@@ -198,20 +194,21 @@
 
                                 </tr>
                                 <tr>
-                                    <td> PF NO </td>
-                                    <td>: {{ bankDetails.pfNo}} </td>
+                                    <td> id </td>
+                                    <td>: {{ bankDetails.id}} </td>
 
                                 </tr>
                                 <tr>
-                                    <td> ESI </td>
-                                    <td>: {{ bankDetails.esiNo}} </td>
+                                    <td> createdDate </td>
+                                    <td>: {{ bankDetails.createDate}} </td>
 
                                 </tr>
                                 <tr>
-                                    <td> New </td>
-                                    <td>: {{ bankDetails.new}} </td>
+                                    <td> updateDate </td>
+                                    <td>: {{ bankDetails.updateDate}} </td>
 
                                 </tr>
+                              
                             </tbody>
                         </table>
                     </div>
