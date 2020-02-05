@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from './api.service';
 
 
 @Injectable({
@@ -7,11 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MyprofileService {
   
-  baseUrl = 'http://employemanagment-env.6dpm2iqwkd.ap-south-1.elasticbeanstalk.com:8080';
+ 
 
 
-  constructor(private http:HttpClient) { }
-
+  constructor(private http:HttpClient,private api:ApiService) { }
+  baseUrl =this.api.host ;
 getProfile(url){
 
 return this.http.get(url)
