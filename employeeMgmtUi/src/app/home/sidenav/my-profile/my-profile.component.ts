@@ -8,10 +8,12 @@ import { LoginService } from 'src/app/login/login.service';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-  baseUrl = "http://employemanagment-env.6dpm2iqwkd.ap-south-1.elasticbeanstalk.com:8080"
+
   constructor(private profile: MyprofileService,
+    
     private loginService: LoginService
   ) { }
+  baseUrl = this.profile.baseUrl
   currentUsers = {}
   currentUser = {}
   paidSalary = {}
@@ -61,9 +63,9 @@ export class MyProfileComponent implements OnInit {
     console.log('id is' + this.currentUsers['employeeId'])
     this.profile.getBankByIdService(this.currentUsers['employeeId'])
       .subscribe((res) => {
+        
         console.log(res)
         this.bankDetails = res;
-
       })
   }
 
