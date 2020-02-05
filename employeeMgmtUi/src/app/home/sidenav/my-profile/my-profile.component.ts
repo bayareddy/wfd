@@ -85,6 +85,7 @@ export class MyProfileComponent implements OnInit {
         setTimeout(() => {
           this.bankError=false;
         }, 3000);
+        this.getBankById();
       })
     this.hidden = false;
   }

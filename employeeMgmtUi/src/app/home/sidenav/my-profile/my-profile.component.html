@@ -172,18 +172,18 @@
  
                                 <tr>
                                     <td> bankName </td>
-                                    <td>: {{ bankDetails.bankName}} </td>
+                                    <td *ngIf='!hidden'>: {{ bankDetails.bankName}} </td>
                                     <td><input type="text" *ngIf='hidden' class="form-control" [(ngModel)]='bankDetails.bankName' value="{{ bankDetails.bankName}}"></td>
                                     
                                 </tr>
                                 <tr>
                                     <td> ifscCode </td>
-                                    <td>: {{ bankDetails.ifscCode}} </td>
+                                    <td *ngIf='!hidden'>: {{ bankDetails.ifscCode}} </td>
                                     <td><input type="text" *ngIf='hidden' class="form-control" [(ngModel)]='bankDetails.ifscCode' value='{{ bankDetails.ifscCode}}'></td>
                                 </tr>
                                 <tr>
                                     <td> accountNumber </td>
-                                    <td>: {{ bankDetails.accountNumber}} </td>
+                                    <td *ngIf='!hidden'>: {{ bankDetails.accountNumber}} </td>
                                     <input type="text"  *ngIf='hidden' class="form-control" [(ngModel)]='bankDetails.accountNumber' value='{{ bankDetails.accountNumber}}'>
                                 </tr>
 
