@@ -178,12 +178,13 @@
                                     <input type="text" *ngIf='hidden' class="form-control"
                                         [(ngModel)]='bankDetails.accountNumber' value='{{ bankDetails.accountNumber}}'>
                                 </tr>
-<br><br>
+                                <br><br>
                                 <div class="row">
                                     <div class="col-sm-7"></div>
                                     <div class="col-sm-4">
                                         <button *ngIf='!hidden' class="btn btn-primary " (click)=editBtn()>Edit</button>
-                                        <button  *ngIf='hidden' class="btn btn-success" (click)=submitApi(bankDetails)>Submit</button>
+                                        <button *ngIf='hidden' class="btn btn-success"
+                                            (click)=submitApi(bankDetails)>Submit</button>
                                     </div>
                                 </div>
 
