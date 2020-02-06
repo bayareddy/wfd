@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/login/login.service';
 export class MyProfileComponent implements OnInit {
 
   constructor(private profile: MyprofileService,
-    
+
     private loginService: LoginService
   ) { }
   baseUrl = this.profile.baseUrl
@@ -21,8 +21,8 @@ export class MyProfileComponent implements OnInit {
   eid = '';
   hidden = false;
   visible = false;
-  alert=false;
-  bankError=false;
+  alert = false;
+  bankError = false;
 
   ngOnInit() {
 
@@ -63,7 +63,7 @@ export class MyProfileComponent implements OnInit {
     console.log('id is' + this.currentUsers['employeeId'])
     this.profile.getBankByIdService(this.currentUsers['employeeId'])
       .subscribe((res) => {
-        
+
         console.log(res)
         this.bankDetails = res;
       })
@@ -72,20 +72,20 @@ export class MyProfileComponent implements OnInit {
 
   submitApi(bankDetails) {
     let url = `${this.baseUrl}/bankdetails`;
-    console.log('bank details are ', bankDetails)
+    console.log('bank details are pardha', bankDetails)
     this.profile.editBank(url, bankDetails)
 
       .subscribe(responce => {
         console.log(responce)
-        this.alert=true;
+        this.alert = true;
         setTimeout(() => {
-          this.alert=false;
+          this.alert = false;
         }, 3000);
 
       }, (error) => {
-        this.bankError=true;
+        this.bankError = true;
         setTimeout(() => {
-          this.bankError=false;
+          this.bankError = false;
         }, 3000);
         this.getBankById();
       })

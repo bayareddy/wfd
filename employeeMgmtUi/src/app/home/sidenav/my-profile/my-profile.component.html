@@ -10,7 +10,7 @@
                 <h5><b>Bank Details</b></h5>
             </a>
         </li>
-        
+
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade" id="baseInfo">
@@ -19,8 +19,8 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-xs-3"></div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8">
                         <br>
                         <h4 *ngIf='!eid' style="color: red;" class="alert alert-danger">
                             Please Login to see the Details.
@@ -35,11 +35,11 @@
                                 <tr>
                                     <td> Name </td>
                                     <td>: {{ currentUsers.firstName}} </td>
-                                 
+
 
                                 </tr>
 
-                                
+
                                 <tr>
                                     <td> lastName :</td>
                                     <td>: {{ currentUsers.lastName}} </td>
@@ -95,7 +95,7 @@
                                     <td> pancard </td>
                                     <td>: {{ currentUsers.pancard}} </td>
                                 </tr>
-                               
+
                                 <tr>
                                     <td> peramanentAddress </td>
                                     <td>: {{ currentUsers.peramanentAddress}} </td>
@@ -106,8 +106,8 @@
                                     <td>: {{ currentUsers.currentAddress}} </td>
 
                                 </tr>
-                            
-                                
+
+
 
                                 <tr>
                                     <td> paidSalaryId </td>
@@ -144,8 +144,8 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-3"></div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
                         <div class="alert alert-success" *ngIf='alert'>Bank Details Submitted Successfully</div><br>
                         <div class="alert alert-danger" *ngIf='bankError'>Please Enter Correct Details!</div><br>
                         <h4 *ngIf='!eid' style="color: red;" class="alert alert-danger">
@@ -158,29 +158,39 @@
 
 
                             <tbody *ngIf='eid'>
- 
+
                                 <tr>
                                     <td> BankName </td>
                                     <td *ngIf='!hidden'>: {{ bankDetails.bankName}} </td>
-                                    <td><input type="text" *ngIf='hidden' class="form-control" [(ngModel)]='bankDetails.bankName' value="{{ bankDetails.bankName}}"></td>
-                                    
+                                    <td><input type="text" *ngIf='hidden' class="form-control"
+                                            [(ngModel)]='bankDetails.bankName' value="{{ bankDetails.bankName}}"></td>
+
                                 </tr>
                                 <tr>
                                     <td> IfscCode </td>
                                     <td *ngIf='!hidden'>: {{ bankDetails.ifscCode}} </td>
-                                    <td><input type="text" *ngIf='hidden' class="form-control" [(ngModel)]='bankDetails.ifscCode' value='{{ bankDetails.ifscCode}}'></td>
+                                    <td><input type="text" *ngIf='hidden' class="form-control"
+                                            [(ngModel)]='bankDetails.ifscCode' value='{{ bankDetails.ifscCode}}'></td>
                                 </tr>
                                 <tr>
                                     <td> AccountNumber </td>
                                     <td *ngIf='!hidden'>: {{ bankDetails.accountNumber}} </td>
-                                    <input type="text"  *ngIf='hidden' class="form-control" [(ngModel)]='bankDetails.accountNumber' value='{{ bankDetails.accountNumber}}'>
+                                    <input type="text" *ngIf='hidden' class="form-control"
+                                        [(ngModel)]='bankDetails.accountNumber' value='{{ bankDetails.accountNumber}}'>
                                 </tr>
+<br><br>
+                                <div class="row">
+                                    <div class="col-sm-7"></div>
+                                    <div class="col-sm-4">
+                                        <button *ngIf='!hidden' class="btn btn-primary " (click)=editBtn()>Edit</button>
+                                        <button  *ngIf='hidden' class="btn btn-success" (click)=submitApi(bankDetails)>Submit</button>
+                                    </div>
+                                </div>
 
-                               <button *ngIf='!hidden' class="btn btn-primary " (click)=editBtn()>Edit</button>
-                               <button  *ngIf='hidden' class="btn btn-success" (click)=submitApi(bankDetails)>Submit</button>
-                              
+
+
                             </tbody>
-                          
+
                         </table>
                     </div>
                 </div>
