@@ -13,6 +13,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("footer").style.marginLeft= "0";
+    
+  }
  
 
 }

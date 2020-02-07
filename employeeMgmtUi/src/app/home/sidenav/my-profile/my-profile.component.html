@@ -16,7 +16,7 @@
         <div class="tab-pane fade" id="baseInfo">
 
 
-            <div class="container">
+            <div class="container-center">
                 <div class="row">
 
                     <div class="col-xs-4"></div>
@@ -45,11 +45,7 @@
                                     <td>: {{ currentUsers.lastName}} </td>
 
                                 </tr>
-                                <tr>
-                                    <td> startDate :</td>
-                                    <td>: {{ currentUsers.startDate}} </td>
-
-                                </tr>
+      
                                 <tr>
                                     <td> positionTitle </td>
                                     <td>: {{ currentUsers.positionTitle}} </td>
@@ -165,13 +161,13 @@
                                     <td><input type="text" *ngIf='hidden' class="form-control"
                                             [(ngModel)]='bankDetails.bankName' value="{{ bankDetails.bankName}}"></td>
 
-                                </tr>
+                                </tr><br>
                                 <tr>
                                     <td> IfscCode </td>
                                     <td *ngIf='!hidden'>: {{ bankDetails.ifscCode}} </td>
                                     <td><input type="text" *ngIf='hidden' class="form-control"
                                             [(ngModel)]='bankDetails.ifscCode' value='{{ bankDetails.ifscCode}}'></td>
-                                </tr>
+                                </tr><br>
                                 <tr>
                                     <td> AccountNumber </td>
                                     <td *ngIf='!hidden'>: {{ bankDetails.accountNumber}} </td>
@@ -182,9 +178,9 @@
                                 <div class="row">
                                     <div class="col-sm-7"></div>
                                     <div class="col-sm-4">
-                                        <button *ngIf='!hidden' class="btn btn-primary " (click)=editBtn()>Edit</button>
-                                        <button *ngIf='hidden' class="btn btn-success"
-                                            (click)=submitApi(bankDetails)>Submit</button>
+                                        <button *ngIf='!hidden' class="btn btn-primary " (click)=editBtn()>EDIT</button>
+                                        <button *ngIf='hidden' class="btn btn-success" 
+                                            (click)=submitApi(bankDetails)>SUBMIT</button>
                                     </div>
                                 </div>
 

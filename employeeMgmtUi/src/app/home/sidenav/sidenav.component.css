@@ -27,6 +27,7 @@
   .sidenav a:hover {
     color:black;
     cursor: pointer;
+    background-color:rgba(0, 238, 255, 0.993);
   }
   
   .sidenav .closebtn {

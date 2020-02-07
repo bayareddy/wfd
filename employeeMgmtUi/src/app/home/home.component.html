@@ -7,7 +7,12 @@
 -->
 
 <!--Home Page Components Pardha-->
+
+
 <app-headernav></app-headernav>
 <app-sidenav></app-sidenav>
-<app-default></app-default>
+<div (click)="closeNav()">
+  <app-default></app-default>
+</div>
+
 <app-footernav></app-footernav>

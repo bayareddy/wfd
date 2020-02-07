@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       (data)=>{
         if(data) {
           this.loginService.currentUser=data;
+          console.log('login data',data)
           this.router.navigate(['./home']);
         } else {
           this.errMsg = 'Please enter valid details';  

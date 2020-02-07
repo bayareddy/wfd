@@ -9,8 +9,10 @@ import { LoginService } from 'src/app/login/login.service';
 export class HeadernavComponent implements OnInit {
 
   constructor(private loginService:LoginService) { }
-
+firstName;
   ngOnInit() {
+   console.log('header',this.loginService.currentUser)
+  this.firstName =this.loginService.currentUser['firstName']
   }
 
 

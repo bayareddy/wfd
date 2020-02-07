@@ -29,7 +29,7 @@ export class MyProfileComponent implements OnInit {
     this.currentUsers = this.loginService.currentUser;
     console.log('user data is ', this.currentUsers);
     console.log('current user Employee ID' + this.currentUsers['employeeId']);
-    this.getById();
+   
     this.eid = this.currentUsers['employeeId'];
     this.paidSalary = this.currentUsers['paidSalary'][0]
     //this.bankDetails=this.currentUsers['bankDetails']
@@ -43,14 +43,7 @@ export class MyProfileComponent implements OnInit {
 
 
 
-  getById() {
-    let url = `${this.baseUrl}employee/${this.currentUsers['employeeId']}`
-    this.profile.getProfile(url).subscribe(res => {
-      this.currentUsers = res;
-      this.currentUser = this.currentUsers;
-    }
-    )
-  }
+  
 
 
   editBtn() {
