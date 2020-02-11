@@ -16,7 +16,7 @@ export class MyProfileComponent implements OnInit {
   baseUrl = this.profile.baseUrl
   currentUsers = {}
   currentUser = {}
-  paidSalary = {}
+  
   bankDetails = {}
   eid = '';
   hidden = false;
@@ -31,10 +31,10 @@ export class MyProfileComponent implements OnInit {
     console.log('current user Employee ID' + this.currentUsers['employeeId']);
    
     this.eid = this.currentUsers['employeeId'];
-    this.paidSalary = this.currentUsers['paidSalary'][0]
+ 
     //this.bankDetails=this.currentUsers['bankDetails']
 
-    console.log('paid salary is', this.paidSalary['id'])
+    
     console.log('bank Details are', this.bankDetails['id'])
     console.log(this.eid);
     console.log(this.currentUsers['employeeId'])
@@ -57,9 +57,9 @@ export class MyProfileComponent implements OnInit {
     this.profile.getBankByIdService(this.currentUsers['employeeId'])
       .subscribe((res) => {
 
-        console.log(res)
+        console.log('get bank by id pardha',res)
         this.bankDetails = res;
-      })
+      }),error=>{console.log('error bank id',error)}
   }
 
 
