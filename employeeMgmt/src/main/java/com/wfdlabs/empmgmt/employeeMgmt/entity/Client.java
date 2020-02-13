@@ -15,6 +15,23 @@ public class Client {
 	private Integer clientId;
 	@Column
 	private String clientName;
+	@Column
+	private String description;
+	
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	@OneToMany
 	private List<Project> projects;
@@ -66,8 +83,8 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [clientId=" + clientId + ", clientName=" + clientName + ", createDate=" + createDate
-				+ ", updateDate=" + updateDate + "]";
+		return "Client [clientId=" + clientId + ", clientName=" + clientName + ", description=" + description
+				+ ", projects=" + projects + ", createDate=" + createDate + ", updateDate=" + updateDate + "]";
 	}
 
 }
