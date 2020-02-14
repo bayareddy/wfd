@@ -1,0 +1,115 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12">
+
+            <div class="bs-example">
+               
+              
+                    <div  id="baseInfo">
+
+
+                        <div class="container-center">
+                            <div class="row">
+
+                                <div class="col-xs-4"></div>
+                                <div class="col-xs-8">
+                                    <br>
+                                    <h4 *ngIf='!eid' style="color: red;" class="alert alert-danger">
+                                        Please Login to see the Details.
+                                    </h4>
+                                    <a *ngIf='!eid' routerLink='NoData'>
+                                        <h2>Login?</h2>
+                                    </a>
+                                    <table class="">
+
+
+                                        <tbody *ngIf='eid'>
+                                            <tr>
+                                                <td> FirstName </td>
+                                                <td>: {{ currentUsers.firstName}} </td>
+
+
+                                            </tr>
+
+
+                                            <tr>
+                                                <td> lastName :</td>
+                                                <td>: {{ currentUsers.lastName}} </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td> positionTitle </td>
+                                                <td>: {{ currentUsers.positionTitle}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> departmentId</td>
+                                                <td>: {{ currentUsers.departmentId}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> dateofBirth </td>
+                                                <td>: {{ currentUsers.dateofBirth}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> gender </td>
+                                                <td>: {{ currentUsers.gender}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> primaryMailId </td>
+
+                                                <td>: {{ currentUsers.primaryMailId}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> secondaryMailId </td>
+                                                <td>: {{ currentUsers.secondaryMailId}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> mobileNumber </td>
+                                                <td>: {{ currentUsers.mobileNumber}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> joinDate </td>
+                                                <td>: {{ currentUsers.joinDate}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> pancard </td>
+                                                <td>: {{ currentUsers.pancard}} </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td> peramanentAddress </td>
+                                                <td>: {{ currentUsers.peramanentAddress}} </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> currentAddress </td>
+                                                <td>: {{ currentUsers.currentAddress}} </td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                   
+               
+            </div>
+
+        </div>
+    </div>
+</div>

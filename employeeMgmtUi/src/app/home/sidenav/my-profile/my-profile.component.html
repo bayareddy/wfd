@@ -1,3 +1,5 @@
+
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-lg-12">
@@ -5,187 +7,20 @@
             <div class="bs-example">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a href="#baseInfo" class="nav-link active" data-toggle="tab">
+                        <a routerLink='basic_information' routerLinkActive="active-link">
                             <h5><b>Basic Information</b></h5>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#bankDetails" class="nav-link" data-toggle="tab">
+                        <a routerLink='bank_details' routerLinkActive="active-link">
                             <h5><b>Bank Details</b></h5>
                         </a>
                     </li>
-            
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade" id="baseInfo">
-            
-            
-                        <div class="container-center">
-                            <div class="row">
-            
-                                <div class="col-xs-4"></div>
-                                <div class="col-xs-8">
-                                    <br>
-                                    <h4 *ngIf='!eid' style="color: red;" class="alert alert-danger">
-                                        Please Login to see the Details.
-                                    </h4>
-                                    <a *ngIf='!eid' routerLink='NoData'>
-                                        <h2>Login?</h2>
-                                    </a>
-                                    <table class="">
-            
-            
-                                        <tbody *ngIf='eid'>
-                                            <tr>
-                                                <td> FirstName </td>
-                                                <td>: {{ currentUsers.firstName}} </td>
-            
-            
-                                            </tr>
-            
-            
-                                            <tr>
-                                                <td> lastName :</td>
-                                                <td>: {{ currentUsers.lastName}} </td>
-            
-                                            </tr>
-            
-                                            <tr>
-                                                <td> positionTitle </td>
-                                                <td>: {{ currentUsers.positionTitle}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> departmentId</td>
-                                                <td>: {{ currentUsers.departmentId}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> dateofBirth </td>
-                                                <td>: {{ currentUsers.dateofBirth}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> gender </td>
-                                                <td>: {{ currentUsers.gender}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> primaryMailId </td>
-            
-                                                <td>: {{ currentUsers.primaryMailId}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> secondaryMailId </td>
-                                                <td>: {{ currentUsers.secondaryMailId}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> mobileNumber </td>
-                                                <td>: {{ currentUsers.mobileNumber}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> joinDate </td>
-                                                <td>: {{ currentUsers.joinDate}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> pancard </td>
-                                                <td>: {{ currentUsers.pancard}} </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td> peramanentAddress </td>
-                                                <td>: {{ currentUsers.peramanentAddress}} </td>
-            
-                                            </tr>
-                                            <tr>
-                                                <td> currentAddress </td>
-                                                <td>: {{ currentUsers.currentAddress}} </td>
-            
-                                            </tr>
-        
-            
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-            
-            
-            
-            
-                    </div>
-                    <div class="tab-pane fade" id="bankDetails">
-            
-            
-            
-            
-                        <br>
-            
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xs-4"></div>
-                                <div class="col-xs-4">
-            
-                                    <h4 *ngIf='!eid' style="color: red;" class="alert alert-danger">
-                                        Please Login to see the Details.
-                                    </h4>
-                                    <a *ngIf='!eid' routerLink='NoData'>
-                                        <h2>Login?</h2>
-                                    </a>
-                                    <table class="">
-            
-            
-                                        <tbody *ngIf='eid'>
-            
-                                            <tr>
-                                                <td> BankName </td>
-                                                <td *ngIf='!hidden'>: {{ bankDetails.bankName}} </td>
-                                                <td><input type="text" *ngIf='hidden' class="form-control"
-                                                        [(ngModel)]='bankDetails.bankName' value="{{ bankDetails.bankName}}"></td>
-            
-                                            </tr><br>
-                                            <tr>
-                                                <td> IfscCode </td>
-                                                <td *ngIf='!hidden'>: {{ bankDetails.ifscCode}} </td>
-                                                <td><input type="text" *ngIf='hidden' class="form-control"
-                                                        [(ngModel)]='bankDetails.ifscCode' value='{{ bankDetails.ifscCode}}'></td>
-                                            </tr><br>
-                                            <tr>
-                                                <td> AccountNumber </td>
-                                                <td *ngIf='!hidden'>: {{ bankDetails.accountNumber}} </td>
-                                                <input type="text" *ngIf='hidden' class="form-control"
-                                                    [(ngModel)]='bankDetails.accountNumber' value='{{ bankDetails.accountNumber}}'>
-                                            </tr>
-                                            <br><br>
-                                            <div class="row">
-                                                <div class="col-sm-7"></div>
-                                                <div class="col-sm-4">
-                                                    <button *ngIf='!hidden' class="btn btn-primary " (click)=editBtn()>EDIT</button>
-                                                    <button *ngIf='hidden' class="btn btn-success"
-                                                        (click)=submitApi(bankDetails)>SUBMIT</button>
-            
-                                                </div>
-                                            </div>
-            
-            
-            
-                                        </tbody>
-            
-                                    </table>
-                                    <br><br>
-                                    <div class="alert alert-success" *ngIf='alert'>Bank Details Submitted Successfully</div>
-                                    <div class="alert alert-danger" *ngIf='bankError'>Please Enter Correct Details!</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
+                </ul>
+            </div>
         </div>
     </div>
 </div>
+
+<router-outlet></router-outlet>
