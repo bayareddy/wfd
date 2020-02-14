@@ -12,14 +12,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Employee;
 import com.wfdlabs.empmgmt.employeeMgmt.service.EmployeeService;
 
@@ -92,11 +95,20 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/getPdf", method = RequestMethod.GET, produces = "application/pdf")
-	public ResponseEntity<byte[]> getPdf() {
+	public ResponseEntity<byte[]> getPdf(@RequestParam String month, @RequestParam Integer year,
+			@RequestParam Integer employeId)  {
+		Document document = new Document();
+		Employee employee = null;
+		PdfWriter writer = null;
 		FileInputStream fileStream;
-		File file = new File("D:\\Syam.pdf");
+		//File file = new File("Syam.pdf");
 
 		try {
+			File file = ResourceUtils.getFile("classpath:Syam.pdf");
+			employee = employeeService.getEmployee(employeId);
+			
+			// creating pdfFile
+			//writer = PdfWriter.getInstance(document, new FileOutputStream("E:\\" + employee.getFirstName() + ".pdf"));
 			fileStream = new FileInputStream(file);
 			byte contents[] = new byte[(int) file.length()];
 			fileStream.read(contents);
@@ -112,7 +124,9 @@ public class EmployeeController {
 		} catch (IOException e) {
 			System.err.println(e);
 		}
-		return null;
+		ResponseEntity<byte[]> response1 = new ResponseEntity<byte[]>( HttpStatus.NO_CONTENT);
+		return response1;
 	}
+
 
 }

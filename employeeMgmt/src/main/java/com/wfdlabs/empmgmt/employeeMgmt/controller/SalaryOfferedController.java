@@ -178,7 +178,8 @@ public class SalaryOfferedController {
 		PdfPCell cell1_1 = new PdfPCell();
 		// cell1_1.addElement(new Paragraph(" " + "Employee Id:", subFont));
 		cell1_1.addElement(new Paragraph("Emp Id:" + " " + employee.getEmployeeId(), subFont));
-		cell1_1.addElement(new Paragraph("Emp Name:" + " " + employee.getFirstName() + " " + employee.getLastName(), subFont));
+		cell1_1.addElement(
+				new Paragraph("Emp Name:" + " " + employee.getFirstName() + " " + employee.getLastName(), subFont));
 		cell1_1.addElement(new Paragraph("Date of Joing:" + " " + employee.getJoinDate(), subFont));
 		cell1_1.addElement(new Paragraph("PF NO:" + " " + employee.getPfNo(), subFont));
 		cell1_1.addElement(new Paragraph("ESI NO:" + " " + employee.getEsiNo(), subFont));
