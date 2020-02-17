@@ -18,104 +18,85 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.wfdlabs.empmgmt.employeeMgmt.entity.Employee;
 import com.wfdlabs.empmgmt.employeeMgmt.service.EmployeeService;
+
 
 @RequestMapping("/employee")
 @RestController
 public class EmployeeController {
-
 	@Autowired
 	EmployeeService employeeService;
-
 	/**
 	 * This class is used to post the employee details
 	 * 
 	 * @param employee
 	 * @return
 	 */
-	@CrossOrigin(origins = "*")
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.POST)
 	public Employee createEmployee(@RequestBody Employee pEmployee) {
 		return employeeService.createEmployee(pEmployee);
-
+		
 	}
-
 	/**
-	 * This class is used to post the employee details
-	 * 
+	 * This class  is used to post the employee details
 	 * @param employeeId
 	 * @return
 	 */
-	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
-	public ResponseEntity<Employee> getEmployee(@PathVariable Integer employeeId) {
+	@CrossOrigin(origins="*")
+	@RequestMapping(value = "/{employeeId}",method = RequestMethod.GET)
+	public ResponseEntity<Employee> getEmployee(@PathVariable Integer employeeId){
 		Employee employee = null;
 		Boolean noSuchElement = false;
 		try {
 			employee = employeeService.getEmployee(employeeId);
-		} catch (NoResultException nsee) {
+		}catch (NoResultException nsee) {
 			noSuchElement = true;
 		}
-		if (noSuchElement || employee == null) {
+		if(noSuchElement || employee==null) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<>(employee, HttpStatus.OK);
 	}
-
 	/**
-	 * This class is used to post the employee details
-	 * 
+	 * This class  is used to post the employee details
 	 * @param pEmployee
 	 * @return
 	 */
-	@CrossOrigin(origins = "*")
+	@CrossOrigin(origins="*")
 	@RequestMapping(method = RequestMethod.PUT)
 	public Employee updateEmployee(@RequestBody Employee pEmployee) {
 		return employeeService.updateEmployee(pEmployee);
-
+		
 	}
-
 	/**
-	 * This class is used to post the employee details
-	 * 
+	 * This class  is used to post the employee details
 	 * @param employeeId
 	 * @return
 	 */
-	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "/{employeeId}", method = RequestMethod.DELETE)
+	@CrossOrigin(origins="*")
+	@RequestMapping(value = "/{employeeId}",method = RequestMethod.DELETE)
 	public String deleteUser(@PathVariable Integer employeeId) {
 		return employeeService.deleteEmployee(employeeId);
-
+		
+	
 	}
-
 	@RequestMapping(value = "/getPdf", method = RequestMethod.GET, produces = "application/pdf")
-	public ResponseEntity<byte[]> getPdf(@RequestParam String month, @RequestParam Integer year,
-			@RequestParam Integer employeId)  {
-		Document document = new Document();
-		Employee employee = null;
-		PdfWriter writer = null;
+	public ResponseEntity<byte[]> getPdf() {
 		FileInputStream fileStream;
-		//File file = new File("Syam.pdf");
+	//	File file = new File("D:\\Syam.pdf");
 
 		try {
-			File file = ResourceUtils.getFile("classpath:Syam.pdf");
-			employee = employeeService.getEmployee(employeId);
-			
-			// creating pdfFile
-			//writer = PdfWriter.getInstance(document, new FileOutputStream("E:\\" + employee.getFirstName() + ".pdf"));
+			File file=ResourceUtils.getFile("classpath:Anand.pdf");
 			fileStream = new FileInputStream(file);
 			byte contents[] = new byte[(int) file.length()];
 			fileStream.read(contents);
 
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.parseMediaType("application/pdf"));
-			String filename = "Syam.pdf";
+			String filename = "Anand.pdf";
 			headers.setContentDispositionFormData(filename, filename);
 			ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
 			return response;
@@ -124,9 +105,9 @@ public class EmployeeController {
 		} catch (IOException e) {
 			System.err.println(e);
 		}
-		ResponseEntity<byte[]> response1 = new ResponseEntity<byte[]>( HttpStatus.NO_CONTENT);
-		return response1;
+		return null;
 	}
-
-
 }
+		
+
+
