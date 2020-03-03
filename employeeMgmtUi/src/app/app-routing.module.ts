@@ -17,40 +17,38 @@ import { EmployeementHistoryComponent } from './home/sidenav/employeement-histor
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 import { from } from 'rxjs';
 import { MyProfileComponent } from './home/sidenav/my-profile/my-profile.component';
+import { HomeAuthGaurd } from './home/authGaurd';
 
 
 
 const appRoutes: Routes = [
-  {
-    path: '',
-
-    children: [
-      {
-        path: 'home', component: HomeComponent,
-        children: [
-          { path: 'sideNavRole', component: RoleComponent },
-          { path: 'emphis', component: EmployeementHistoryComponent },
-          { path: 'sideNavLeaveStatus', component: LeaveStatusComponent },
-          { path: 'sideNavAcademics', component: AcademicsComponent },
-          { path: 'sideNavClient', component: ClientComponent },
-          { path: 'leaveType', component: LeaveTypeComponent },
-          { path: 'my_Profile', loadChildren: () => import('./home/sidenav/my-profile/profile.module').then(m => m.ProfileModule) },
-          { path: '', component: MainContentComponent },
-        ]
-      },
-
-
-      { path: "", component: LoginComponent }
-
-    ],
-    component: DashboardComponent
-  },
-
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'resetpassword', component: ResetPasswordComponent },
   { path: 'forgetpassword', component: ForgetPasswordComponent },
-  { path: '**', redirectTo: '/login' },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' }
+  {
+    path: 'home', component: HomeComponent,canActivate:[HomeAuthGaurd],
+    children: [
+      { path: 'sideNavRole', component: RoleComponent },
+      { path: 'emphis', component: EmployeementHistoryComponent },
+      { path: 'sideNavLeaveStatus', component: LeaveStatusComponent },
+      { path: 'sideNavAcademics', component: AcademicsComponent },
+      { path: 'sideNavClient', component: ClientComponent },
+      { path: 'leaveType', component: LeaveTypeComponent },
+      {
+        path: 'my_Profile',
+        loadChildren: () => import('./home/sidenav/my-profile/profile.module').
+          then(m => m.ProfileModule)
+      },
+      { path: '', component: MainContentComponent },
+     
+
+    ],
+
+  },
+
+  {path:'**',component:LoginComponent}
+
 ];
 
 @NgModule({

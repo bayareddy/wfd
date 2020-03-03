@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
       Validators.required]),
   });
   errMsg = '';
+  errMsg2 = '';
+  forget:boolean;
   get employeeId() {
     return this.loginForm.get('employeeId');
   }
@@ -47,8 +49,16 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         console.log(err);
+      
+
         if (err.status === 400 || err.status === 401) {
-          this.errMsg = 'Please enter valid EmployeeId and Password !';
+         
+            this.errMsg = 'Please enter valid EmployeeId and Password !';
+            this.forget=true;
+         
+           setTimeout(() => {
+            this.errMsg = '';
+           }, 1000);
         } else {
           this.errMsg = 'Something Went Wrong Please try again';
         }

@@ -1,6 +1,7 @@
-<div class="login-main">
-  <div class="wfd-txt"> 
-    
+<div class="container">
+  <div class="login-main">
+  <div class="wfd-txt">
+
   </div>
 
   <div class="login">
@@ -37,9 +38,13 @@
 
       <div class="container-login" style="background-color:#f1f1f1">
         <span class="psw">
-          <a routerLink="/forgetpassword" class="btn btn-link">Forgot password?</a>
+          <a routerLink="/forgetpassword" class="btn btn-link">
+            <div *ngIf='!forget' style="color: blue;"> Forgot password?</div>
+            <div *ngIf='forget' style="color: red; background-color:wheat;"> Forgot password?</div>
+          </a>
         </span>
       </div>
     </form>
   </div>
+</div>
 </div>

@@ -30,6 +30,7 @@ import { EmployeementHistoryComponent } from './home/sidenav/employeement-histor
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 import { ClientComponent } from './home/sidenav/client/client.component';
 import { MyProfileComponent } from './home/sidenav/my-profile/my-profile.component';
+import {  HomeAuthGaurd } from './home/authGaurd';
 
 @NgModule({
   declarations: [
@@ -71,9 +72,9 @@ import { MyProfileComponent } from './home/sidenav/my-profile/my-profile.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
-  providers: [CommonService,LoginService,ApiService],
+  providers: [CommonService,LoginService,ApiService,HomeAuthGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
