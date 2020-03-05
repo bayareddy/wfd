@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/login/login.service';
 })
 export class BankDetailsComponent implements OnInit {
 
-  
+
   constructor(private profile: MyprofileService,
 
     private loginService: LoginService
@@ -17,7 +17,6 @@ export class BankDetailsComponent implements OnInit {
   baseUrl = this.profile.baseUrl
   currentUsers = {}
   currentUser = {}
-
   bankDetails = {}
   eid = '';
   hidden = false;
@@ -28,44 +27,25 @@ export class BankDetailsComponent implements OnInit {
   ngOnInit() {
 
     this.currentUsers = this.loginService.currentUser;
-    console.log('user data is ', this.currentUsers);
-    console.log('current user Employee ID' + this.currentUsers['employeeId']);
-
     this.eid = this.currentUsers['employeeId'];
-
-    //this.bankDetails=this.currentUsers['bankDetails']
-
-
-    console.log('bank Details are', this.bankDetails['id'])
-    console.log(this.eid);
-    console.log(this.currentUsers['employeeId'])
     this.getBankById()
   }
 
-
-
-
-
-
   editBtn() {
     this.hidden = true;
-
-
   }
 
   getBankById() {
-    console.log('id is' + this.currentUsers['employeeId'])
+
     this.profile.getBankByIdService(this.currentUsers['employeeId'])
       .subscribe((res) => {
-
-        console.log('get bank by id pardha', res)
         this.bankDetails = res;
       }), error => { console.log('error bank id', error) }
   }
 
 
   submitApi(bankDetails) {
-    let url = `${this.baseUrl}/bankdetails`;
+    let url = `${this.baseUrl}/bankDetails`;
     console.log('bank details are pardha', bankDetails)
     this.profile.editBank(url, bankDetails)
 

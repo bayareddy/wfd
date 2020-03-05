@@ -19,7 +19,7 @@ return this.http.put(url,data);
 }
 
 getBankByIdService(id){
-  let url=`${this.baseUrl}/bankdetails/${id}`
+  let url=`${this.baseUrl}/bankDetails/${id}`
  return this.http.get(url)
 }
 }

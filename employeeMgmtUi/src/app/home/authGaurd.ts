@@ -10,7 +10,7 @@ export class HomeAuthGaurd implements CanActivate,CanDeactivate<HomeComponent> {
             return true;
         } else {
            
-           this.router.navigate['login']
+           this.router.navigate['./login']
             return false;
 
         }
